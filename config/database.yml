@@ -17,7 +17,7 @@ default: &default
   password:
   socket: /tmp/mysql.sock
 
-development:
+development: 
   <<: *default
   database: freemarket_sample_60b_development
 
