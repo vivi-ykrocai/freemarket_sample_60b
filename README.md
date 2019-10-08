@@ -14,7 +14,6 @@
 |birth_y|string|null: false|
 |birth_m|string|null: false|
 |birth_d|string|null: false|
-|adress_id|references|null: false, foreign_key: true|
 |phone_number|string|null: false|
 |iine|string|null: false|
 |mer_point|string||
@@ -28,7 +27,7 @@
 
 ### Association
 - has_many :items
-- belong_to :registration_styles
+- has_one :registration_styles
 - belong_to :addres
 - has_many :credit_cards
 
@@ -42,7 +41,7 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :users
+- belong_to :user
 
 
 ## addres_table
@@ -55,7 +54,7 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :users
+- belong_to :user
 
 
 ## credit_cards_table
@@ -67,7 +66,7 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :users
+- belong_to :user
 
 
 ## items_table
