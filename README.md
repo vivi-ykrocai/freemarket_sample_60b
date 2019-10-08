@@ -27,8 +27,8 @@
 
 ### Association
 - has_many :items
-- has_one :registration_styles
-- belong_to :addres
+- belong_to :registration_styles
+- has_one :addres
 - has_many :credit_cards
 
 
