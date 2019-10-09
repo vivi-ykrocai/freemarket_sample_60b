@@ -3,5 +3,5 @@
     %section.l-chapter-container
       %section.settings-add-card
         .l-single-content
-          %a.add_btn{:href => "https://www.mercari.com/jp/mypage/card/"}
-            ログアウト
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'add_btn'
+
