@@ -74,14 +74,15 @@ header{
             white-space: nowrap;
             display: block;
             line-height: 36px;
-            padding: 0 10px;
+            padding-right: 10px;
             text-decoration: none;
             cursor: pointer;
-            .genre-icon{
-              color: red;
-              height: 12px;
-              margin-right: 4px;
-            }
+            
+          }
+          .genre-icon{
+            color: red;
+            height: 12px;
+            margin-right: 4px;
           }
         }
         &__right{
