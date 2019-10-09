@@ -1,0 +1,108 @@
+%footer
+  %nav.footer-nav
+
+    .footer-nav__title
+      %h2.footer-nav__title__text
+        メルカリについて
+        %ul.nav-lists
+          %li.nav-lists__list
+            = link_to "https://about.mercari.com/", class: "nav-lists__list__link" do
+              会社概要（運営会社）
+          %li.nav-lists__list
+            = link_to "/jp/jobs/", class: "nav-lists__list__link" do
+              採用情報
+          %li.nav-lists__list
+            = link_to "https://about.mercari.com/press/news/", class: "nav-lists__list__link" do
+              プレスリリース
+          %li.nav-lists__list
+            = link_to "https://jp-news.mercari.com/", class: "nav-lists__list__link" do
+              公式ブログ
+          %li.nav-lists__list
+            = link_to "/jp/logo-guidelines/", class: "nav-lists__list__link" do
+              メルカリロゴ利用ガイドライン
+          = link_to "https://twitter.com/mercari_jp", class: "nav-lists__icon" do
+            %svg.nav-lists__icon--twitter{"aria-hidden": "true", height: "16", viewbox: "0 0 21 16", width: "21"}
+              %path{:d => "M6.343 15.969c7.61 0 11.773-6.134 11.773-11.444 0-.172 0-.345-.008-.517a8.303 8.303 0 0 0 2.066-2.086 8.576 8.576 0 0 1-2.38.635A4.07 4.07 0 0 0 19.616.329a8.377 8.377 0 0 1-2.63.973 4.186 4.186 0 0 0-3.019-1.27c-2.283 0-4.14 1.803-4.14 4.023 0 .314.041.62.106.918A11.866 11.866 0 0 1 1.404.769a3.936 3.936 0 0 0-.557 2.023c0 1.396.735 2.628 1.84 3.35a4.278 4.278 0 0 1-1.872-.503v.055c0 1.945 1.428 3.577 3.317 3.945-.347.094-.71.141-1.09.141-.266 0-.524-.023-.774-.07.524 1.6 2.057 2.76 3.865 2.792a8.452 8.452 0 0 1-5.14 1.725 8.19 8.19 0 0 1-.985-.054 12.02 12.02 0 0 0 6.335 1.796", :fill => "currentColor", "fill-rule" => "evenodd"}
+
+          = link_to "https://www.facebook.com/mercarijp", class: "nav-lists__icon" do
+            %svg.nav-lists__icon--facebook{"aria-hidden": "true", height: "16", viewbox: "0 0 16 16", width: "16"}
+              %path{:d => "M15.111 0H.89A.889.889 0 0 0 0 .889V15.11c0 .491.398.889.889.889h7.658V9.813H6.469V7.391h2.078V5.613c0-2.066 1.262-3.193 3.11-3.193.623-.002 1.244.03 1.863.096v2.15h-1.276c-1.002 0-1.197.478-1.197 1.178v1.543h2.397l-.31 2.422h-2.087V16h4.064c.491 0 .889-.398.889-.889V.89A.889.889 0 0 0 15.111 0z", :fill => "currentColor", "fill-rule" => "evenodd"}
+
+    .footer-nav__title
+      %h2.footer-nav__title__text
+        ヘルプ＆ガイド
+        %ul.nav-lists
+          %li.nav-lists__list
+            = link_to "/jp/help_center/", class: "nav-lists__list__link" do
+              メルカリガイド
+          %li.nav-lists__list
+            = link_to "/jp/rakuraku-mercari/", class: "nav-lists__list__link" do
+              らくらくメルカリ便
+          %li.nav-lists__list
+            = link_to "/jp/yuyu-mercari/", class: "nav-lists__list__link" do
+              ゆうゆうメルカリ便
+          %li.nav-lists__list
+            = link_to "/jp/rakuraku-ogata/", class: "nav-lists__list__link" do
+              大型メルカリ便
+          %li.nav-lists__list
+            = link_to "/jp/guide/car/", class: "nav-lists__list__link" do
+              車体取引ガイド
+          %li.nav-lists__list
+            = link_to "/jp/safe/description/", class: "nav-lists__list__link" do
+              メルカリあんしん・あんぜん宣言！
+          %li.nav-lists__list
+            = link_to "/jp/authenticity/", class: "nav-lists__list__link" do
+              偽ブランド品撲滅への取り組み
+          %li.nav-lists__list
+            = link_to "/jp/box/", class: "nav-lists__list__link" do
+              メルカリボックス
+
+    .footer-nav__title
+      %h2.footer-nav__title__text
+        プライバシーと利用規約
+      .privacy-nav
+        .privacy-nav__left
+          %ul.nav-lists
+            %li.nav-lists__list
+              = link_to "/jp/privacy/", class: "nav-lists__list__link" do
+                プライバシーポリシー
+            %li.nav-lists__list
+              = link_to "/jp/tos/", class: "nav-lists__list__link" do
+                メルカリ利用規約
+            %li.nav-lists__list
+              = link_to "/jp/tos_smartphone_support/", class:"nav-lists__list__link" do
+                あんしんスマホサポート制度に関する利用特約
+            %li.nav-lists__list
+              = link_to "/jp/compliance/", class:"nav-lists__list__link" do
+                コンプライアンスポリシー
+        .privacy-nav__right
+          %ul.nav-lists
+            %li.nav-lists__list
+              = link_to "/jp/data_security/", class: "av-lists__list__link" do
+                個人データの安全管理に係る基本方針
+            %li.nav-lists__list
+              =link_to "/jp/tokutei/", class:"nav-lists__list__link" do
+                特定商取引に関する表記
+            %li.nav-lists__list
+              = link_to "/jp/shikin_kessai/", class:"nav-lists__list__link" do
+                資金決裁法に基づく表示
+            %li.nav-lists__list
+              = link_to "https://about.mercari.com/csr/safety/", class: "nav-lists__list__link" do
+                法令遵守と犯罪抑止のために
+
+    .footer-nav__title-country
+      %h2.footer-nav__title-country__text
+        国
+        %ul.nav-lists
+          %li.nav-lists__list
+            = link_to "", class: "nav-lists__list__link" do
+              日本
+            =link_to "", class:"nav-lists__list__link" do
+              United&nbsp;States
+              
+
+  .copyright
+    = link_to "", class:"copyright__icon" do
+      = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg", class: "copyright__icon__src", alt: "Mercari"
+    %span.copyright__text
+      © 2019 Mercari

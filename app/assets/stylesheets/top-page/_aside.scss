@@ -1,0 +1,59 @@
+aside{
+  .background-image{
+    height: 260px;
+    width: 100%;
+    background: url("https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg");
+    vertical-align:bottom;
+    .aside{
+      width: 750px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      &__left{
+        color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &--1{
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+        &--2{
+          font-size: 35px;
+          margin-bottom: 20px;
+        }
+        &--icons{
+          .mercari-icon{
+            height: 68px;
+            margin-right: 20px;
+            width: 68px;
+          }
+          .app-store{
+            text-decoration: none;
+            &--icon{
+              height: 40px;
+              margin-right: 8px;
+              width: 144px;
+              vertical-align: baseline;
+            }
+          }
+          .google-play{
+            text-decoration: none;
+            &--icon{
+              height: 40px;
+              width: 144px;
+              vertical-align: baseline;
+            }
+          }
+        }
+      }
+      &__right{
+        .mobile{
+          height: 260px;
+          width: 300px;
+        }
+      }
+    }
+  }
+}
