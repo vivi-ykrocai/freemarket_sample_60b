@@ -1,4 +1,9 @@
 
 
- @import "config/reset";
- @import "user-registration/registration-header";
+  @import "config/reset";
+  @import "user-registration/registration";
+  @import "user-registration/step1";
+  @import "user-registration/step2";
+  @import "user-registration/step3";
+  @import "user-registration/step4";
+  @import "user-registration/finish";
