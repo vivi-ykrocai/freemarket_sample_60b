@@ -10,25 +10,6 @@ a{
   text-decoration: none;
 }
 
-// .container-mypage{
-//   // display: flex；
-//   // background-color: #03A9F4;
-//   // margin:  0 auto;
-// }
-
-
-// // レスポンシブ
-
-// .container-mypage__content{
-//   width: 100%;
-//   @media only screen and (min-width: 768px){
-//       float: none;
-//       width: 700px;
-//   }
-//   @media only screen and (min-width: 1068px){
-//       float: right;
-//   }
-// }
 
 // ユーザーアイコン
 .container-mypage{
@@ -42,7 +23,6 @@ a{
       height: 155px;
       padding: 20px;
       background-image: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?39195692");
-      // background-color:red;
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
@@ -126,7 +106,7 @@ a{
   }
 }
 
-// お知らせ　やることリストの一覧
+// お知らせやることリストの一覧
 .mypage-item{
   &__link{
     display: block;
