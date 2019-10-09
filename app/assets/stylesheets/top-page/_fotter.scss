@@ -1,0 +1,174 @@
+footer{
+  width: 100%;
+  background-color: rgb(34, 34, 34);
+  padding: 0 20px 10px;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  .footer-nav{
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    &__title{   //メルカリについての列
+      padding-right: 40px;
+      margin-top: 18px;
+      &__text{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4rem;
+        .nav-lists{
+          list-style: none;
+          &__list{
+            font-weight: initial;
+            margin-top: 16px;
+            line-height: 1.0rem;
+            &__link{
+              color: rgb(255, 255, 255);
+              opacity: 0.7;
+              font-size: 12px;
+              text-decoration: none;
+            }
+          }
+          &__icon{
+            display: inline-block;
+            margin-top: 30px;
+            &--twitter{
+              color: rgb(255, 255, 255);
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              width: 30px;
+              margin-right: 20px;
+            }
+            &--facebook{
+              color: rgb(255, 255, 255);
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              width: 30px;
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+    &__title{   //ヘルプ＆ガイドの列（メルカリについてと同記述、消す？）
+      padding-right: 40px;
+      margin-top: 18px;
+      &__text{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4rem;
+        .nav-lists{
+          list-style: none;
+          &__list{
+            font-weight: initial;
+            margin-top: 16px;
+            line-height: 1.0rem;
+            &__link{
+              color: rgb(255, 255, 255);
+              opacity: 0.7;
+              font-size: 12px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    &__title{   //プライバシーと利用規約の列
+      padding-right: 40px;
+      margin-top: 18px;
+      &__text{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4rem;
+      }
+      .privacy-nav{
+        display: flex;
+        &__left{
+          width: 50%;
+          vertical-align: top;
+          padding-right: 10px;
+          .nav-lists{
+            list-style: none;
+            &__list{
+              font-weight: initial;
+              margin-top: 16px;
+              line-height: 1.0rem;
+              &__link{
+                color: rgb(255, 255, 255);
+                opacity: 0.7;
+                font-size: 12px;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        &__right{
+          display: inline-block;
+          padding-left: 10px;
+          vertical-align: top;
+          width: 50%;
+          .nav-lists{
+            list-style: none;
+            &__list{
+              font-weight: initial;
+              margin-top: 16px;
+              line-height: 1.0rem;
+              &__link{
+                color: rgb(255, 255, 255);
+                opacity: 0.7;
+                font-size: 12px;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__title-country{   //国
+      padding-right: 40px;
+      margin-top: 18px;
+      &__text{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4rem;
+        .nav-lists{
+          list-style: none;
+          &__list{
+            font-weight: initial;
+            margin-top: 16px;
+            line-height: 1.0rem;
+            &__link{
+              display: block;
+              color: rgb(255, 255, 255);
+              opacity: 0.7;
+              font-size: 12px;
+              text-decoration: none;
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .copyright{
+    width: 1020px;
+    margin: 30px auto 20px;
+    display: flex;
+    &__icon{
+      height: 33px;
+      text-align: center;
+      &__src{
+        height: 33px;
+        width: 124px;
+        vertical-align: middle;
+      }
+    }
+    &__text{
+      text-align: center;
+      width: 75%;
+      padding-left: 15px;
+      vertical-align: middle;
+    }
+  }
+}

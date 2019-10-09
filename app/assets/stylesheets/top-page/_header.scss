@@ -1,0 +1,139 @@
+header{
+  height: 100px;
+  width: 100%;
+  padding-top: 8px;
+  box-shadow: rgba(0, 0, 0, 0.18) 1px 2px 4px;
+  .wrapper{
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+    .upper-contents{
+      height: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__left{
+        height: 40px;
+        margin-right: 45px;
+        display: flex;
+        align-items: center;
+        &__icon{
+          &__src{
+            height: 36px;
+            width: 134px;
+            vertical-align: middle;
+          }
+        }
+      }
+      .form{
+        position: relative;
+        width: 100%;
+        border-width: 0px;
+        &__search{
+          height: 40px;
+          width: 100%;
+          background-color: rgb(245, 245, 245);
+          padding: 0 50px 0 10px;
+          border-radius: 4px;
+          border-width: 1px;
+        }
+        &__button{
+          height: 40px;
+          width: 40px;
+          border-style: none;
+          background-color: transparent;
+          cursor: pointer;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          .search-icon{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .lower-wrapper{
+      height: 44px;
+      width: 100%;
+      margin-top: 8px;
+      .lower-contents{
+        height: 44px;
+        display: flex;
+        justify-content: space-between;
+        &__left{
+          height: 44px;
+          display: flex;
+          .genre{
+            padding-left: 0px;
+          }
+          &__search{
+            height: 44px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+            white-space: nowrap;
+            display: block;
+            line-height: 36px;
+            padding: 0 10px;
+            text-decoration: none;
+            cursor: pointer;
+            .genre-icon{
+              color: red;
+              height: 12px;
+              margin-right: 4px;
+            }
+          }
+        }
+        &__right{
+          display: flex;
+          vertical-align: baseline;
+          height: 44px;
+          &__sign-up{
+            display: block;
+            height: 44px;
+            width: 106px;
+            text-align: center;
+            &__button{
+              height: 32px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: red;
+              color: white;
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: red;
+              border-radius: 4px;
+              padding: 8px 10px;
+              text-decoration: none;
+              text-align: center;
+              margin: 0px;
+            }
+          }
+          &__log-in{
+            display: block;
+            height: 44px;
+            width: 76.75px;
+            text-align: center;
+            margin-left: 11px;
+            &__button{
+              height: 32px;
+              background-color: rgb(255, 255, 255);
+              color: rgb(0, 149, 238);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: rgb(0, 149, 238);
+              border-radius: 4px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
