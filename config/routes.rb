@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'tests#index'
   resources :users, only: [:index, :edit, :update]
   resources :cards, only: [:index, :edit, :update]
-
+  resources :logouts, only: [:index]
 end
