@@ -10,12 +10,10 @@ a{
   text-decoration: none;
 }
 
-
-// ユーザーアイコン
 .container-mypage{
   display: flex;
   width: 1020px;
-  margin: 40px auto 0;
+  margin: 80px auto 0;
   .container-mypage__content{
     width: calc(100% - 280px);
     .container-mypage__usericon{
@@ -45,7 +43,7 @@ a{
       }
     }
   }
-  // ユーザー情報
+
   .user{
     font-weight: 600;
     line-height: 1.4;
@@ -66,7 +64,7 @@ a{
     }
   }
 }
-// お知らせやることリストのタブ
+
 .container-mypage__news{
   margin: 0;
   background: #fff;
@@ -106,7 +104,7 @@ a{
   }
 }
 
-// お知らせやることリストの一覧
+
 .mypage-item{
   &__link{
     display: block;
@@ -180,7 +178,7 @@ a{
   }
 }
 
-// 購入した商品リスト
+
 .container-mypage-buy{
   margin: 40px 0 0;
   background: #fff;
@@ -241,7 +239,7 @@ a{
   }
 }
 
-// アイコン
+
 .fa-clock{
   margin: 0 8px 0 0;
 }
@@ -258,16 +256,3 @@ a{
   background: #fff;
 }
 
-@media only screen and (min-width: 800px){
-  .side{
-    width: 700px;
-  }
-}
-
-@media only screen and (min-width: 1300px){
-  .side{
-  float: left;
-  width: 280px;
-  margin: 0 40px 0 0;
-  }
-}
