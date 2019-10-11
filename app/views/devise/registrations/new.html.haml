@@ -1,9 +1,9 @@
-%body
+.user_registration
   .signup-container
     %header.signup-header
       %h1
-        %a
-          %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", class:"logo" }
+      = link_to ""
+      = image_tag "mercari-logo.svg", size:"200x50"
     .signup-main
       .signup-main__container
         %h2.signup-main__container__head 新規会員登録
@@ -18,6 +18,7 @@
             %button.btn-default.link-google
               = image_tag "google.logo.jpg"
               Googleで登録する
+        
     %fotter.signup-footer
       %nav
         %ul.clearfix
@@ -27,7 +28,7 @@
             %a{href:" "} メルカリ利用規約
           %li
             %a{href:" "} 特定商取引に関する表記
-      %a.signup-footer_logo{href:"https://www.mercari.com/jp/" }
+          = link_to ""
         %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", alt:"mercari", width:"80" ,height:"65"}
       %p
         %small © 2019 Mercari

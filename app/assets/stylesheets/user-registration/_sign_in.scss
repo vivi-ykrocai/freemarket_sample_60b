@@ -1,21 +1,15 @@
-* {
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-}
-
-body{
+.user_registration{
   position: relative;
   background: #f5f5f5;
   font-size: 14px;
   color: #333;
   line-height:1;
   width:100%;
-  height:612px;
   .signup-container{
   padding: 0 0 250px;
+  height:100%;
     .signup-header{
-      height:56px;
+      height:30%;
       text-align:center;
       h1{
       display:inline-block;
@@ -116,19 +110,20 @@ body{
           }
         }
       }
-    .signup-footer{
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      height: 250px;
-      text-align: center;
-      width:100%;
-      img{
+    
+  .signup-footer{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 250px;
+    text-align: center;
+    width:100%;
+    img{
       height: 65px;
       width: 80px;
-      margin: 40px auto 0;
+      margin: 50px auto 0;
       } 
       nav{
         width:100%;
