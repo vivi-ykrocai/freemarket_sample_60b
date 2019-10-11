@@ -1,4 +1,12 @@
 class ItemsController < ApplicationController
-  def show
+  
+  def index
   end
+
+  def purchase
+  end
+
+  def shousai
+  end
+  
 end
