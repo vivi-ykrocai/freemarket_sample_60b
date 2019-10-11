@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :items
   # マージするときに、root 'items#index'に戻す。
   # root 'users#edits'
   resources :items do
