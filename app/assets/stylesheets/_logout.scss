@@ -1,0 +1,45 @@
+.l-container1{
+  display: flex;
+  width: 1020px;
+  margin: 80px auto 0;
+  .l-content{
+    height: 120px;
+    width: calc(100% - 280px);
+    float: right;
+    margin-top: 40px;
+    background-color: #fff;
+    display: table-cell;
+    vertical-align: middle;
+    .l-chapter-container{
+      font-size: 24px;
+      padding: 8px 24px;
+      .l-chapter-head{
+        padding: 12px 4%;
+        text-align: center;
+        font-size: 24px;
+        padding: 8px 24px;
+        font-weight: bolder; 
+      }
+    }
+    .settings-add-card{
+      padding: 24px 0;
+      .l-single-content{
+        max-width: 320px;
+        margin: 0 auto;
+        .add_btn{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          }
+        }
+      }
+    }
+  }
