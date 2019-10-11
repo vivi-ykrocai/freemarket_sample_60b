@@ -1,0 +1,311 @@
+.item-detail-wrapper
+  
+  -# .header(render)
+
+  .item-box-container
+    %h1.item-name
+      COACH コーチ ショルダーバッグ✩9日(水)昼12時までの値段
+      
+    .item-main-content
+      .item__photos
+        = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__main-photo"
+        .item__little-photos
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th
+              出品者
+            %td
+              = link_to 'ここなつ', 'https://www.mercari.com/jp/mypage/', class: "td__user-name"
+              .item-user__information
+                .item-user__ratings
+                  = fa_icon 'laugh',class:"icon-good"
+                  %span 64
+                .item-user__ratings
+                  = fa_icon 'meh',class:"icon-normal"
+                  %span 1
+                .item-user__ratings
+                  = fa_icon 'frown-open',class:"icon-bad"
+                  %span 1
+          %tr
+            %th カテゴリー
+            %td
+              %ul
+                %li
+                  = link_to 'レディース', 'https://www.mercari.com/jp/category/1/', class:"list__category"
+                %li
+                  = link_to 'https://www.mercari.com/jp/category/20/', class:"list__category" do
+                    = fa_icon 'chevron-right'
+                    バッグ 
+                %li
+                  = link_to 'https://www.mercari.com/jp/category/214/', class:"list__category" do
+                    = fa_icon 'chevron-right'
+                    ショルダーバッグ
+          %tr
+            %th ブランド
+            %td
+              = link_to 'コーチ', 'https://www.mercari.com/jp/brand/539/', class:"td__brand"
+              
+          %tr
+            %th 商品の状態
+            %td やや傷や汚れあり
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td らくらくメルカリ便
+          %tr
+            %th 配送元地域
+            %td
+              = link_to '埼玉県', 'https://www.mercari.com/jp/area/11/', class:"td__area"
+          %tr
+            %th 発送日の目安
+            %td 1~2日で発送
+
+
+    .item__price-box
+      .item__price
+        ¥6,000
+      .item__tax
+        (税込)
+      .item__fee
+        送料込み
+
+
+    .item__buy-btn
+      = link_to '購入画面に進む', '#', class:"item__buy-btn"
+
+
+    .item-introduction
+      %p 
+        長々とした、いいね！はしないで下さい。
+        ショルダーバック
+        ブラウン
+        長さ調整可能
+        画像2、多少傷あり(気にならない方のみ)
+        画像5、片方のみ傷みあり
+        中古ですので、ご理解の方よろしくお願いします(_ _*)
+        ご理解のある方のみ
+        売り切りたいのでよろしくお願いします。
+        到着したら、受け取り通知忘れずにして下さい。
+
+
+    .item-button
+      .item-button-left
+        = link_to '#', class:"iine-btn" do
+          = fa_icon 'heart-o', class:"icon-heart"
+          いいね
+        = link_to '#', class:"unsuitable-btn" do
+          = fa_icon 'flag-o', class:"icon-flag"
+          不適切な商品の報告
+      .item-button-right
+        = link_to '#', class:"safe-btn" do
+          = fa_icon 'lock', class:"icon-flag"
+          あんしん・あんぜんへの取り組み
+
+  .item__chat-message
+    .message-container
+      .message-content
+        %ul.message-items
+          %li
+            .list-left
+              .user-avater
+                = image_tag 'https://pbs.twimg.com/media/DCfvMY9U0AANOPV.png', class:"user-avater"
+            .list-right
+              .user-name
+                ここなつ
+              .user-message-body
+                .user-message-body__text
+                  縦18センチ
+                  横25センチ
+                  ショルダーの長さ、五段階の調整可能です。
+                  よろしくお願いします。
+                .user-message-body__icons
+                  .user-message-body__icons-left
+                    = fa_icon "clock", class:"icon-clock"
+                    %span ３日前
+                  .user-message-body__icons-right
+                    = fa_icon "flag-o", class:"icon-flag"
+                  .icon-balloon
+          %li
+            .list-left
+              .user-avater
+                = image_tag 'https://pbs.twimg.com/media/DDppx0lV0AA9mwJ.png', class:"user-avater"
+            .list-right
+              .user-name
+                まるこ
+              .user-message-body
+                .user-message-body__text
+                  欲しいです。
+                  5,000円で即決できませんか？
+                .user-message-body__icons
+                  .user-message-body__icons-left
+                    = fa_icon "clock", class:"icon-clock"
+                    %span ３日前
+                  .user-message-body__icons-right
+                    = fa_icon "flag-o", class:"icon-flag"
+
+      .message-content
+        %form.message-form
+          %p
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea
+          %button
+            = link_to 'コメントする', '#', class:"comment-btn"
+
+  .nav-link
+    .nav-link-prev
+      = link_to "#", class:"nav-link-prev" do
+        = fa_icon "chevron-left"
+        チャイハネルクロシャツ
+
+    .nav-link-next
+      = link_to '#', class:"nav-link-next" do
+        モンクレールブランソンダウン
+        = fa_icon "chevron-right"
+
+  .item__social-media-box
+    %ul.social-media-box
+      %li
+        = fa_icon 'facebook-square', class:"facebook"
+      %li
+        = fa_icon 'twitter', class:"twitter"
+      %li
+        = fa_icon 'line', class:"line"
+      %li
+        = fa_icon 'pinterest', class:"pinterest"
+
+  .item__in-user-boxes
+    .item__user-name
+      = link_to 'ここなつさんのその他の出品', '#', class:"item__user-name__title"
+    .item__user-other-items
+      .item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m34261125424_1.jpg?1569881404', class:"item-box__photo"
+        .item-box__body
+          .item-box__name
+            COACH✩2wayバック✩値下げ4日金曜までの値段
+          .item__numbers
+            .item__price
+              ¥7,500
+            .item__iine
+              = fa_icon 'heart-o'
+              6
+      .item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m60502397332_1.jpg?1566786201', class:"item-box__photo"
+        .item-box__body
+          .item-box__name
+            マーティンネックレス10/8火曜昼12時まで限定
+          .item__numbers
+            .item__price
+              ¥3,780
+            .item__iine
+              = fa_icon 'heart-o'
+              5
+      .item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m34261125424_1.jpg?1569881404', class:"item-box__photo"
+        .item-box__body
+          .item-box__name
+            COACH✩2wayバック✩値下げ4日金曜までの値段
+          .item__numbers
+            .item__price
+              ¥7,500
+            .item__iine
+              = fa_icon 'heart-o'
+              6
+
+  .item__in-another-boxes
+    .tameshi
+      .item__another-name
+        = link_to 'コーチのショルダーバッグその他の出品', '#', class:"item__another-name__title"
+      .item__another-items
+        .another-item-box
+          =image_tag 'https://static.mercdn.net/thumb/photos/m61354018553_1.jpg?1570595655', class:"another-item-box__photo"
+          .item-box__body
+            .item-box__name
+              COACHショルダーバッグ
+            .item__numbers
+              .item__price
+                ¥7,900
+              .item__iine
+                = fa_icon 'heart-o'
+                6
+        .another-item-box
+          =image_tag 'https://static.mercdn.net/thumb/photos/m56026905237_1.jpg?1568313448', class:"another-item-box__photo"
+          .item-box__body
+            .item-box__name
+              コーチ / COACH / シグネチャー/ショルダーバッグ
+            .item__numbers
+              .item__price
+                ¥3,780
+              .item__iine
+                = fa_icon 'heart-o'
+                10
+        .another-item-box
+          =image_tag "https://static.mercdn.net/thumb/photos/m54851888084_1.jpg?1570678345", class:"another-item-box__photo"
+          .item-box__body
+            .item-box__name
+              鑑定済 COACH コーチ ショルダーバッグ
+            .item__numbers
+              .item__price
+                ¥6,500
+              .item__iine
+                = fa_icon 'heart-o'
+                8
+        .another-item-box
+          =image_tag 'https://static.mercdn.net/thumb/photos/m92349942579_1.jpg?1570692919', class:"another-item-box__photo"
+          .item-box__body
+            .item-box__name
+              COACH‼️シグネチアキャンバス(^^)
+            .item__numbers
+              .item__price
+                ¥8,500
+              .item__iine
+                = fa_icon 'heart-o'
+                4
+        .another-item-box
+          =image_tag 'https://static.mercdn.net/thumb/photos/m89330509639_1.jpg?1570632116', class:"another-item-box__photo"
+          .item-box__body
+            .item-box__name
+              ショルダーバッグ COACH コーチ
+            .item__numbers
+              .item__price
+                ¥4,780
+              .item__iine
+                = fa_icon 'heart-o'
+                5
+        .another-item-box
+          =image_tag 'https://static.mercdn.net/thumb/photos/m78411505604_1.jpg?1570715951', class:"another-item-box__photo"
+          .item-box__body
+            .item-box__name
+              コーチ ショルダーバッグ
+            .item__numbers
+              .item__price
+                ¥6,500
+              .item__iine
+                = fa_icon 'heart-o'
+                1
+
+  .nav-bottom
+    .nav-bottom__name
+      メルカリ > COACH コーチ ショルダーバッグ✩9日(水)昼12時までの値段
+
+  -# .aside(render)
+
+  -# .footer(render)
+
+
+
+
+
+
+
+
