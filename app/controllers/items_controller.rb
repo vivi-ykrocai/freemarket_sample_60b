@@ -5,5 +5,8 @@ class ItemsController < ApplicationController
 
   def purchase
   end
+
+  def shousai
+  end
   
 end

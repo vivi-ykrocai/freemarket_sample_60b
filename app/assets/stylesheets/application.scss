@@ -1,5 +1,8 @@
 @import "config/reset";
 @import "font-awesome";
+@import "config/variable";
+
+
 @import "top-page/items";
 @import "top-page/header";
 @import "top-page/fotter";
@@ -10,4 +13,6 @@
 @import "logouts";
 @import "modules/users";
 @import "modules/side_bar";
+@import "modules/show-item";
+
 @import "modules/edit";
