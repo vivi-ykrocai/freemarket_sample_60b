@@ -10,5 +10,10 @@ class UsersController < ApplicationController
 
   def identification
   end
+  
+  def henshuu
+  end
 
 end
+
+

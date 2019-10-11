@@ -1,3 +1,4 @@
+= render partial: '/items/header', locals: { }
 .container-mypage
   = render partial: "side_bar"
   .container-mypage__content
@@ -90,6 +91,11 @@
         %ul.mypage-buy--content__old--list.hide
           %li.mypage-buy--content__old--text
             過去に取引した商品がありません
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }
+
+
 
 
 
