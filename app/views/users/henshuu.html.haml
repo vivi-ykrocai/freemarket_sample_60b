@@ -1,0 +1,21 @@
+= render partial: '/items/header', locals: { }
+
+.wrapper-profile
+  .container__left
+    = render partial: "side_bar"
+  .container__right
+    .container__right--title
+      %h2 プロフィール
+      .container__right__form--name
+        =image_tag "mypage/mypage-icon-kudo.png", size: '50x50', class: "avater", alt:"avater"
+        %input.container__right__form{:placeholder => "つば九郎", :type => "text", :value => "もっけ"}/
+      .container__right__form--content
+        %textarea.container__right__form--content--text{:placeholder => "例）こんにちは！！！！つば九郎だよ！！！！ たくさん購入してね！！！！"}
+        %button.container__right__form--btn{type: "submit"} 変更する
+
+
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }
+
+
