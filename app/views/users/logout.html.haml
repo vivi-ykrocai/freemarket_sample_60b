@@ -1,9 +1,8 @@
-.container-mypage
+.l-container1
   = render partial: "side_bar"
-  .l-container
-    .l-content
-      %section.l-chapter-container
-        %section.settings-add-card
-          .l-single-content
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'add_btn'
+  .l-content
+    %section.l-chapter-container
+      %section.settings-add-card
+        .l-single-content
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'add_btn'
 
