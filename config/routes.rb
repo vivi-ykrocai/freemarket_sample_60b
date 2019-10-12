@@ -32,4 +32,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :edit, :update]
   resources :logouts, only: [:index]
 
+  # S3画像アップロードテスト用のルーティング作成(いずれ削除)
+  resources :tests, only: [:index, :create]
+
 end
