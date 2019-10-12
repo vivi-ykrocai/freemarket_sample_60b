@@ -1,0 +1,20 @@
+.form.new-test {
+  width: 400px;
+  height: 300px;
+
+  .input-box__image {
+    display: block;
+    font-size: 15px;
+
+    &__file {
+      display: block;
+      margin: 20px 0;
+    }
+  }
+  .submit-btn {
+    display: block;
+    width: 50px;
+    height: 30px;
+    background-color: bisque;
+  }
+}
