@@ -1,5 +1,6 @@
 .sign_in_body
   .single-container
+    -# = render partial: 'signup/sign_up_header', locals: { signup: @signup }
     %header.single-header
       %h1
         =image_tag "mercari-logo.svg", size:"200x50"
@@ -27,15 +28,5 @@
               %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
               %input{:name => "__csrf_value", :type => "hidden", :value => "1d7492d30b9f08e76df20eeda24c1a26947dc3ce7d3a58ee021d953b2b53a7825f9806d3adb72ed384020eb3f15370541609215740d48598c5b9d74c564946bdd"}/
               = link_to "パスワードをお忘れの方"
-    %footer.single-footer
-      %nav
-        %ul.clearfix
-          %li
-            = link_to "プライバシーポリシー"
-          %li
-            = link_to "メルカリ利用規約"
-          %li
-            = link_to "特定商取引に関する表記"
-      = image_tag "mercari-logo-grey.svg",class:"single-footer-ligo",size:"80x65"
-      %p
-        %small © 2019 Mercari
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+

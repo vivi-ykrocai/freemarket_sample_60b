@@ -1,0 +1,23 @@
+.sign_up_bpdy
+  .single-container
+    = render partial: 'signup/sign_up_header', locals: { signup: @signup }
+    .single-main
+      .l-single-container
+        %h2.single-head 電話番号の確認
+        .l-single-inner.registration-form
+          .l-single-content
+            .form-group.form-first
+              %label{for:"nickname"} 携帯電話の番号
+              %input.login-input-text.input-default{name: :email, placeholder: :携帯電話の番号を入力, type: :email, value: ""}/
+              %p.l-single-text
+                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              %button.btn-red{type: "submit"} SMSを送信する
+              %p.l-single-text-bottom
+                ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+              .text-right
+                %p
+                  = link_to "電話番号の確認が必要な理由"
+                  =fa_icon 'angle-right'
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+
+

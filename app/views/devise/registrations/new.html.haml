@@ -1,8 +1,6 @@
 .sign_up_body
   .single-container
-    %header.single-header
-      %h1
-        = image_tag "mercari-logo.svg", size:"200x50"
+    = render partial: 'signup/sign_up_header', locals: { signup: @signup }
     .single-main
       .l-single-container
         %h2.single-head 新規会員登録
@@ -17,16 +15,4 @@
             %button#google-login.btn-default.btn-sns.btn-sns-google
               = image_tag "google.logo.jpg"
               Googleで登録する
-  %footer.single-footer
-    %nav
-      %ul.clearfix
-        %li
-          = link_to "プライバシーポリシー"
-        %li
-          = link_to "メルカリ利用規約"
-        %li
-          = link_to "特定商取引に関する表記"
-    = image_tag "mercari-logo-grey.svg",class:"single-footer-ligo",size:"80x65"
-    %p
-      %small © 2019 Mercari
-
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
