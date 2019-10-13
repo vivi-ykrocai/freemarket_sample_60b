@@ -1,35 +1,32 @@
-.user_registration
-  .signup-container
-    %header.signup-header
+.sign_up_body
+  .single-container
+    %header.single-header
       %h1
-      = link_to ""
-      = image_tag "mercari-logo.svg", size:"200x50"
-    .signup-main
-      .signup-main__container
-        %h2.signup-main__container__head 新規会員登録
-        .signup-main__container__inner
-          .inner-form
-            %a.btn-default.btn-mail{href:" "}
+        = image_tag "mercari-logo.svg", size:"200x50"
+    .single-main
+      .l-single-container
+        %h2.single-head 新規会員登録
+        .l-single-inner.registration-form
+          .l-single-content
+            %link_to.btn-default.btn-mail
               = image_tag "mail.svg"
               メールアドレスで登録する
-            %button.btn-default.link-facebook
+            %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
               = image_tag "facebook-logo.svg"
               Facebookで登録する
-            %button.btn-default.link-google
+            %button#google-login.btn-default.btn-sns.btn-sns-google
               = image_tag "google.logo.jpg"
               Googleで登録する
-        
-    %fotter.signup-footer
-      %nav
-        %ul.clearfix
-          %li
-            %a{href:" "} プライバシーポリシー
-          %li
-            %a{href:" "} メルカリ利用規約
-          %li
-            %a{href:" "} 特定商取引に関する表記
-          = link_to ""
-        %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", alt:"mercari", width:"80" ,height:"65"}
-      %p
-        %small © 2019 Mercari
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to "プライバシーポリシー"
+        %li
+          = link_to "メルカリ利用規約"
+        %li
+          = link_to "特定商取引に関する表記"
+    = image_tag "mercari-logo-grey.svg",class:"single-footer-ligo",size:"80x65"
+    %p
+      %small © 2019 Mercari
 

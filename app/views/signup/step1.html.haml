@@ -221,20 +221,7 @@
                 %link_to{href: "/jp/help_center/article/423/", target:  "_blank"}
                   本人情報の登録について
                   =fa_icon 'angle-right'
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
 
-                
 
-    %fotter.signup-footer
-      %nav
-        %ul.clearfix
-          %li
-            %link_to{href:" "} プライバシーポリシー
-          %li
-            %link_to{href:" "} メルカリ利用規約
-          %li
-            %link_to{href:" "} 特定商取引に関する表記
-          = link_to ""
-        %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", alt:"mercari", width:"80" ,height:"65"}
-      %p
-      %small © 2019 Mercari
 
