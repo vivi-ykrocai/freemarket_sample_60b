@@ -1,4 +1,4 @@
-.single-contener{
+.single-container{
   width: 100%;
   .single-header{
     height: 128px;
@@ -122,8 +122,14 @@
         margin-top: 8px;
       }
       .buy-user-info-fix{
+        display: flex;
+        justify-content: flex-end;
         .change{
-          text-align: right;
+          // text-align: right;
+        }
+        .change-icon{
+          // position: absolute;
+          // left: 5px;
         }
       }
     }
