@@ -27,9 +27,9 @@
 
 ### Association
 - has_many :items
-- belong_to :registration_styles
-- has_one :addres
-- has_many :credit_cards
+- belongs_to :registration_styles
+- has_one :address
+- has_one :credit_card
 
 
 ## registration_style
@@ -41,10 +41,10 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :user
+- belongs_to :user
 
 
-## addres_table
+## addresses_table
 |Column|Type|Options|
 |------|----|-------|
 |prefecture|string|null: false|
@@ -54,10 +54,10 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :user
+- belongs_to :user
 
 
-## credit_cards_table
+## credit_card_table
 |Column|Type|Options|
 |------|----|-------|
 |credit_card_number|string||
@@ -66,13 +66,13 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :user
+- belongs_to :user
 
 
 ## items_table
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
+|image|string||
 |name|string|null: false|
 |category|string|null:false|
 |brand|string||
@@ -80,13 +80,13 @@
 |delivery_charged|string|null:false|
 |delivery_method|string|null:false|
 |delivery_area|string|null:false|
-|estimated_shipping_date|string|null:false|
+|delivery_shipping_date|string|null:false|
 |total_price|integer||
 |item_profile_comment|text|null:false|
-|comments on item|text||
 |item salse status|string|null:false|
 |good|integer||
 |user_id|references|integer|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
