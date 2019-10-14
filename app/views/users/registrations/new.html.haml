@@ -1,21 +1,18 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "users/shared/links"
+.sign_up_body
+  .sign_up_content
+    = render partial: 'signup/sign_up_header', locals: { signup: @signup }
+    .sign_up_main
+      .l-signup-content
+        %h2.signup-head 新規会員登録
+        .signup-inner
+          .l-signup-content
+            %link_to.btn-list.btn-mail
+              = image_tag "mail.svg"
+              メールアドレスで登録する
+            %button.btn-list.btn-signup-facebook
+              = image_tag "facebook-logo.svg"
+              Facebookで登録する
+            %button.btn-list.btn-signup-google
+              = image_tag "google.logo.jpg"
+              Googleで登録する
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
