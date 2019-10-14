@@ -1,4 +1,4 @@
-.single-footer{
+.signup-footer{
   // position: absolute;
   right: 0;
   bottom: 0;
@@ -10,6 +10,7 @@
   width: 456px;
   height: 220px;
   margin: 0 auto;
+  background-color:#f5f5f5;
   
   nav{
     ul{
@@ -30,6 +31,7 @@
   }
   small{
     font-size:13px;
+    color:black;
   }
 }
 
