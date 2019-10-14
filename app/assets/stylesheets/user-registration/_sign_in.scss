@@ -8,9 +8,9 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
-  .single-container{
+  .signin-content{
     padding:0 0 250px;
-    .single-header{
+    .signin-header{
       text-align:center;
       height:128px;
       h1{
@@ -28,18 +28,18 @@
       }
     }
   }
-    .single-main{
+    .signin-main{
       display:block;
-      .login-panel {
+      .signin-panel {
         max-width: none;
         width: 456px;
         max-width: 456px;
         margin: 0 auto;
         background: #fff;
-        .l-single-container{
+        .l-signin-content{
           margin: 0 auto;
           background: #fff;
-          .login-no-account {
+          .signup-link{
             padding: 24px 32px;
             text-align:center;
             a {
@@ -54,10 +54,10 @@
             }
           }
         }
-        .login-form-inner{
+        .signin-form-inner{
           padding: 24px 32px;
           border-top: 1px solid #eee;
-          .btn-default {
+          .btn-list {
             display: block;
             width: 100%;
             line-height: 48px;
@@ -66,10 +66,10 @@
             cursor: pointer;
             text-align: center;
         }
-        .btn-sns{
+        .btn-signin{
           position: relative;
         }
-        .btn-sns-facebook {
+        .btn-signin-facebook {
           background: #385185;
           color: #fff;
           img{
@@ -81,7 +81,7 @@
             color:#fff;
           }
         }
-        .btn-sns-google {
+        .btn-signin-google {
           margin: 16px 0 0;
           background-color: #fff ;
           border: #979797 solid 1px;
@@ -97,13 +97,13 @@
         }
       }
         form{
-          .login-form-inner{
+          .signin-form-inner{
             padding: 24px 32px;
             border: 0;
             }
-            .form-group{
+            .form-list{
               margin: 24px 0 0;
-              .input-default{
+              .input-list{
                 height: 48px;
                 padding: 10px 16px 8px;
                 border-radius: 4px;
@@ -117,10 +117,10 @@
             .form-first{
               margin: 0;
             }
-            .login-submit{
+            .signin-submit{
               margin: 24px 0 0;
             }
-            .btn-default {
+            .btn-list {
               display: block;
               width: 100%;
               line-height: 48px;
