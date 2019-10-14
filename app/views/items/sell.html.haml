@@ -164,14 +164,14 @@
                     .sell-form-box-right
                       ¥
                       .input-wrapper
-                        %input.input-default{placeholder: "例）300", value: ""}/
+                        %input#input-price{placeholder: "例）300", value: "", type: "number"}
                   .sell-form-box__middle
                     .sell-form-box-left
                       販売手数料 (10%)
-                    .sell-form-box-right -
+                    #output-fee -
                   .sell-form-box__bottom
                     .sell-form-box-left 販売利益
-                    .sell-form-box-right -
+                    #output-profit -
             .modal{role: "dialog", tabindex: "-1"}
               .modal-inner
             .sell-content.sell-btn-box
