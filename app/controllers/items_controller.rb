@@ -9,4 +9,7 @@ class ItemsController < ApplicationController
   def sell
   end
   
+  def shousai
+  end
+  
 end

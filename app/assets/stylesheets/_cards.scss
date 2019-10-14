@@ -40,11 +40,14 @@ a{
 }
 
 .l-container{
-  margin: 40px auto 0;
+  display: flex;
   width: 1020px;
+  margin: 80px auto 0;
   .l-content{
+    width: calc(100% - 280px);
     float: right;
-    width: 700px;
+    margin-top: 40px;
+    background-color: #fff;
     .l-chapter-container{
       font-size: 24px;
       padding: 8px 24px;
@@ -55,6 +58,7 @@ a{
         text-align: center;
         font-size: 24px;
         padding: 8px 24px;
+        font-weight: bold; 
       }
       .l-single-inner{
         font-size: 16px;

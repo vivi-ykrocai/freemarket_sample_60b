@@ -1,13 +1,22 @@
 @import "config/reset";
 @import "font-awesome";
+@import "config/variable";
+
+
 @import "top-page/items";
 @import "top-page/header";
 @import "top-page/fotter";
 @import "top-page/aside";
 @import "top-page/sell-icon";
+@import "_identification";
 @import "purchase/purchase";
 @import "purchase/sell";
 @import "cards";
-@import "logouts";
+@import "logout";
 @import "modules/users";
-@import "modules/side_bar"
+@import "modules/side_bar";
+@import "modules/show-item";
+
+@import "modules/edit";
+
+@import "tests";
