@@ -15,7 +15,7 @@
 |birth_m|string|null: false|
 |birth_d|string|null: false|
 |phone_number|string|null: false|
-|iine|string|null: false|
+|iine|string||
 |mer_point|string||
 |icon_image|string||
 |profiile_comments|text||
@@ -27,7 +27,7 @@
 
 ### Association
 - has_many :items
-- belongs_to :registration_styles
+- belongs_to :registration_style
 - has_one :address
 - has_one :credit_card
 
@@ -74,8 +74,8 @@
 |------|----|-------|
 |image|string||
 |name|string|null: false|
-|category|string|null:false|
-|brand|string||
+<!-- |category|string|null:false|→保留
+|brand|string||→保留 -->
 |item_status|string|null:false|
 |delivery_charged|string|null:false|
 |delivery_method|string|null:false|
