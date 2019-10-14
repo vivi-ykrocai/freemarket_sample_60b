@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+
+#   devise_for :users
 
   resources :items do
     collection do
@@ -28,6 +29,16 @@ Rails.application.routes.draw do
       get "identification"
     end
   end
+  
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' 
+      get 'finish' 
+    end
+  end
 
   resources :cards, only: [:index, :edit, :update]
   resources :logouts, only: [:index]
@@ -36,3 +47,4 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create]
 
 end
+
