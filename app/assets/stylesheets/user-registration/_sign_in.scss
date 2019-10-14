@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+.sign_in_body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  .signin-content{
+    padding:0 0 250px;
+    .signin-header{
+      text-align:center;
+      height:128px;
+      h1{
+        display: inline-block;
+        font-weight: bold;
+        margin: 40px 0 0;
+      }
+      img{
+        width: 185px;
+        height: 49px;
+        display: inline-block;
+        margin: 0 8px 0 0;
+        line-height: 33px;
+        line-height: 49px;
+      }
+    }
+  }
+    .signin-main{
+      display:block;
+      .signin-panel {
+        max-width: none;
+        width: 456px;
+        max-width: 456px;
+        margin: 0 auto;
+        background: #fff;
+        .l-signin-content{
+          margin: 0 auto;
+          background: #fff;
+          .signup-link{
+            padding: 24px 32px;
+            text-align:center;
+            a {
+              display: block;
+              margin: 8px 0 0;
+              border: 1px solid #0099e8;
+              background: #0099e8;
+              color: #fff;
+              line-height: 40px;
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+        .signin-form-inner{
+          padding: 24px 32px;
+          border-top: 1px solid #eee;
+          .btn-list {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-signin{
+          position: relative;
+        }
+        .btn-signin-facebook {
+          background: #385185;
+          color: #fff;
+          img{
+            width:30px;
+            height:30px;
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            color:#fff;
+          }
+        }
+        .btn-signin-google {
+          margin: 16px 0 0;
+          background-color: #fff ;
+          border: #979797 solid 1px;
+          color: #333;
+          img{
+            width:30px;
+            height:30px;
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            color:#fff;
+          }
+        }
+      }
+        form{
+          .signin-form-inner{
+            padding: 24px 32px;
+            border: 0;
+            }
+            .form-list{
+              margin: 24px 0 0;
+              .input-list{
+                height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+                width: 100%;
+              }
+            }
+            .form-first{
+              margin: 0;
+            }
+            .signin-submit{
+              margin: 24px 0 0;
+            }
+            .btn-list {
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              cursor: pointer;
+              text-align: center;
+              }
+            .btn-red{
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: #fff;
+              }
+            a {
+              display: block;
+              margin: 40px 0 0;
+              color: #0099e8;
+              }
+            }
+          }
+        }
+      }
+    .single-footer{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      height: 250px;
+      padding: 40px 0;
+      text-align: center;
+      width: 456px;
+      height: 220px;
+      margin: 0 auto;
+      nav{
+        ul{
+          li{
+            display: inline-block;
+            font-size: 12px;
+            margin: 0 0 0 16px;
+          }
+        }
+      }
+      img{
+        display: block;
+        color: #333;
+        margin: 40px auto 0;
+      }
+      p{
+        margin: 8px 0 0;
+      }
+      small{
+        font-size:13px;
+      }
+    }
+  }
+

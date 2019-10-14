@@ -1,0 +1,81 @@
+.sign_up_bpdy{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  .signup-content{
+    padding:0 0 250px;
+  }
+  .signup-main{
+    display: block;
+    .l-signup-content{
+      background: #fff;
+      width: 700px;
+      margin: 0 auto;
+      .signup-head{
+        font-size: 20px;
+        padding: 15px;
+        line-height: 1.5;
+        text-align: center;
+        font-weight:bold;
+        }
+        .l-signup-inner{
+          border-top: 1px solid #f5f5f5;
+          padding: 40px 40px 64px;  
+          .l-signup-content{
+            max-width: 343px;
+            margin: 0 auto; 
+            .form-list{
+              margin: 24px 0 0;
+              label{
+                font-weight:bold;
+              }
+              .input-list {
+                width: calc(50% - 6px);
+                margin: 8px 0 0;
+                width:100%;
+                padding: 15px 10px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                line-height: 1.5;
+                font-size: 18px;
+                  }
+              .l-signup-text{
+                padding: 10px 0 60px;
+              }
+              .btn-red{
+                display: block;
+                width: 100%;
+                line-height: 48px;
+                font-size: 14px;
+                cursor: pointer;
+                text-align: center;
+                background: #ea352d;
+                border: 1px solid #ea352d;
+                color: #fff;
+                }
+                .l-signup-text-bottom{
+                  font-size:14px;
+                  padding: 10px 0 0;
+                }
+                .text-right{
+                  padding:25px 0 0;
+                  text-align:right;
+                  p{
+                    line-height: 1.5;
+                    margin:20px 0 0;
+                    a{
+                      color: #0099e8;
+                      text-decoration: none;
+                      width:18px;
+                      }
+                    }
+                  }
+                }
+              } 
+            }
+          }
+        } 
+      }
