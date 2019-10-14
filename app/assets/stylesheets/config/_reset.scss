@@ -9,6 +9,11 @@
     TODO with the prefix, should I group by selector or property for weight savings?
 */
 
+
+*{
+  box-sizing: border-box;
+}
+
 html{
   color:#000;
   background:#FFF;

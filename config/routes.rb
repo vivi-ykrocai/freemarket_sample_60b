@@ -1,5 +1,35 @@
 Rails.application.routes.draw do
-  'routes#index'
+
+
+#   devise_for :users
+
+  resources :items do
+    collection do
+      get 'purchase'
+      get 'shousai'
+    end
+  end
+  root 'items#index'
+
+
+  resources :users, only: [:index, :update] do
+    collection do
+      get 'henshuu'
+    end
+
+    collection do
+      get "logout"
+    end
+
+    collection do
+      get "card"
+    end
+
+    collection do
+      get "identification"
+    end
+  end
+  
   resources :signup do
     collection do
       get 'step1'
@@ -9,5 +39,12 @@ Rails.application.routes.draw do
       get 'finish' 
     end
   end
+
+  resources :cards, only: [:index, :edit, :update]
+  resources :logouts, only: [:index]
+
+  # S3画像アップロードテスト用のルーティング作成(いずれ削除)
+  resources :tests, only: [:index, :create]
+
 end
 

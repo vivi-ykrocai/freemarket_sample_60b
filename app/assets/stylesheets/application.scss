@@ -1,14 +1,33 @@
 
+@import "config/reset";
+@import "font-awesome";
+@import "config/variable";
 
-  @import "config/reset";
-  @import "font-awesome";
-  @import "user-registration/sign_up_header";
-  @import "user-registration/sign_up_footer";
-  @import "user-registration/sign_up";
-  @import "user-registration/sign_in";
-  @import "user-registration/step1";
-  @import "user-registration/step2";
-  @import "user-registration/step3";
-  @import "user-registration/step4";
-  @import "user-registration/finish";
-  
+
+@import "top-page/items";
+@import "top-page/header";
+@import "top-page/fotter";
+@import "top-page/aside";
+@import "top-page/sell-icon";
+@import "_identification";
+@import "purchase/purchase";
+@import "cards";
+@import "logout";
+@import "modules/users";
+@import "modules/side_bar";
+@import "modules/show-item";
+
+@import "user-registration/sign_up_header";
+@import "user-registration/sign_up_footer";
+@import "user-registration/sign_up";
+@import "user-registration/sign_in";
+@import "user-registration/step1";
+@import "user-registration/step2";
+@import "user-registration/step3";
+@import "user-registration/step4";
+@import "user-registration/finish";
+
+
+@import "modules/edit";
+
+@import "tests";

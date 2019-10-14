@@ -1,0 +1,18 @@
+.l-container
+  = render partial: "side_bar"
+  .l-content
+    %section.l-chapter-container
+      %h2.l-chapter-head 支払い方法
+      .l-single-inner
+        %section
+          .l-single-content
+            %h3.l-chapter-sub-head クレジットカード一覧
+        %section.settings-add-card
+          .l-single-content
+            %a.add_btn{href:"https://www.mercari.com/jp/mypage/card/"}
+              = fa_icon 'credit-card'
+              クレジットカードを追加する
+        .settings-not-regist
+          %a{href:"https://www.mercari.com/jp/mypage/card/", target:"_blank"}
+            %span 支払い方法について
+            = fa_icon 'angle-right'
