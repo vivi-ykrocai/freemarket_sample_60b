@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   'routes#index'
   resources :signup do
     collection do
