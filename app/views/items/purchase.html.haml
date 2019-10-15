@@ -27,9 +27,8 @@
                 %div
                   %span
                     ¥3,480
-            -# = button_tag "購入する", class: "buy-button"
             = form_tag(action: :pay, method: :post) do
-              %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_7b8ecbd36e6ecb8a4f74d7fa"}
+              %script.payjp-button{src: "https://checkout.pay.jp", type:"text/javascript", "data-text": "購入する", "data-key": "pk_test_7b8ecbd36e6ecb8a4f74d7fa"}
       .buy-content.buy-user-info
         .buy-content__inner
           %h3.buy-content__inner__index
