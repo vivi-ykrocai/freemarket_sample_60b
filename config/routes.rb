@@ -2,22 +2,18 @@ Rails.application.routes.draw do
 
 
 #   devise_for :users
-
+  root 'items#index'
   resources :items do
     collection do
       get 'purchase'
       get 'sell'
-      get 'shousai'
       get  'done'
       post 'pay'
       # post 'pay/:id' => 'items#pay'
       # 今はDBに情報がないため仮置きで 'pay'にしている。
       # 後で 'pay/:id'に修正する。工藤
-
     end
   end
-  root 'items#index'
-
 
   resources :users, only: [:index, :update] do
     collection do
@@ -39,6 +35,8 @@ Rails.application.routes.draw do
 
   resources :signup do
     collection do
+      get 'sign_in'
+      get 'sign_up'
       get 'step1'
       get 'step2'
       get 'step3'
@@ -54,4 +52,3 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create]
 
 end
-

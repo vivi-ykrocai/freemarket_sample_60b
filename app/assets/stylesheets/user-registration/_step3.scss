@@ -5,31 +5,109 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
-  .single-container{
+  .signup-content{
     padding:0 0 250px;
+    .signup-header{
+      text-align:center;
+      h1{
+        margin-bottom: 50px;
+        img{
+          float:center;
+        }
+      }
+      .progress-bar{
+        padding: 40px 0 0 44px;
+        border: 0;
+        display: inline-block;
+        vertical-align: top;
+        width: 552px;
+        height:72px;
+        text-align:right;
+        font-size: 0;
+        text-align: center;
+        ol{
+          margin: 0;
+          position: relative;
+          li.active{
+            font-weight: 600;
+            color: #ea352d;
+          }
+          li{
+            min-width: 60px;
+            display: inline-block;
+            min-width: 40px;
+            margin: 0 5% 0 0;
+            font-size: 12px;
+            color: #888; 
+            .progress-status-red{
+              background-color:#ea352d;
+              width: 12px;
+              height: 12px;
+              margin: 8px auto 0;
+              border-radius: 50%;
+              position: relative;
+              z-index: 1;
+              .red-border{
+                position: absolute;
+                left: 10px;
+                bottom: 5px;
+                z-index: 2;
+                display: block;
+                background:#ea352d;
+                border-style: solid;
+                height:2px;
+                width:190px;
+              }
+              .border{
+                position: absolute;
+                left: 10px;
+                bottom: 5px;
+                z-index: 2;
+                display: block;
+                width: 100%;
+                height: 30px;
+                background:#cccccc;
+                border-style: solid;
+                height:2px;
+                width:170px;
+              }
+            }
+              }
+            .progress-status{
+              width: 12px;
+              height: 12px;
+              margin: 8px auto 0;
+              background: #ccc;
+              border-radius: 50%;
+              position: relative;
+          }
+        }
+      }
+    }
+    }
     .single-main{
       display: block;
-      .l-single{
+      .l-signup{
         background-color: #fff;
         width: 700px;
         margin: 0 auto;
-        .single-head{
+        .signup-head{
           font-size: 25px;
           padding: 25px;
           line-height: 1.5;
           text-align: center;
           font-weight:bold;
           }
-          .l-single-inner{
+          .l-signup-inner{
             padding: 24px 32px;
             border-top: 1px solid #eee; 
             text-align:center;
             width:100%;
-            .f-container{
+            .f-content{
               margin: 0 auto;
               background: #fff;
               width:70%;
-              .form-group{
+              .form-list{
                 padding: 15px 0 0;
                 label{
                   font-weight:bold;
@@ -79,4 +157,4 @@
           }
         }
       }
-}}
+}
