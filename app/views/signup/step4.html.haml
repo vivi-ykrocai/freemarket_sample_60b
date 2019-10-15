@@ -5,20 +5,20 @@
         =image_tag "mercari-logo.svg", size:"200x50"
       %nav.progress-bar.signup-bar
         %ol
-          %li.active
+          %li
             会員情報
             .progress-status-red
               .red-border
-          %li.active
+          %li
             電話番号認証
             .progress-status-red
-              .border-2
           %li
             お届け先住所入力
-            .progress-status
-          %li
+            .progress-status-red
+          %li.active
             支払い方法
-            .progress-status
+            .progress-status-red
+              .border-4
           %li
             完了
             .progress-status
@@ -34,10 +34,48 @@
               = image_tag "cureka.png" , size:"300x22"
             .form-list
               %div
-                %label 有効期限
-                %span 必須
-              %input.input-list.half 月
-              %input.input-list.half 年
+                .form-group.signup-form-expire
+                  %label{:for => "payment_card_expire"} 有効期限
+                  %span.form-require 必須
+                  %br/
+                  .select-wrap.half
+                    %select#payment_card_expire_mm.select-default
+                      %option{:value => "01"} 01
+                      %option{:value => "02"} 02
+                      %option{:value => "03"} 03
+                      %option{:value => "04"} 04
+                      %option{:value => "05"} 05
+                      %option{:value => "06"} 06
+                      %option{:value => "07"} 07
+                      %option{:value => "08"} 08
+                      %option{:value => "09"} 09
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                    %i.icon-arrow-bottom
+                    %span 月
+                  .select-wrap.half
+                    %select#payment_card_expire_yy.select-default
+                      %option{:value => "19"} 19
+                      %option{:value => "20"} 20
+                      %option{:value => "21"} 21
+                      %option{:value => "22"} 22
+                      %option{:value => "23"} 23
+                      %option{:value => "24"} 24
+                      %option{:value => "25"} 25
+                      %option{:value => "26"} 26
+                      %option{:value => "27"} 27
+                      %option{:value => "28"} 28
+                      %option{:value => "29"} 29
+                    %i.icon-arrow-bottom
+                    %span 年
+                  %ul#expire-mm-error-wrapper.has-error-text
+                  %ul#expire-yy-error-wrapper.has-error-text
+                .form-list
+                  %ul#security-code-error-wrapper.has-error-text
+                %input#user_id{:name => "user_id", :type => "hidden", :value => "452899943"}/
+                %input#encrypted_card_data{:name => "encrypted_card_data", :type => "hidden"}/
+                %p#primary-error.has-error-text
             .form-list
               %label セキュリティコード
               %span 必須
