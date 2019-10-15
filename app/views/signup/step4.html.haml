@@ -1,6 +1,55 @@
-.sign_up_bpdy
-  .single-container
-    = render partial: 'signup/sign_up_header', locals: { signup: @signup }
-    .single-main
-      .l-single
+.sign_up_body
+  .signup-content
+    %header.signup-header
+      %h1
+        =image_tag "mercari-logo.svg", size:"200x50"
+      %nav.progress-bar.signup-bar
+        %ol
+          %li.active
+            会員情報
+            .progress-status-red
+              .red-border
+          %li.active
+            電話番号認証
+            .progress-status-red
+              .border-2
+          %li
+            お届け先住所入力
+            .progress-status
+          %li
+            支払い方法
+            .progress-status
+          %li
+            完了
+            .progress-status
+    .signup-main
+      .l-signup-content
+        %h2.signup-head 支払い方法
+        .l-signup-inner
+          .l-signup-content
+            .form-list
+              %label カード番号
+              %span 必須
+              %input.input-list{placeholder: :半角数字のみ, value: ""}/
+              = image_tag "cureka.png" , size:"300x22"
+            .form-list
+              %div
+                %label 有効期限
+                %span 必須
+              %input.input-list.half 月
+              %input.input-list.half 年
+            .form-list
+              %label セキュリティコード
+              %span 必須
+              %input.input-list{placeholder: :半角数字のみ, value: ""}/
+            .text-right
+              %p
+                =fa_icon 'question-circle-o'
+                = link_to " カード裏面の番号とは？"
+              %button.btn-red{type: "submit"} 次へ進む
+
   = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+
+
+
+
