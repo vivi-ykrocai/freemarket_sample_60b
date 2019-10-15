@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def sell
   end
   
-  def shousai
+  def show
   end
   
 end
