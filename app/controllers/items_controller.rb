@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
   def index
+    @items = Item.order("created_at DESC").limit(10)
   end
 
   def purchase
@@ -9,7 +10,7 @@ class ItemsController < ApplicationController
   def sell
   end
   
-  def shousai
+  def show
   end
   
 end
