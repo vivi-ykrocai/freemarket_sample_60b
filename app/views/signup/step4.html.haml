@@ -39,6 +39,7 @@
                   %span.form-require 必須
                   %br/
                   .select-wrap.half
+                    -# %i.icon-arrow-bottom
                     %select#payment_card_expire_mm.select-default
                       %option{:value => "01"} 01
                       %option{:value => "02"} 02
@@ -52,9 +53,10 @@
                       %option{:value => "10"} 10
                       %option{:value => "11"} 11
                       %option{:value => "12"} 12
-                    %i.icon-arrow-bottom
+                    =fa_icon 'angle-down'
                     %span 月
                   .select-wrap.half
+                    -# %i.icon-arrow-bottom
                     %select#payment_card_expire_yy.select-default
                       %option{:value => "19"} 19
                       %option{:value => "20"} 20
@@ -67,7 +69,7 @@
                       %option{:value => "27"} 27
                       %option{:value => "28"} 28
                       %option{:value => "29"} 29
-                    %i.icon-arrow-bottom
+                    =fa_icon 'angle-down'
                     %span 年
                   %ul#expire-mm-error-wrapper.has-error-text
                   %ul#expire-yy-error-wrapper.has-error-text
@@ -86,7 +88,7 @@
                 = link_to " カード裏面の番号とは？"
               %button.btn-red{type: "submit"} 次へ進む
 
-  = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
 
 
 
