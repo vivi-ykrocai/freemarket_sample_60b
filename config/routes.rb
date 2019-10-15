@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
 
-#   devise_for :users
+  devise_for :users
 
   resources :items do
     collection do
       get 'purchase'
-      get 'sell'
       get 'shousai'
     end
   end
