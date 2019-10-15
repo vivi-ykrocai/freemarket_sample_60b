@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # binding.pry
     # @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     charge = Payjp::Charge.create(
