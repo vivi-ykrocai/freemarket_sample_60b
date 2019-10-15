@@ -8,6 +8,12 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'sell'
       get 'shousai'
+      get  'done'
+      post 'pay'
+      # post 'pay/:id' => 'items#pay'
+      # 今はDBに情報がないため仮置きで 'pay'にしている。
+      # 後で 'pay/:id'に修正する。工藤
+
     end
   end
   root 'items#index'
@@ -30,14 +36,14 @@ Rails.application.routes.draw do
       get "identification"
     end
   end
-  
+
   resources :signup do
     collection do
       get 'step1'
       get 'step2'
       get 'step3'
-      get 'step4' 
-      get 'finish' 
+      get 'step4'
+      get 'finish'
     end
   end
 
