@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   
   resources :signup do
     collection do
+      get 'sign_in'
+      get 'sign_up'
       get 'step1'
       get 'step2'
       get 'step3'

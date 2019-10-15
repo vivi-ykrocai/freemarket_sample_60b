@@ -1,0 +1,31 @@
+.sign_in_body
+  .signin-content
+    %header.signin-header
+      %h1
+        =image_tag "mercari-logo.svg", size:"200x50"
+    .signin-main
+      .signin-panel
+        .l-signin-content
+          .signup-link
+            %p アカウントをお持ちでない方はこちら
+            = link_to "新規会員登録"
+          .signin-form-inner
+            %button.btn-list.btn-signin.btn-signin-facebook
+              = image_tag "facebook-logo.svg"
+              Facebookでログイン
+            %button.btn-list.btn-signin.btn-signin-google
+              = image_tag "google.logo.jpg"
+              Googleでログイン
+          %form
+            .signin-form-inner
+              .form-list.form-first
+                %input.signin-input-text.input-list{placeholder: :メールアドレス, value: ""}/
+              .form-list
+                %input.signin-input-text.input-list{placeholder:  :パスワード, type:"password"}/
+              .form-list
+                = image_tag "honninkakunin.png", size:"250x60"
+              %button.signin-submit.btn-list.btn-red{} ログイン
+              %input{name: :__csrf_value, type: :hidden, value: :""}/
+              = link_to "パスワードをお忘れの方"
+    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+

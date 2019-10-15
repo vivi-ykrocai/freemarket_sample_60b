@@ -1,49 +1,71 @@
 .sign_up_bpdy
-  .single-container
-    = render partial: 'signup/sign_up_header', locals: { signup: @signup }
+  .signup-content
+    %header.signup-header
+      %h1
+        =image_tag "mercari-logo.svg", size:"200x50"
+      %nav.progress-bar.signup-bar
+        %ol
+          %li.active
+            会員情報
+            .progress-status-red
+              .red-border
+          %li.active
+            電話番号認証
+            .progress-status-red
+          %li.active
+            お届け先住所入力
+            .progress-status-red
+              .border
+          %li
+            支払い方法
+            .progress-status
+          %li
+            完了
+            .progress-status
+    -# = render partial: 'signup/sign_up_header', locals: { signup: @signup }
     .single-main
-      .l-single
-        %h2.single-head 住所入力
-        .l-single-inner.registration-form
-          .f-container
-            .form-group.form-first
+      .l-signup
+        %h2.signup-head 住所入力
+        .l-signup-inner
+          .f-content
+            .form-list
               %div
                 %label お名前
                 %span.form-require 必須
               %input.input-default.half{name:"family_name_kanji", placeholder: "例) 山田", type: "text", value:""}/
               %input.input-default.half{name:"first_name_kanji", placeholder: "例) 彩", type: "text", value:""}/
-            .form-group
+            .form-list
               %div
                 %label お名前カナ
                 %span.form-require 必須
               %input.input-default.half{name:"family_name_kanji", placeholder: "例) ヤマダ", type: "text", value:""}/
               %input.input-default.half{name:"first_name_kanji", placeholder: "例) カナ", type: "text", value:""}/
-            .form-group
+            .form-list
               %div
                 %label 郵便番号
                 %span.form-require 必須
               %input.login-input-text.input-default{placeholder: "例) 123-4567", value: ""}/
-            .form-group
+            .form-list
               %div
                 %label 都道府県
                 %span.form-require 必須
               %input.login-input-text.input-default{placeholder: :携帯電話の番号を入力, value: ""}/
-            .form-group
+            .form-list
               %div
                 %label 市区町村
                 %span.form-require 必須
               %input.login-input-text.input-default{placeholder: "例） 横浜市緑区", value: ""}/
-            .form-group
+            .form-list
               %div
                 %label 番地
                 %span.form-require 必須
               %input.login-input-text.input-default{placeholder: "例）青山1-1-1", value: ""}/
-            .form-group
+            .form-list
               %div
                 %label 建物名
                 %span.form-require2 任意
               %input.login-input-text.input-default{placeholder: "例) 柳ビル103", value: ""}/
-            .form-group
+            .form-list
               %div
                 %label 電話
                 %span.form-require2 任意
