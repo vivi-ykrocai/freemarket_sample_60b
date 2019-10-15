@@ -2,6 +2,7 @@
   .signin-content
     %header.signin-header
       %h1
+        =image_tag "mercari-logo.svg", size:"200x50"
     .signin-main
       .signin-panel
         .l-signin-content
@@ -24,7 +25,7 @@
               .form-list
                 = image_tag "honninkakunin.png", size:"250x60"
               %button.signin-submit.btn-list.btn-red{} ログイン
-              %input{:name => "__csrf_value", :type => "hidden", :value => "1d7492d30b9f08e76df20eeda24c1a26947dc3ce7d3a58ee021d953b2b53a7825f9806d3adb72ed384020eb3f15370541609215740d48598c5b9d74c564946bdd"}/
+              %input{name: :__csrf_value, type: :hidden, value: :""}/
               = link_to "パスワードをお忘れの方"
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
 
