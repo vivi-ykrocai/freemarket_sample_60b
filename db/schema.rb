@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_10_16_074642) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -19,17 +20,28 @@ ActiveRecord::Schema.define(version: 2019_10_16_074642) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "apartment_house"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "image", null: false
-    t.string "item_status", null: false
-    t.string "delivery_charged", null: false
-    t.string "delivery_method", null: false
-    t.string "delivery_area", null: false
-    t.string "delivery_shipping_date", null: false
+    t.integer "item_status", null: false
+    t.integer "delivery_charged", null: false
+    t.integer "delivery_method"
+    t.integer "delivery_area", null: false
+    t.integer "delivery_shipping_date", null: false
     t.integer "total_price"
     t.text "item_profile_comment", null: false
-    t.string "item_salse_status", null: false
+    t.integer "item_salse_status"
     t.integer "good"
     t.integer "buyer_id"
     t.integer "seller_id"
@@ -73,4 +85,5 @@ ActiveRecord::Schema.define(version: 2019_10_16_074642) do
   end
 
   add_foreign_key "items", "categories"
+  add_foreign_key "addresses", "users"
 end
