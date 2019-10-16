@@ -91,7 +91,6 @@
           padding:20px 40px 64px; 
           .l-signup-content{
             .form-list{
-
                 margin: 20px 0 0;
                 div{
                   display: flex;  
@@ -108,13 +107,11 @@
                       background: #fff;
                       line-height: 1.5;
                       font-size: 16px;
-                      
                     }
                     .limit{
                       width: 20px;
                       height: 48px;
                       line-height: 48px;
-                      // text-align: center;
                       margin: 0 auto;
                     }  
                   }
@@ -128,7 +125,6 @@
                   line-height: 48px;
                   margin:30px 0 20px;
                   font-size: 16px;
-
                   cursor: pointer;
                   text-align: center;
                   background: #ea352d;
@@ -141,8 +137,6 @@
                   position: absolute;
                   margin-left: auto;
                   width:100%;
-                  
-
                   .form-question{
                     width:14px;
                     height:14px;
@@ -152,17 +146,13 @@
                     list-style: height 14px;
                     font-size:12px;
                     text-align:center;
-    
                   }
                 }
               }
             }
-              }
-            }
           }
         }
-          }
-              } 
-            
-        
-    
+      }
+    }
+  }
+} 
