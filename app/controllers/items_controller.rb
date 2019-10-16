@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
       :name, :image, :item_status, :delivery_charged,
       :delivery_method, :delivery_area, :delivery_shipping_date,
       :total_price, :item_profile_comment, :item_salse_status,
-      :good).merge(user_id: current_user.id)
+      :good)  #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
   end
 
 end
