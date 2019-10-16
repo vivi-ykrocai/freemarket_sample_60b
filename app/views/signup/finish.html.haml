@@ -1,0 +1,37 @@
+.sign_up_body
+  .signup-content
+    %header.signup-header
+      %h1
+        =image_tag "mercari-logo.svg", size:"200x50"
+      %nav.progress-bar.signup-bar
+        %ol
+          %li
+            会員情報
+            .progress-status-red
+              .red-border
+          %li
+            電話番号認証
+            .progress-status-red
+          %li
+            お届け先住所入力
+            .progress-status-red
+          %li
+            支払い方法
+            .progress-status-red
+          %li.active
+            完了
+            .progress-status-red
+    .single-main
+      .l-signup
+        %h2.signup-head 会員登録完了
+        .l-signup-inner
+          .f-content
+            .registration-text
+              %p.upper-text
+              ありがとうございます。
+              会員登録が完了しました。
+            %p
+              %buttan.btn-red  メルカリをはじめる
+        =image_tag 'sign_up.ok.png', size:'700x300';
+
+  = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
