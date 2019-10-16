@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
+    redirect_to root_path, notice: '決済が完了しました'
   end
 
   private

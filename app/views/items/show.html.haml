@@ -5,7 +5,7 @@
   .item-box-container
     %h1.item-name
       COACH コーチ ショルダーバッグ✩9日(水)昼12時までの値段
-      
+
     .item-main-content
       .item__photos
         = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__main-photo"
@@ -44,7 +44,7 @@
                 %li
                   = link_to 'https://www.mercari.com/jp/category/20/', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    バッグ 
+                    バッグ
                 %li
                   = link_to 'https://www.mercari.com/jp/category/214/', class:"list__category" do
                     = fa_icon 'chevron-right'
@@ -53,7 +53,7 @@
             %th ブランド
             %td
               = link_to 'コーチ', 'https://www.mercari.com/jp/brand/539/', class:"td__brand"
-              
+
           %tr
             %th 商品の状態
             %td やや傷や汚れあり
@@ -82,11 +82,11 @@
 
 
     .item__buy-btn
-      = link_to '購入画面に進む', '#', class:"item__buy-btn"
+      = link_to '購入画面に進む', "/items/:id/purchase", class:"item__buy-btn", "data-turbolinks": false
 
 
     .item-introduction
-      %p 
+      %p
         長々とした、いいね！はしないで下さい。
         ショルダーバック
         ブラウン
