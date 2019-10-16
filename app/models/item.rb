@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-  enum item_salse_status: {
+  enum item_status: {
     "新品、未使用":1, "未使用に近い":2, "目立った傷や汚れなし":3, "やや傷や汚れあり": 4, "傷や汚れあり":5, "全体的に状態が悪い":6
   }
   enum delivery_shipping_date: {
@@ -17,6 +17,8 @@ class Item < ApplicationRecord
   # has_many :comments
   # belongs_to :buyer, class_name: "User"
   # belongs_to :seller, class_name: "User"
+
+  mount_uploader :image, ImageUploader
 
 end
 
