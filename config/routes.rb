@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-
-#   devise_for :users
+  devise_for :users
   root 'items#index'
+
   resources :items do
     collection do
       # get 'purchase'
@@ -26,17 +26,8 @@ end
   resources :users, only: [:index, :update] do
     collection do
       get 'henshuu'
-    end
-
-    collection do
       get "logout"
-    end
-
-    collection do
       get "card"
-    end
-
-    collection do
       get "identification"
     end
   end
