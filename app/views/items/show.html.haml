@@ -4,11 +4,11 @@
 
   .item-box-container
     %h1.item-name
-      COACH コーチ ショルダーバッグ✩9日(水)昼12時までの値段
+      = @item.name
       
     .item-main-content
       .item__photos
-        = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__main-photo"
+        = image_tag "#{@item.image}", class:"item__main-photo"
         .item__little-photos
           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
@@ -56,25 +56,29 @@
               
           %tr
             %th 商品の状態
-            %td やや傷や汚れあり
+            %td
+              = @item.item_status
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @item.delivery_charged
           %tr
             %th 配送の方法
-            %td らくらくメルカリ便
+            %td
+              = @item.delivery_method
           %tr
             %th 配送元地域
             %td
-              = link_to '埼玉県', 'https://www.mercari.com/jp/area/11/', class:"td__area"
+              = link_to "#{@item.delivery_area}", '#', class:"td__area"
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td
+              = @item.delivery_shipping_date
 
 
     .item__price-box
       .item__price
-        ¥6,000
+        = "¥#{@item.total_price.to_s(:delimited)}"
       .item__tax
         (税込)
       .item__fee
@@ -87,16 +91,7 @@
 
     .item-introduction
       %p 
-        長々とした、いいね！はしないで下さい。
-        ショルダーバック
-        ブラウン
-        長さ調整可能
-        画像2、多少傷あり(気にならない方のみ)
-        画像5、片方のみ傷みあり
-        中古ですので、ご理解の方よろしくお願いします(_ _*)
-        ご理解のある方のみ
-        売り切りたいのでよろしくお願いします。
-        到着したら、受け取り通知忘れずにして下さい。
+        = @item.item_profile_comment
 
 
     .item-button
