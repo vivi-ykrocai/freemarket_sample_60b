@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  
+
   def index
+    @items = Item.order("created_at DESC").limit(10)
   end
 
   def purchase
@@ -9,8 +10,8 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
-  
-  def shousai
+
+  def show
   end
 
   def create
@@ -18,8 +19,25 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
   
+  def pay
+    # @item = Item.find(params[:id])
+    Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
+    charge = Payjp::Charge.create(
+    amount: 2000000,
+    #amountは一旦仮置きで3500とする。
+    # 後で amount: @item.total_price,にする
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+  end
+
   private
   def item_params
-    params.require(:item).permit(:name, :image, :item_status, :delivery_charged, :delivery_method, :delivery_area, :delivery_shipping_date, :total_price, :item_profile_comment, :item_salse_status, :good)
+    params.require(:item).permit(
+      :name, :image, :item_status, :delivery_charged,
+      :delivery_method, :delivery_area, :delivery_shipping_date,
+      :total_price, :item_profile_comment, :item_salse_status,
+      :good).merge(user_id: current_user.id)
   end
+
 end
