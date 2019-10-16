@@ -40,15 +40,16 @@
             %td
               %ul
                 %li
-                  = link_to 'レディース', 'https://www.mercari.com/jp/category/1/', class:"list__category"
+                  = link_to '#', class:"list__category" do
+                    = @item.category.parent.parent.name 
                 %li
-                  = link_to 'https://www.mercari.com/jp/category/20/', class:"list__category" do
+                  = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    バッグ 
+                    = @item.category.parent.name 
                 %li
-                  = link_to 'https://www.mercari.com/jp/category/214/', class:"list__category" do
+                  = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    ショルダーバッグ
+                    = @item.category.name
           %tr
             %th ブランド
             %td
