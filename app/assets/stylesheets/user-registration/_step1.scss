@@ -80,7 +80,7 @@
 
   .signup-main{
     display: block;
-    height:1100px;
+    height:1350px;
     .signup-main__content{
       background: #fff;
       width: 700px;
@@ -97,13 +97,15 @@
         text-align: center;
     }
       .form-user{
-        max-width: 343px;
+        max-width: 390px;
         margin: 0 auto;
+        padding: 24px 16px 40px;
         .inner-form{
           .form-info-text{
-            color:#D1D1D1;
-            font-size:14px;
+            color:#888888;
+            font-size:15px;
             margin-bottom:30px;
+            margin-top:10px;
           }
         }
           .under-form{
@@ -132,6 +134,9 @@
                 text-decoration: none;
                 width:18px;
               }
+              i{
+                color: #0099e8;
+              }
             }
           }
         }
@@ -140,10 +145,10 @@
             font-weight:600;
             font-size:14px;
             width: 100%;
-            margin: 10px 0 0;
+            margin: 35px 0 0;
             .signup-text{
               color:333333;
-              font-size:14px;
+              font-size:16px;
             }
             .birthday-select-wrap{
               .birthday{
@@ -196,7 +201,8 @@
               font-weight: initial;
               }
               .input-list.half {
-                width: calc(50% - 6px);
+                width: calc(50% - 15px);
+                margin-right:10px;
               }
               .input-list{
                 margin: 8px 0 0;
