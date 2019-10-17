@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users,
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'items#index'
+
 
   resources :items do
     collection do
@@ -49,5 +51,4 @@ end
 
   # S3画像アップロードテスト用のルーティング作成(いずれ削除)
   resources :tests, only: [:index, :create]
-
 end
