@@ -10,8 +10,11 @@ class UsersController < ApplicationController
 
   def identification
   end
-  
+
   def henshuu
+  end
+
+  def selling
   end
 
 end

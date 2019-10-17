@@ -25,6 +25,7 @@ end
       get "logout"
       get "card"
       get "identification"
+      get "selling"
     end
   end
 
