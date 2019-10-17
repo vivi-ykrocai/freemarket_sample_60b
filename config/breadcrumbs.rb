@@ -1,12 +1,9 @@
-# 一旦全てroot_pathで指定する。
-# あとで必要があれば個別のリンク先を指定する。工藤 10月17日(木)
-
 crumb :root do
   link "メルカリ", root_path
 end
 
 crumb :mypage do
-  link 'マイページ', root_path
+  link 'マイページ', users_path
   parent :root
 end
 
@@ -41,7 +38,7 @@ crumb :mypage_purchased do
 end
 
 crumb :mypage_profile do
-  link 'プロフィール', root_path
+  link 'プロフィール', henshuu_users_path
   parent :mypage
 end
 

@@ -1,3 +1,12 @@
 %nav.bread-container
-  - breadcrumb :mypage_profile
-  = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-chevron-right')}"
+  - case params.values_at :controller, :action
+
+  - when ['users','index']
+    - breadcrumb :mypage
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['users', 'henshuu']
+    - breadcrumb :mypage_profile
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+
