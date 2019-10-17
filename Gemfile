@@ -75,7 +75,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'font-awesome-rails'
-gem 'devise' 
+gem 'devise'
 gem 'payjp'
 gem 'haml-rails'
 gem 'erb2haml'
@@ -85,4 +85,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'pry-rails'
+gem 'gretel'
 gem 'ancestry'
