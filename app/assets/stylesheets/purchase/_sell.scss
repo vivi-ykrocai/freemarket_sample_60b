@@ -162,6 +162,16 @@
                 margin-top: 8px;
                 .icon-arrow-bottom{
                 }
+                #item_category_id{
+                  width: 100%;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                }
                 #item_delivery_charged{
                   height: 48px;
                   padding: 0 16px;
@@ -189,16 +199,6 @@
               }
               .select-wrap{
                 margin-top: 8px;
-                #item_category{
-                  width: 100%;
-                  height: 48px;
-                  padding: 0 16px;
-                  border-radius: 4px;
-                  border: 1px solid #ccc;
-                  font-size: 16px;
-                  line-height: 1.5;
-                  cursor: pointer;
-                }
                 #item_item_status{
                   width: 100%;
                   height: 48px;

@@ -86,4 +86,4 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'pry-rails'
 gem 'gretel'
-
+gem 'ancestry'
