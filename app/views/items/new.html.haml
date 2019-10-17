@@ -43,7 +43,7 @@
                       カテゴリー
                       %span.form-require 必須
                     .select-wrap
-                      = f.select :category_id, Category.where(ancestry: nil).map{|i| [i.name, i.id]}
+                      = f.select :category_id, Category.where(ancestry: nil).map{|i| [i.name, i.id]}, prompt: "---"
                       -# = f.select :category_id, Category.where(ancestry: nil).map{|i| i.name}
                       -# = f.select :category_id, Category.where(ancestry: nil).map{|i| i.name}
                   .form-group-second
