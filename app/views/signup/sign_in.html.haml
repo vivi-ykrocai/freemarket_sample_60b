@@ -12,10 +12,12 @@
           .signin-form-inner
             %button.btn-list.btn-signin.btn-signin-facebook
               = image_tag "facebook-logo.svg"
-              Facebookでログイン
+              =link_to user_facebook_omniauth_authorize_path do 
+                Facebookでログイン
             %button.btn-list.btn-signin.btn-signin-google
               = image_tag "google.logo.jpg"
-              Googleでログイン
+              = link_to user_google_oauth2_omniauth_authorize_path  do
+                Googleでログイン
           %form
             .signin-form-inner
               .form-list.form-first
