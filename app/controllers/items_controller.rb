@@ -1,15 +1,9 @@
 class ItemsController < ApplicationController
-  
-  def index
-  end
+  def index; end
 
-  def purchase
-  end
+  def purchase; end
 
-  def sell
-  end
-  
-  def shousai
-  end
-  
+  def sell; end
+
+  def shousai; end
 end

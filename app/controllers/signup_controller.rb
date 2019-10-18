@@ -57,7 +57,7 @@ class SignupController < ApplicationController
       phone_number2: user_params[:phone_number2]
     )
     if @user.save
-    # ログインするための情報を保管
+      # ログインするための情報を保管
       session[:id] = @user.id
       redirect_to finish_signup_index_path
     else
@@ -68,26 +68,27 @@ class SignupController < ApplicationController
     end
   end
 
-  private
+    private
+
   # 許可するキーを設定します
-    def user_params
-      params.require(:user).permit(
-        :nick_name,
-        :email,
-        :password,
-        :password_confirmation,
-        :last_name,
-        :family_name,
-        :last_name_kana,
-        :family_name_kana,
-        :birthday,
-        :phone_number,
-        :postal_code,
-        :prefectures,
-        :city,
-        :address,
-        :building_name,
-        :phone_number2
-        )
-    end
+  def user_params
+    params.require(:user).permit(
+      :nick_name,
+      :email,
+      :password,
+      :password_confirmation,
+      :last_name,
+      :family_name,
+      :last_name_kana,
+      :family_name_kana,
+      :birthday,
+      :phone_number,
+      :postal_code,
+      :prefectures,
+      :city,
+      :address,
+      :building_name,
+      :phone_number2
+    )
+  end
   end

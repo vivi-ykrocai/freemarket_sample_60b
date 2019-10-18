@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   devise_for :users
 
   resources :items do
@@ -12,8 +10,7 @@ Rails.application.routes.draw do
   end
   root 'items#index'
 
-
-  resources :users, only: [:index, :update] do
+  resources :users, only: %i[index update] do
     collection do
       get 'henshuu'
       get "logout"
@@ -21,7 +18,7 @@ Rails.application.routes.draw do
       get "identification"
     end
   end
-  
+
   resources :signup do
     collection do
       get 'sign_in'
@@ -29,16 +26,14 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step2'
       get 'step3'
-      get 'step4' 
-      get 'finish' 
+      get 'step4'
+      get 'finish'
     end
   end
 
-  resources :cards, only: [:index, :edit, :update]
+  resources :cards, only: %i[index edit update]
   resources :logouts, only: [:index]
 
   # S3画像アップロードテスト用のルーティング作成(いずれ削除)
-  resources :tests, only: [:index, :create]
-
+  resources :tests, only: %i[index create]
 end
-

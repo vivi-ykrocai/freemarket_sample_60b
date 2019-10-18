@@ -11,7 +11,8 @@ class TestsController < ApplicationController
   end
 
   private
-    def test_params
-      params.require(:test).permit(:image)
-    end
+
+  def test_params
+    params.require(:test).permit(:image)
+  end
 end
