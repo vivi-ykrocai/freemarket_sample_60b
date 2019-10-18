@@ -91,6 +91,41 @@ header{
           display: flex;
           vertical-align: baseline;
           height: 44px;
+          &__mypage{
+            display: block;
+            height: 44px;
+            // width: 106px;
+            text-align: center;
+            padding: 0 14px;
+            &__button{
+              height: 32px;
+              display: flex;
+              // justify-content: center;
+              align-items: center;
+              // background-color: red;
+              // color: white;
+              font-size: 14px;
+              // border-width: 1px;
+              // border-style: solid;
+              // border-color: red;
+              // border-radius: 4px;
+              // padding: 8px 10px;
+              // text-decoration: none;
+              // text-align: center;
+              // margin: 0px;
+              .header-user-icon{
+                height: 32px;
+                width: 32px;
+                overflow: hidden;
+                border-radius: 50%;
+              }
+              .mypage-link{
+                margin-left: 10px;
+                font-size: 14px;
+                color: #333333;
+              }
+            }
+          }
           &__sign-up{
             display: block;
             height: 44px;
