@@ -160,8 +160,6 @@
               }
               .select-wrap{
                 margin-top: 8px;
-                .icon-arrow-bottom{
-                }
                 #item_category_id{
                   width: 100%;
                   height: 48px;
@@ -317,14 +315,3 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-::-ms-expand {
-display: none;
-}
-
