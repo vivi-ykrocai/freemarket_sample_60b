@@ -8,12 +8,14 @@ Rails.application.routes.draw do
       get 'sell'
       get  'done'
       post 'pay'
+
     end
   end
 
   resources :items do
     member do
-      get :purchase
+      get 'purchase'
+      get 'detail'
     end
 end
 

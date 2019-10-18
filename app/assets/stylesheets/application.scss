@@ -1,4 +1,3 @@
-
 @import "config/reset";
 @import "font-awesome";
 @import "config/variable";
@@ -8,6 +7,8 @@
 @import "top-page/aside";
 @import "top-page/sell-icon";
 @import "_identification";
+@import "items/detail";
+@import "items/edit";
 @import "purchase/edit";
 @import "purchase/purchase";
 @import "purchase/sell";
@@ -26,8 +27,4 @@
 @import "user-registration/step3";
 @import "user-registration/step4";
 @import "user-registration/finish";
-
-
-@import "modules/edit";
-
 @import "tests";
