@@ -26,17 +26,17 @@
         = fa_icon "angle-right" , class: "side--list--icon"
 
     .side--list--item
-      = link_to root_path do
+      = link_to "/users/selling" do
         出品した商品 - 出品中
         = fa_icon "angle-right" , class: "side--list--icon"
 
     .side--list--item
-      = link_to root_path do
+      = link_to "/users/progression" do
         出品した商品 - 取引中
         = fa_icon "angle-right" , class: "side--list--icon"
 
     .side--list--item
-      = link_to root_path do
+      = link_to "/users/completion" do
         出品した商品 - 売却済み
         = fa_icon "angle-right" , class: "side--list--icon"
 
@@ -117,5 +117,5 @@
         = fa_icon "angle-right" , class: "side--list--icon"
 
     .side--list--item
-      = link_to "ログアウト", root_path , class: "logout"
+      = link_to "ログアウト", "/users/logout" , class: "logout"
       = fa_icon "angle-right" , class: "side--list--icon"
