@@ -9,15 +9,15 @@
       %ul.status-tabs
         %li.status
           %h3.status__name
-            = link_to "/users/selling", class: "status-link" do
+            = link_to selling_users_path, class: "status-link" do
               出品中
         %li.status
           %h3.status__name
-            = link_to "/users/progression", class: "status-link" do
+            = link_to progression_users_path, class: "status-link" do
               取引中
         %li.status-active
           %h3.status__name
-            = link_to "/users/completion", class: "status-link" do
+            = link_to completion_users_path, class: "status-link" do
               売却済み
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
