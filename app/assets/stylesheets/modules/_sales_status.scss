@@ -1,0 +1,167 @@
+.wrapper-contener{
+  width: 700px;
+  // height: 800px;
+  // background-color: aqua;
+  .mypage-tab-container{
+    width: 700px;
+    // height: 500px;
+    background-color: #fff;
+    .mypage-tab-head{
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 16px;
+      background: #fafafa;
+      line-height: 72px;
+    }
+    .status-tabs{
+      display: flex;
+      // vertical-align: middle;
+      // align-items: center;
+      // justify-content: center;
+      .status-active{
+        background-color: rgb(255, 255, 255);
+        border-top: solid 2px #ea352d;
+        line-height: 72px;
+        width: 33.3%;
+        text-align: center;
+      }
+      .status{
+        background-color: rgb(238, 238, 238);
+        width: 33.3%;
+        text-align: center;
+        &__name{
+          font-size: 16px;
+          margin: 0px;
+          .status-link{
+            color: #333333;
+            line-height: 72px;
+            // height: 100%;
+            // width: 100%;
+          }
+        }
+      }
+    }
+    .tab-content{
+      ul{
+        .selling-item{
+          border-bottom: 1px solid #eee;
+          .mypage-item-link{
+            min-height: 80px;
+            width: 100%;
+            padding: 16px;
+            color: #333;
+            display: flex;
+            position: relative;
+            .selling-item-image{
+              overflow: hidden;
+              width: 48px;
+              height: 48px;
+            }
+            .mypage-item-body{
+              // margin-right: 100px;
+              margin: 0 40px 0 20px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              .mypage-item-upper{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              .mypage-item-lower{
+                display: flex;
+                align-items: center;
+                .selling-item-count{
+                  margin-right: 6px;
+                  vertical-align: middle;
+                  color: #ccc;
+                }
+                .mypage-item-status{
+                  background-color: rgb(234, 53, 45);
+                  padding: 5px 6px;
+                  border-radius: 2px;
+                  font-size: 12px;
+                  color: #fff;
+                }
+                .completion{
+                  background-color: darkgray;
+                }
+              }
+            }
+            .icon-arrow-right{
+              position: absolute;
+              top: 40%;
+              right: 16px;
+              font-weight: 600;
+              font-size: 1.5rem;
+            }
+          }
+        }
+        .empty-status{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding-top: 40px;
+          &__logo{
+            height: 70px;
+            width: 70px;
+            }
+          &__text{
+            padding: 40px 0 60px;
+            color: #ccc;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  .mypage-history{
+    margin-top: 40px;
+    height: 44px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .pager-prev{
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 42px;
+      .prev-button{
+        height: 42px;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon-arrow-left{
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .pager-next{
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 42px;
+      .next-button{
+        height: 42px;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon-arrow-right{
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+}
