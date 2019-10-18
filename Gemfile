@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_passwo
 
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -87,3 +87,4 @@ gem 'fog-aws'
 gem 'pry-rails'
 gem 'wicked'
 gem 'test-unit'
+gem 'recaptcha', require: "recaptcha/rails"

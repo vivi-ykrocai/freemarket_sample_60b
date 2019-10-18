@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-#   devise_for :users
+  devise_for :users
 
   resources :items do
     collection do
@@ -16,17 +16,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :update] do
     collection do
       get 'henshuu'
-    end
-
-    collection do
       get "logout"
-    end
-
-    collection do
       get "card"
-    end
-
-    collection do
       get "identification"
     end
   end

@@ -103,7 +103,8 @@
           .form-info-text{
             color:#D1D1D1;
             font-size:14px;
-            margin-bottom:30px;
+            margin: 8px 0 0;
+            line-height: 1.5;
           }
         }
           .under-form{
@@ -135,51 +136,62 @@
             }
           }
         }
-      
           .form-list{
             font-weight:600;
             font-size:14px;
             width: 100%;
-            margin: 10px 0 0;
+            margin: 32px 0 0;
             .signup-text{
               color:333333;
               font-size:14px;
             }
             .birthday-select-wrap{
-              .birthday{
-                font-weight:normal;
-                background-color: transparent;
-                color:black;
+
+              margin-top: 8px;
+              .year,.month,.day{
+                width: 76px;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                margin: 0 2px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                }
+            }
+            .select-wrap{
+              display: inline-block;
+              width: calc(30% - 17px);
+              margin: 8px 0 0;
               }
-              .select-wrap{
-                display: inline-block;
-                width: calc(30% - 17px);
-                }
-                .select-default{
-                  padding: 0 10px;
-                  position: relative;
-                  z-index: 2;
-                  height: 48px;
-                  padding: 0 16px;
-                  border-radius: 4px;
-                  border: 1px solid #ccc;
-                  background: 0;
-                  font-size: 16px;
-                  line-height: 1.5;
-                  width:90px;
-                  cursor: pointer;
-                  }
-                }
-                .icon-bottom{
-                  position: absolute;
-                  right: 16px;
-                  top: 50%;
-                  z-index: 2;
-                  color: #888;
-                  font-size: 8px;
-                  -webkit-transform: translate(0, -50%);
-                  transform: translate(0, -50%);
-                }
+            .select-default{
+              padding: 0 10px;
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              width:90px;
+              cursor: pointer;
+              }
+            }
+              .icon-bottom{
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 8px;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
               }
             }
           }
@@ -209,5 +221,4 @@
                 font-size: 16px;
                 font-weight: initial; 
                 }
-              }
-            
+  }

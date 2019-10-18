@@ -27,12 +27,12 @@
         %h2.signup-head 電話番号の確認
         .l-signup-inner
           .l-signup-content
-            .form-list
+            = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'form-list'} do |f|
               %label 携帯電話の番号
-              %input.input-list{placeholder: :携帯電話の番号を入力, value: ""}/
+              = f.text_field :phone_number, placeholder: '携帯電話の番号を入力' ,class: "input-list"
               %p.l-signup-text
                 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-              %button.btn-red{type: "submit"} SMSを送信する
+              %button.btn-red{onclick: "location.href='./signup/step3'"} 次へ進む
               %p.l-signup-text-bottom
                 ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
               .text-right
