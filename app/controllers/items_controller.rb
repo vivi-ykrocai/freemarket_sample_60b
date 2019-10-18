@@ -4,8 +4,7 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC").limit(10)
   end
 
-  def purchase
-  end
+  def purchase; end
 
   def new
     @item = Item.new
