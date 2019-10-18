@@ -1,3 +1,5 @@
+= render partial: '/items/header', locals: { }
+
 .l-container1
   = render partial: "side_bar"
   .l-content
@@ -6,3 +8,6 @@
         .l-single-content
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'add_btn'
 
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }
