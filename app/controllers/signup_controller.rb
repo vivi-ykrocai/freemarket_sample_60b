@@ -25,15 +25,15 @@ class SignupController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def step4
-    # step3で入力された値をsessionに保存
-    session[:postal_code] = user_params[:postal_code]
-    session[:prefectures] = user_params[:prefectures]
-    session[:city] = user_params[:city]
-    session[:addres] = user_params[:addres]
-    session[:building_name] = user_params[:building_name]
-    @user = User.new # 新規インスタンス作成
-  end
+  # def step4
+  #   # step3で入力された値をsessionに保存
+  #   session[:postal_code] = user_params[:postal_code]
+  #   session[:prefectures] = user_params[:prefectures]
+  #   session[:city] = user_params[:city]
+  #   session[:addres] = user_params[:addres]
+  #   session[:building_name] = user_params[:building_name]
+  #   @user = User.new # 新規インスタンス作成
+  # end
 
   def create
     @user = User.new(
@@ -49,13 +49,13 @@ class SignupController < ApplicationController
       "birthday(2i)": session["birthday(2i)"],
       "birthday(3i)": session["birthday(3i)"],
       phone_number: session[:phone_number],
-      postal_code: session[:postal_code],
-      prefectures: session[:prefectures],
-      city: session[:city],
-      address: session[:address],
-      building_name: session[:building_name],
+      postal_code: user_params[:postal_code],
+      prefectures: user_params[:prefectures],
+      city: user_params[:city],
+      address: user_params[:address],
+      building_name: user_params[:building_name],
+      phone_number2: user_params[:phone_number2]
     )
-
     if @user.save
     # ログインするための情報を保管
       session[:id] = @user.id
@@ -87,6 +87,7 @@ class SignupController < ApplicationController
         :city,
         :address,
         :building_name,
+        :phone_number2
         )
     end
   end

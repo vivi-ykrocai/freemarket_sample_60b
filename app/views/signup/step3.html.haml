@@ -27,7 +27,7 @@
       .l-signup
         %h2.signup-head 住所入力
         .l-signup-inner
-          = form_for @user, url: step4_signup_index_path, method: :get, html: {class: 'f-content'} do |f|
+          = form_for @user, url: signup_index_path, method: :post, html: {class: 'f-content'} do |f|
             -# .form-list
             -#   %div
             -#     %label お名前
@@ -71,6 +71,7 @@
                 %span.form-require2 任意
               = f.text_field :phone_number2, placeholder: '例）09012345678' ,class: "login-input-text input-default"
             %p
-              =link_to signup_index_path, method: :post do
-                次へ進む
+              =f.submit "次へ進む"
+              -# =link_to signup_index_path, method: :post do
+              -#   次へ進む
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
