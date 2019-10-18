@@ -160,9 +160,17 @@
               }
               .select-wrap{
                 margin-top: 8px;
-                .icon-arrow-bottom{
+                #item_category_id{
+                  width: 100%;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
                 }
-                .select-default{
+                #item_delivery_charged{
                   height: 48px;
                   padding: 0 16px;
                   border-radius: 4px;
@@ -189,7 +197,27 @@
               }
               .select-wrap{
                 margin-top: 8px;
-                .select-default{
+                #item_item_status{
+                  width: 100%;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                }
+                #item_delivery_area{
+                  width: 100%;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                }
+                #item_delivery_shipping_date{
                   width: 100%;
                   height: 48px;
                   padding: 0 16px;
@@ -287,14 +315,3 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-::-ms-expand {
-display: none;
-}
-

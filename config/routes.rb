@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
+
   devise_for :users
+  root 'items#index'
 
   resources :items do
     collection do
-      get 'purchase'
       get 'sell'
-      get 'shousai'
+      get  'done'
+      post 'pay'
     end
   end
-  root 'items#index'
+
+  resources :items do
+    member do
+      get :purchase
+    end
+end
+
 
   resources :users, only: %i[index update] do
     collection do
@@ -16,6 +24,9 @@ Rails.application.routes.draw do
       get "logout"
       get "card"
       get "identification"
+      get 'selling'
+      get 'progression'
+      get 'completion'
     end
   end
 

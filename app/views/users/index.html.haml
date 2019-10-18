@@ -1,4 +1,5 @@
 = render partial: '/items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
 .container-mypage
   = render partial: "side_bar"
   .container-mypage__content
@@ -35,7 +36,7 @@
                 %time
                   = fa_icon 'clock-o'
                   %span 1日前
-              %i.fa.fa-chevron-right
+              %i.fa.fa-chevron-right.chevron-right-mypage
           %li
             .mypage-item__link
               %figure
@@ -46,7 +47,7 @@
                 %time
                   = fa_icon 'clock-o'
                   %span 1日前
-              %i.fa.fa-chevron-right
+              %i.fa.fa-chevron-right.chevron-right-mypage
           %li
             .mypage-item__link
               %figure
@@ -57,7 +58,7 @@
                 %time
                   = fa_icon 'clock-o'
                   %span 4日前
-              %i.fa.fa-chevron-right
+              %i.fa.fa-chevron-right.chevron-right-mypage
           %li
             .mypage-item__link
               %figure
@@ -68,7 +69,7 @@
                 %time
                   = fa_icon 'clock-o'
                   %span 6日前
-              %i.fa.fa-chevron-right
+              %i.fa.fa-chevron-right.chevron-right-mypage
 
           %li.mypage-item--all
             .mypage-item--all__text
