@@ -29,9 +29,9 @@
           .l-signup-content
             = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'form-list'} do |f|
               %label 携帯電話の番号
-              = f.text_field :phone_number, placeholder: '携帯電話の番号を入力' ,class: "input-list"
-              %p.l-signup-text
-                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              = f.text_field :phone_number, placeholder: '携帯電話の番号を入力 例)08012345678' ,class: "input-list"
+              -# %p.l-signup-text
+                -# 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
               %button.btn-red{onclick: "location.href='./signup/step3'"} 次へ進む
               %p.l-signup-text-bottom
                 ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
@@ -40,5 +40,7 @@
                   = link_to "電話番号の確認が必要な理由"
                   =fa_icon 'angle-right'
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+
+
 
 

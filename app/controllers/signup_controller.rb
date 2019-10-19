@@ -69,6 +69,8 @@ class SignupController < ApplicationController
     end
   end
 
+
+  
     private
 
   # 許可するキーを設定します
