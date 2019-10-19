@@ -17,7 +17,8 @@
                   .sell-upload-items
                     %ul
                 .sell-upload__box__items-have
-                  = f.file_field :image, type: "file", class: "upload-drop-file"
+                  = f.fields_for :images do |f_image|
+                    = f_image.file_field :image, type: "file", multiple: true,  name: "item[images_attributes][][image]", class: "upload-drop-file"
                   %pre
                     :preserve
                       ドラッグアンドドロップ
@@ -43,21 +44,7 @@
                       カテゴリー
                       %span.form-require 必須
                     .select-wrap
-                      %select.select-default
-                        %option{value: ""} ---
-                        %option{value: "1"} レディース
-                        %option{value: "2"} メンズ
-                        %option{value: "3"} ベビー・キッズ
-                        %option{value: "4"} インテリア・住まい・小物
-                        %option{value: "5"} 本・音楽・ゲーム
-                        %option{value: "1328"} おもちゃ・ホビー・グッズ
-                        %option{value: "6"} コスメ・香水・美容
-                        %option{value: "7"} 家電・スマホ・カメラ
-                        %option{value: "8"} スポーツ・レジャー
-                        %option{value: "9"} ハンドメイド
-                        %option{value: "1027"} チケット
-                        %option{value: "1318"} 自動車・オートバイ
-                        %option{value: "10"} その他
+                      = f.select :category_id, Category.where(ancestry: nil).map{|i| [i.name, i.id]}, prompt: "---"
                   .form-group-second
                     %label.form-group-second__name
                       商品の状態
@@ -81,7 +68,7 @@
                       発送元の地域
                       %span.form-require 必須
                     .select-wrap
-                      = f.collection_select :delivery_area, Prefecture.all, :id, :name, prompt: "---"
+                      = f.collection_select :delivery_area, Prefecture.all, :name, :name, prompt: "---"
                   .form-group-second
                     %label.form-group-second__name
                       発送までの日数
@@ -114,20 +101,20 @@
             .sell-content.sell-btn-box
               %div
                 %p.text
-                  = link_to "/jp/help_center/getting_started/prohibited_items/", target: "_blank" do
+                  = link_to "https://www.mercari.com/jp/help_center/getting_started/prohibited_items/", target: "_blank" do
                     禁止されている出品
                   、
-                  = link_to "/jp/help_center/getting_started/prohibited_conduct/", target: "_blank" do
+                  = link_to "https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/", target: "_blank" do
                     行為
                   を必ずご確認ください。
                 %p.text
                   またブランド品でシリアルナンバー等がある場合はご記載ください。
-                  = link_to "/jp/help_center/getting_started/counterfeit_goods/", target: "_blank" do
+                  = link_to "https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/", target: "_blank" do
                     偽ブランドの販売
                   は犯罪であり処罰される可能性があります。
                 %p.text
                   また、出品をもちまして
-                  = link_to "/jp/seller_terms/", target: "_blank" do
+                  = link_to "https://www.mercari.com/jp/seller_terms/", target: "_blank" do
                     加盟店規約
                   に同意したことになります。
               = f.submit "出品する", class:"red-button"

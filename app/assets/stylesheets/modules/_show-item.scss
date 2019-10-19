@@ -125,7 +125,7 @@
         font-size: 50px;
         font-weight: 500;
         line-height:50px;
-        margin-right: 16px; 
+        margin-right: 16px;
       }
       .item__tax {
         font-size: 10px;
@@ -223,8 +223,9 @@
               .user-avater {
                 width: 40px;
                 height: 40px;
+                border-radius:50%;
               }
-            }  
+            }
             .list-right {
               width: 600px;
               .user-name {
@@ -248,7 +249,7 @@
                   color: #AEAEAE;
                   display: flex;
                   justify-content: space-between;
-                  &__left {  
+                  &__left {
                   }
                   &__right {
                   }
@@ -421,7 +422,7 @@
     .tameshi {
       width: 100%;
       margin-right: 24px;
-    
+
       .item__another-name {
         font-size: 22px;
         font-weight: bold;

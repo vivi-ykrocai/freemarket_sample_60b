@@ -1,11 +1,16 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # has_secure_password
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-        #  :omniauthable, omniauth_providers: [:google_oauth2]
          
+        
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+  
   # has_many :items
   # has_one :address
   # has_one :credit_card
@@ -37,31 +42,51 @@ class User < ApplicationRecord
         )
       end
       return  { user: user, sns: sns }
-    end
-
-
-    def self.with_sns_data(auth, snscredential)
-      user = User.where(id: snscredential.user_id).first
-      unless user.present?
-        user = User.new(
-          nick_name: auth.info.name,
-          email: auth.info.email,
-        )
-      end
-      return {user: user}
-    end
-
-    def self.find_oauth(auth)
-      uid = auth.uid
-      provider = auth.provider
-      snscredential = SnsCredential.where(uid: uid, provider: provider).first
-      if snscredential.present?
-        user = with_sns_data(auth, snscredential)[:user]
-        sns = SnsCredential
-      else
-        user = without_sns_data(auth)[:user]
-        sns = without_sns_data(auth)[:sns]
-      end
-      return { user: user ,sns: sns}
-    end
   end
+
+
+  def self.with_sns_data(auth, snscredential)
+    user = User.where(id: snscredential.user_id).first
+    unless user.present?
+      user = User.new(
+        nick_name: auth.info.name,
+        email: auth.info.email,
+      )
+    end
+    return {user: user}
+  end
+
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      user = with_sns_data(auth, snscredential)[:user]
+      sns = SnsCredential
+    else
+      user = without_sns_data(auth)[:user]
+      sns = without_sns_data(auth)[:sns]
+    end
+    return { user: user ,sns: sns}
+  end
+
+  validates :nick_name, presence: true
+  validates :nick_name, uniqueness: true
+  validates :last_name, presence: true
+  validates :family_name, presence: true
+  validates :last_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
+  validates :family_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :password, presence: true
+  validates :password, length: { minimum: 7 }
+  validates :birthday, presence: true
+  validates :phone_number, presence: true
+  validates :phone_number, uniqueness: true
+  validates :phone_number, length: { is: 11 }
+  validates :postal_code, presence: true
+  validates :postal_code, length: { is: 7 }
+  validates :prefectures, presence: true
+  validates :city, presence: true
+  validates :address, presence: true
+end

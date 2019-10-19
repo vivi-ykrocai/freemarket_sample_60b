@@ -118,7 +118,6 @@ Devise.setup do |config|
 
   # config.pepper = '6a12552f7a00c547e6985281b1834af121250649d60950f23242c1f8df3292934210ecf5ab04a07f3437fae2b23dacde450605296f90395a2840a3ed105ae9d7'
 
-
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
 

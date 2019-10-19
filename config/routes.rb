@@ -12,22 +12,19 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
-      # get 'purchase'
       get 'sell'
       get  'done'
       post 'pay'
-      # post 'pay/:id' => 'items#pay'
-      # 今はDBに情報がないため仮置きで 'pay'にしている。
-      # 後で 'pay/:id'に修正する。工藤
+
     end
   end
 
   resources :items do
     member do
-      get :purchase
+      get 'purchase'
+      get 'detail'
     end
 end
-
 
 
   resources :users, only: [:index, :update] do
@@ -36,6 +33,9 @@ end
       get "logout"
       get "card"
       get "identification"
+      get 'selling'
+      get 'progression'
+      get 'completion'
     end
   end
 
@@ -54,6 +54,4 @@ end
   resources :cards, only: [:index, :edit, :update]
   resources :logouts, only: [:index]
 
-  # S3画像アップロードテスト用のルーティング作成(いずれ削除)
-  resources :tests, only: [:index, :create]
 end

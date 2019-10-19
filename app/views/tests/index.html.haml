@@ -1,9 +1,0 @@
-.form.new-test
-  =form_for [@test] do |f|
-    = f.label :image, class:'input-box__image', value:'テスト用写真'
-    = f.file_field :image, class:'input-box__image__file'
-    = f.submit '送信', class:'submit-btn'
-
-
-- @tests.each do |test|
-  = image_tag test.image.url

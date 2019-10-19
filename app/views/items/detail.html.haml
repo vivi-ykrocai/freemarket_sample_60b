@@ -1,0 +1,157 @@
+= render partial: '/items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
+
+.item-detail-wrapper
+
+  .item-box-container
+    %h1.item-name
+      = @item.name
+
+    .item-main-content
+      .item__photos
+        = image_tag "#{@item.images[0].image}", class:"item__main-photo"
+        .item__little-photos
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
+
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th
+              -# = @user.name
+            %td
+              = link_to 'ここなつ', 'https://www.mercari.com/jp/mypage/', class: "td__user-name"
+              .item-user__information
+                .item-user__ratings
+                  = fa_icon 'laugh',class:"icon-good"
+                  %span 64
+                .item-user__ratings
+                  = fa_icon 'meh',class:"icon-normal"
+                  %span 1
+                .item-user__ratings
+                  = fa_icon 'frown-open',class:"icon-bad"
+                  %span 1
+          %tr
+            %th カテゴリー
+            %td
+              %ul
+                %li
+                  = link_to '#', class:"list__category" do
+                    -# = @item.category.parent.parent.name
+                %li
+                  = link_to '#', class:"list__category" do
+                    = fa_icon 'chevron-right'
+                    -# = @item.category.parent.name
+                %li
+                  = link_to '#', class:"list__category" do
+                    = fa_icon 'chevron-right'
+                    -# = @item.category.name
+          %tr
+            %th ブランド
+            %td
+              = link_to 'コーチ', 'https://www.mercari.com/jp/brand/539/', class:"td__brand"
+
+          %tr
+            %th 商品の状態
+            %td
+              = @item.item_status
+          %tr
+            %th 配送料の負担
+            %td
+              = @item.delivery_charged
+          %tr
+            %th 配送の方法
+            %td
+              = @item.delivery_method
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "#{@item.delivery_area}", '#', class:"td__area"
+          %tr
+            %th 発送日の目安
+            %td
+              = @item.delivery_shipping_date
+
+
+    .item__price-box
+      .item__price
+        = "¥#{@item.total_price.to_s(:delimited)}"
+      .item__tax
+        (税込)
+      .item__fee
+        送料込み
+
+    .item-introduction
+      %p
+        = @item.item_profile_comment
+
+    .item__edit-btn
+      = link_to "商品編集", edit_item_path(@item),class:"item__edit-btn", 'data-turbolinks': false
+
+
+
+
+    .center-comment
+      or
+
+    .item__edit-btn-a
+      = link_to '出品を一旦停止する', "/items/:id/purchase", class:"item__edit-btn-a"
+
+    .item__edit-btn-a
+      = link_to 'この商品を削除する', "/items/:id/purchase", class:"item__edit-btn-a"
+
+
+  .item__chat-message
+    .message-container
+      .message-content
+        %ul.message-items
+          %li
+            .list-left
+              .user-avater
+                = image_tag "mypage/mypage-icon-ootani.png", class:"user-avater"
+            .list-right
+              .user-name
+                大谷翔平
+              .user-message-body
+                .user-message-body__text
+                  値下げは可能でしょうか？
+                .user-message-body__icons
+                  .user-message-body__icons-left
+                    = fa_icon "clock", class:"icon-clock"
+                    %span ３日前
+                  .user-message-body__icons-right
+                    = fa_icon "flag-o", class:"icon-flag"
+                  .icon-balloon
+          %li
+            .list-left
+              .user-avater
+                = image_tag "mypage/mypage-icon-kudo.png", class:"user-avater"
+            .list-right
+              .user-name
+                つば九郎
+              .user-message-body
+                .user-message-body__text
+                  値下げは嫌です。ごめんなさい。
+                .user-message-body__icons
+                  .user-message-body__icons-left
+                    = fa_icon "clock", class:"icon-clock"
+                    %span ３日前
+                  .user-message-body__icons-right
+                    = fa_icon "flag-o", class:"icon-flag"
+
+      .message-content
+        %form.message-form
+          %p
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea
+          %button
+            = link_to 'コメントする', '#', class:"comment-btn"
+
+
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }

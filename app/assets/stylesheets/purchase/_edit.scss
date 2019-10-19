@@ -1,0 +1,480 @@
+.item-detail-wrapper {
+  background-color: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+  // 商品購入情報全体
+  .item-box-container {
+    background-color: white;
+    width: 700px;
+    padding: 24px 40px 40px;
+    margin: 40px auto 0;
+
+    h1.item-name {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    // 写真(左)＆出品者情報(右)
+    .item-main-content {
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+
+      // 写真(左)
+      .item__photos {
+        float: left;
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 375px;
+        background: #fafafa;
+        line-height: 0;
+        .item__main-photo {
+          width: 300px;
+          height: 300px;
+        }
+        .item__little-photos {
+          width: 300px;
+          height: 120px;
+          display: flex;
+          flex-wrap: wrap;
+          .item__little-photo {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+
+      // 出品者情報(右)
+      table.item-detail-table {
+        width: 300px;
+        height: 420px;
+        tbody {
+          font-size: 14px;
+          tr {
+            th {
+              border: 1px solid #F5F5F5;
+              background-color: #FAFAFA;
+              padding: 8px;
+            }
+            td {
+              border: 1px solid #F5F5F5;
+              padding: 8px;
+              .item-user__information {
+                display: flex;
+                .item-user__ratings {
+                  display: inline-block;
+                  margin: 8px 16px 0 0;
+                }
+              }
+              .td__user-name {
+                color: #0099E8;
+                text-decoration: none;
+              }
+              .icon-good {
+                font-size: 16px;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                color: #EF5185;
+              }
+              .icon-normal {
+                font-size: 16px;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                color: #FBA934;
+              }
+              .icon-bad {
+                font-size: 16px;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                color: #6AB5D8;
+              }
+              ul {
+                li {
+                  .list__category {
+                    color: #0099E8;
+                    text-decoration: none;
+                  }
+                }
+              }
+              .td__brand {
+                color: #0099E8;
+                text-decoration: none;
+              }
+              .td__area {
+                color: #0099E8;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 値段が書いてある部分
+    .item__price-box {
+      height: 50px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      .item__price {
+        font-size: 50px;
+        font-weight: 500;
+        line-height:50px;
+        margin-right: 16px;
+      }
+      .item__tax {
+        font-size: 10px;
+        padding-top: 30px;
+        margin-right: 2px;
+
+      }
+      .item__fee {
+        font-size: 16px;
+        padding-top: 24px;
+
+      }
+
+    }
+
+    .item__buy-btn {
+      display: block;
+      height: 60px;
+      margin-top: 16px;
+      background-color: #EA352D;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 60px;
+      text-decoration: none;
+    }
+
+    // 商品紹介
+    .item-introduction {
+      padding-top: 32px;
+      p {
+        font-size: 18px;
+        white-space: pre-wrap;
+      }
+    }
+
+    .item-button {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      &-left {
+        display: flex;
+        .iine-btn {
+          padding: 8px 16px;
+          font-size: 14px;
+          color: #333333;
+          text-decoration: none;
+          background-color: #F5F5F5;
+          border-radius: 40px;
+          .icon-heart {
+            font-weight: 400;
+          }
+        }
+        .unsuitable-btn {
+          padding: 8px 16px;
+          font-size: 14px;
+          margin-left: 16px;
+          color: #333333;
+          text-decoration: none;
+          background-color: #F5F5F5;
+          border-radius: 40px;
+        }
+      }
+      &-right {
+        margin-top: 8px;
+        font-size: 14px;
+        .safe-btn {
+          color: #0099E8;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // チャットメッセージ
+  .item__chat-message {
+    background-color: white;
+    width: 700px;
+    margin: 8px auto 0;
+    .message-container {
+      .message-content {
+        padding: 24px;
+
+        .message-items {
+
+        }
+      }
+      .message-content {
+        ul {
+          li {
+            margin-top: 20px;
+            display: flex;
+            .list-left {
+              .user-avater {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+
+              }
+            }
+            .list-right {
+              width: 600px;
+              .user-name {
+                padding-left: 5px;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .user-message-body {
+                position: relative;
+                padding: 16px;
+                margin-left: 10px;
+                background-color: #EEF0F4;
+                border-radius: 10px;
+                &__text {
+                  font-size: 14px;
+                  white-space: pre-wrap;
+                }
+                &__icons {
+                  margin-top: 8px;
+                  font-size: 14px;
+                  color: #AEAEAE;
+                  display: flex;
+                  justify-content: space-between;
+                  &__left {
+                  }
+                  &__right {
+                  }
+                  .icon-balloon {
+                    width: 10px;
+                    height: 15px;
+                    position: absolute;
+                    z-index: 1;
+                    top: 8px;
+                    left: -9px;
+                    color: red;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .message-form {
+          p {
+            padding: 8px;
+            font-size: 14px;
+            line-height: 15px;
+            background-color: #FFF6DE;
+
+          }
+          textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            background-color: #F5F5F5;
+          }
+          button {
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            background: #aaa;
+            border: 1px solid #aaa;
+            .comment-btn {
+              color: #fff;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // prev-next
+  .nav-link {
+    margin: 24px auto 0;
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    &-prev {
+      color: #0099E8;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    &-next {
+      color: #0099E8;
+      text-decoration: none;
+    }
+  }
+
+  // SNSアイコン
+  .item__social-media-box {
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+    background-color: #fff;
+    .social-media-box {
+      display: flex;
+      margin-top: 16px;
+      justify-content: center;
+      list-style: none;
+      position: relative;
+      li {
+        width: 45px;
+        height: 45px;
+        margin: 0 8px 8px 0;
+        .facebook {
+          padding: 5px 8px;
+          color: #fff;
+          background-color: #385185;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+        .twitter {
+          padding: 5px 6px;
+          color: #fff;
+          background-color: #5D9DC9;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+        .line {
+          position: absolute;
+          left: 350px;
+          top: -3px;
+          font-family: 'Font Awesome 5 Brands';
+          color: #01C138;
+          font-size: 49px;
+          border-radius: 5px;
+        }
+        .pinterest {
+          padding: 5px 8px;
+          color: #fff;
+          background-color: #AA262A;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  // ユーザーのその他の出品紹介
+  .item__in-user-boxes {
+    width: 700px;
+    margin: 0 auto;
+    .item__user-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 24px 0 8px;
+      line-height: 1.4;
+      &__title {
+        color: #0099E8;
+        text-decoration: none;
+      }
+    }
+    .item__user-other-items {
+      width: 700px;
+      height: 350px;
+      display: flex;
+      .item-box {
+        width: 220px;
+        margin: 0 20px 20px 0;
+        &__photo {
+          width: 220px;
+          height: 220px;
+        }
+        &__body {
+          height: 110px;
+          padding: 16px;
+          background-color: #fff;
+          .item-box__name {
+            font-size: 16px;
+            height: 48px;
+          }
+          .item__numbers {
+            display: flex;
+            margin-top: 8px;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
+
+  // 同じ商品種類のその他の出品紹介
+  .item__in-another-boxes {
+    width: 700px;
+    margin: 0 auto;
+    .tameshi {
+      width: 100%;
+      margin-right: 24px;
+
+      .item__another-name {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 24px 0 8px;
+        line-height: 1.4;
+        &__title {
+          color: #0099E8;
+          text-decoration: none;
+        }
+      }
+      .item__another-items {
+        width: 700px;
+        height: 700px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .another-item-box {
+          width: 220px;
+          height: 330px;
+          margin-bottom:20px;
+          &__photo {
+            width: 220px;
+            height: 220px;
+          }
+          .item-box__body {
+            height: 110px;
+            padding: 16px;
+            background-color: #fff;
+            .item-box__name {
+              font-size: 16px;
+              height: 48px;
+            }
+            .item__numbers {
+              display: flex;
+              margin-top: 8px;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-bottom {
+    border-top: 1px solid #eee;
+    &__name {
+      width: 700px;
+      margin: 0 auto;
+      padding: 16px 0;
+      font-size: 14px;
+    }
+  }
+
+}

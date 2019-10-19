@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_passwo
 
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -37,27 +37,30 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
-gem 'haml-rails'
 gem "font-awesome-rails"
+gem 'haml-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capistrano'
-  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocoop', require:false
+
+  gem 'factory_bot_rails'
+  gem 'rubocop', require: false
 end
 
 group :test do
@@ -73,20 +76,28 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'font-awesome-rails'
-gem 'devise' 
-gem 'payjp'
-gem 'haml-rails'
-gem 'erb2haml'
-gem 'jquery-rails'
 gem 'active_hash'
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'devise'
+gem 'erb2haml'
 gem 'fog-aws'
+gem 'font-awesome-rails'
+gem 'devise'
+gem 'payjp'
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'mini_magick'
+gem 'payjp'
 gem 'pry-rails'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'test-unit'
+gem 'wicked'
+gem 'gretel'
+gem 'ancestry'
