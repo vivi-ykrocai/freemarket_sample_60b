@@ -48,7 +48,7 @@
               %div
                 %label 都道府県
                 %span.form-require 必須
-              = f.text_field :prefectures, placeholder: '都道府県' ,class: "login-input-text input-default"
+              = f.collection_select :prefectures, @prefectures, :name, :name, prompt: "---"  
             .form-list
               %div
                 %label 市区町村
@@ -70,6 +70,5 @@
                 %span.form-require2 任意
               = f.text_field :phone_number2, placeholder: '例）09012345678' ,class: "login-input-text input-default"
             %p
-              =f.submit "次へ進む"
-
+              =f.submit "次へ進む" , class:"btn-red"
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }

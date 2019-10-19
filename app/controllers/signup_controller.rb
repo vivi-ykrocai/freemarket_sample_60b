@@ -23,6 +23,7 @@ class SignupController < ApplicationController
     # step2で入力された値をsessionに保存
     session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
+    @prefectures = Prefecture.all
   end
 
   # def step4
