@@ -28,7 +28,7 @@
                   商品名
                   %span.form-require 必須
                 %div
-                  = f.text_field :name, class: "input-default", placeholder: "商品名（必須 40文字まで)", value: ""
+                  = f.text_field :name, class: "input-default", placeholder: "商品名（必須 40文字まで)"
               .form-group-next
                 %label.form-group-next__name
                   商品の説明
@@ -44,8 +44,6 @@
                       %span.form-require 必須
                     .select-wrap
                       = f.select :category_id, Category.where(ancestry: nil).map{|i| [i.name, i.id]}, prompt: "---"
-                      -# = f.select :category_id, Category.where(ancestry: nil).map{|i| i.name}
-                      -# = f.select :category_id, Category.where(ancestry: nil).map{|i| i.name}
                   .form-group-second
                     %label.form-group-second__name
                       商品の状態
@@ -89,14 +87,14 @@
                     .sell-form-box-right
                       ¥
                       .input-wrapper
-                        = f.text_field :total_price, id: "input-price", placeholder: "例）300", value: "", type: "number"
+                        = f.text_field :total_price, id: "input-price", placeholder: "例）300",  type: "number"
                   .sell-form-box__middle
                     .sell-form-box-left
                       販売手数料 (10%)
-                    #output-fee -
+                    #output-fee ¥#{@fee}
                   .sell-form-box__bottom
                     .sell-form-box-left 販売利益
-                    #output-profit -
+                    #output-profit ¥#{@profit}
             .modal{role: "dialog", tabindex: "-1"}
               .modal-inner
             .sell-content.sell-btn-box

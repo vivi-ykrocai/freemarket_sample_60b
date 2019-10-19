@@ -17,11 +17,30 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @output_fee = (@item.total_price/10)
+    # @output_profit = (@item.total_price)-(@output_fee).to_s(:delimited)
+    total_price = @item.total_price
+    fee = (@item.total_price) / 10
+    @fee = fee.to_s(:delimited)
+    @profit = (total_price - fee).to_s(:delimited)
   end
 
   def detail
     @item = Item.find(params[:id])
+    # @user = User.find(params[:id])
   end
+
+  def update
+    @item = Item.find(params[:id])
+    if
+    @item.update(item_params)
+    redirect_to users_path
+  else
+    render :edit
+  end
+
+  end
+
 
 
 
