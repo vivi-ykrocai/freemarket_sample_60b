@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def index; end
 
   def logout; end
+
   def selling
     @items = Item.order("created_at DESC")  #user機能を実装したら変更
   end
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 
   def completion
   end
-end
+
 
   def card; end
 

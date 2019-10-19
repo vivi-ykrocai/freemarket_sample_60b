@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_group
+
   def index
     @items = Item.order("created_at DESC").limit(10)
   end
@@ -12,12 +14,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.images
   end
 
   def edit
-    @item = Item.find(params[:id])
     @output_fee = (@item.total_price/10)
     total_price = @item.total_price
     fee = (@item.total_price) / 10
@@ -26,12 +26,10 @@ class ItemsController < ApplicationController
   end
 
   def detail
-    @item = Item.find(params[:id])
-
+    @images = @item.images
   end
 
   def update
-    @item = Item.find(params[:id])
     if
     @item.update(item_params)
     redirect_to detail_item_path
@@ -41,9 +39,6 @@ class ItemsController < ApplicationController
 
   end
 
-
-
-
   def create
     # Item.create(name: item_params[:name], image: item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
     @item = Item.create(item_params)
@@ -51,7 +46,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     charge = Payjp::Charge.create(
     amount: 2000000,
@@ -64,9 +58,17 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image])
       #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
   end
+
+  def set_group
+    @item = Item.find(params[:id])
+  end
+
+
+
 
 end

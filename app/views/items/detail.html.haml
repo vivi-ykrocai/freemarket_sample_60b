@@ -9,7 +9,7 @@
 
     .item-main-content
       .item__photos
-        = image_tag "#{@item.image}", class:"item__main-photo"
+        = image_tag "#{@item.images[0].image}", class:"item__main-photo"
         .item__little-photos
           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
