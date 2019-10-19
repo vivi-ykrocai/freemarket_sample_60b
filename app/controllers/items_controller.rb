@@ -4,18 +4,12 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC").limit(10)
   end
 
-  def purchase
-  end
+  def purchase; end
 
   def new
-    # @categories = Category.all.order("id ASC").limit(93)
     @item = Item.new
+    @item.images.build  # itemレコードが保存された際にimageレコードにも保存をかける
     @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
-    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-    # @children = Category.find_by(name: "メンズ").children.map{|i| [i.name, i.id]}
-    # @children = Category.find(200).children.map{|i| [i.name, i.id]}
-    # @grandchildren = Category.find(2).children.map{|i| [i.name, i.id]}
-    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     @item_status = Item.item_statuses.keys
     @delivery_charged = Item.delivery_chargeds.keys
     @delivery_area = Prefecture.all
@@ -34,10 +28,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @images = @item.images
   end
 
   def create
-    Item.create(name: item_params[:name], image: item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
+    # Item.create(name: item_params[:name], image: item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
+    @item = Item.create(item_params)
     redirect_to action: :index
   end
   
@@ -56,7 +52,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id)
+    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image])
       #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
   end
 

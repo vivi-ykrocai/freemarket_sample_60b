@@ -20,8 +20,7 @@ Rails.application.routes.draw do
 end
 
 
-
-  resources :users, only: [:index, :update] do
+  resources :users, only: %i[index update] do
     collection do
       get 'henshuu'
       get "logout"
@@ -45,10 +44,9 @@ end
     end
   end
 
-  resources :cards, only: [:index, :edit, :update]
+  resources :cards, only: %i[index edit update]
   resources :logouts, only: [:index]
 
   # S3画像アップロードテスト用のルーティング作成(いずれ削除)
-  resources :tests, only: [:index, :create]
-
+  resources :tests, only: %i[index create]
 end
