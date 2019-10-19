@@ -8,7 +8,28 @@ class ItemsController < ApplicationController
   end
 
   def new
+    # @categories = Category.all.order("id ASC").limit(93)
     @item = Item.new
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
+    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    # @children = Category.find_by(name: "メンズ").children.map{|i| [i.name, i.id]}
+    # @children = Category.find(200).children.map{|i| [i.name, i.id]}
+    # @grandchildren = Category.find(2).children.map{|i| [i.name, i.id]}
+    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @item_status = Item.item_statuses.keys
+    @delivery_charged = Item.delivery_chargeds.keys
+    @delivery_area = Prefecture.all
+    @delivery_shipping_date = Item.delivery_shipping_dates.keys
+  end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    @category_children = Category.find(params[:parent_id]).children    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
   end
 
   def show

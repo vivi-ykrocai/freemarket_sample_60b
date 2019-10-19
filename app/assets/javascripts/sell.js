@@ -11,8 +11,9 @@ function update_field(){
     $('#output-profit').text('-');
   }
 }
-$(function() {
-  $('input[type="number"]').on('keyup change', function() {
+
+$(document).on("turbolinks:load", function(){
+$('input[type="number"]').on('keyup change', function() {
     update_field();
   });
 });

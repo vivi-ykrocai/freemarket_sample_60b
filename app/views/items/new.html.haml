@@ -38,18 +38,18 @@
               .sell-form-wrapper
                 %h3.sell-sub-head 商品の詳細
                 .sell-form-box
-                  .form-group-first
+                  #form-group-first.form-group-first
                     %label.form-group-first__name
                       カテゴリー
                       %span.form-require 必須
-                    .select-wrap
-                      = f.select :category_id, Category.where(ancestry: nil).map{|i| [i.name, i.id]}, prompt: "---"
+                    #select-wrap
+                      = f.select :category_id, @category_parents, prompt: "---"
                   .form-group-second
                     %label.form-group-second__name
                       商品の状態
                       %span.form-require 必須
                     .select-wrap
-                      = f.select :item_status, Item.item_statuses.keys, prompt: "---"
+                      = f.select :item_status, @item_status, prompt: "---"
             .sell-content
               .sell-form-wrapper
                 %h3.sell-sub-head 配送について
@@ -61,19 +61,19 @@
                       配送料の負担
                       %span.form-require 必須
                     .select-wrap
-                      = f.select :delivery_charged, Item.delivery_chargeds.keys, prompt: "---"
+                      = f.select :delivery_charged, @delivery_charged, prompt: "---"
                   .form-group-second
                     %label.form-group-second__name
                       発送元の地域
                       %span.form-require 必須
                     .select-wrap
-                      = f.collection_select :delivery_area, Prefecture.all, :name, :name, prompt: "---"
+                      = f.collection_select :delivery_area, @delivery_area, :name, :name, prompt: "---"
                   .form-group-second
                     %label.form-group-second__name
                       発送までの日数
                       %span.form-require 必須
                     .select-wrap
-                      = f.select :delivery_shipping_date, Item.delivery_shipping_dates.keys, prompt: "---"
+                      = f.select :delivery_shipping_date, @delivery_shipping_date, prompt: "---"
             .sell-content
               .sell-form-wrapper
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
