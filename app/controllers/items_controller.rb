@@ -11,6 +11,21 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build  # itemレコードが保存された際にimageレコードにも保存をかける
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
+    @item_status = Item.item_statuses.keys
+    @delivery_charged = Item.delivery_chargeds.keys
+    @delivery_area = Prefecture.all
+    @delivery_shipping_date = Item.delivery_shipping_dates.keys
+  end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    @category_children = Category.find(params[:parent_id]).children    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
   end
 
   def show
