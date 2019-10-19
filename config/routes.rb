@@ -15,12 +15,13 @@ Rails.application.routes.draw do
 
   resources :items do
     member do
-      get :purchase
+      get 'purchase'
+      get 'detail'
     end
 end
 
 
-  resources :users, only: %i[index update] do
+  resources :users, only: [:index, :update] do
     collection do
       get 'henshuu'
       get "logout"
@@ -44,9 +45,7 @@ end
     end
   end
 
-  resources :cards, only: %i[index edit update]
+  resources :cards, only: [:index, :edit, :update]
   resources :logouts, only: [:index]
 
-  # S3画像アップロードテスト用のルーティング作成(いずれ削除)
-  resources :tests, only: %i[index create]
 end

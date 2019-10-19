@@ -5,7 +5,7 @@
   .item-box-container
     %h1.item-name
       = @item.name
-      
+
     .item-main-content
       .item__photos
         = image_tag "#{@item.images[0].image}", class:"item__main-photo"
@@ -86,7 +86,7 @@
 
 
     .item-introduction
-      %p 
+      %p
         = @item.item_profile_comment
 
 
@@ -137,7 +137,6 @@
               .user-message-body
                 .user-message-body__text
                   欲しいです。
-                  5,000円で即決できませんか？
                 .user-message-body__icons
                   .user-message-body__icons-left
                     = fa_icon "clock", class:"icon-clock"

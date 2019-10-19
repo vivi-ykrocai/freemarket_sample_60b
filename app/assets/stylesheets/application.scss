@@ -1,15 +1,15 @@
-
 @import "config/reset";
 @import "font-awesome";
 @import "config/variable";
-
-
 @import "top-page/items";
 @import "top-page/header";
 @import "top-page/fotter";
 @import "top-page/aside";
 @import "top-page/sell-icon";
 @import "_identification";
+@import "items/detail";
+@import "items/edit";
+@import "purchase/edit";
 @import "purchase/purchase";
 @import "purchase/sell";
 @import "cards";
@@ -19,7 +19,6 @@
 @import "modules/side_bar";
 @import "modules/show-item";
 @import "modules/sales_status";
-
 @import "user-registration/sign_up_header";
 @import "user-registration/sign_up_footer";
 @import "user-registration/sign_up";
@@ -29,8 +28,4 @@
 @import "user-registration/step3";
 @import "user-registration/step4";
 @import "user-registration/finish";
-
-
-@import "modules/edit";
-
 @import "tests";

@@ -35,5 +35,5 @@ class UsersController < ApplicationController
 
   def henshuu
   end
-  
+
 end
