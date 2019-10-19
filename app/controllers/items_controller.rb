@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_group
+  before_action :set_item, only: [:show, :detail, :edit, :update]
 
   def index
     @items = Item.order("created_at DESC").limit(10)
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
       #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
   end
 
-  def set_group
+  def set_item
     @item = Item.find(params[:id])
   end
 
