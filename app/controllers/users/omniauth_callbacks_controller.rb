@@ -8,8 +8,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
+
   def callback_for(provider)
-    @omniauth = request.env[`omniauth.auth`]
+    @omniauth = request.env['omniauth.auth']
     info = User.find_oauth(@omniauth)
     @user = info[:user]
     if @user.persisted?
@@ -19,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @sns = info[:sns]
       session[:provider] = @sns[:provider]
       session[:uid] = @sns[:uid]
-      redirect_to sign_up_signup_index_path
+      render template: "signup/step1" 
     end
   end
 

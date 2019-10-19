@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable,omniauth_providers: %i[facebook google_oauth2]
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+        #  :omniauthable, omniauth_providers: [:google_oauth2]
          
   # has_many :items
   # has_one :address
@@ -13,6 +14,7 @@ class User < ApplicationRecord
   has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
   has_many :sns_credentials, dependent: :destroy
+
 
 
   def self.without_sns_data(auth)
@@ -26,7 +28,7 @@ class User < ApplicationRecord
         )
       else
         user = User.new(
-          nickname: auth.info.name,
+          nick_name: auth.info.name,
           email:auth.info.email,
         )
         sns = SnsCredential.new(
@@ -37,11 +39,12 @@ class User < ApplicationRecord
       return  { user: user, sns: sns }
     end
 
+
     def self.with_sns_data(auth, snscredential)
       user = User.where(id: snscredential.user_id).first
       unless user.present?
         user = User.new(
-          nickname: auth.info.name,
+          nick_name: auth.info.name,
           email: auth.info.email,
         )
       end
@@ -61,5 +64,4 @@ class User < ApplicationRecord
       end
       return { user: user ,sns: sns}
     end
-end
-
+  end
