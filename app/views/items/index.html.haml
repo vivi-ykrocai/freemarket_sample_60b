@@ -34,7 +34,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -51,7 +51,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -68,7 +68,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -85,7 +85,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -124,7 +124,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -141,7 +141,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -158,7 +158,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name
@@ -176,7 +176,7 @@
             - @items.each do |item|
               .item
                 = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.image}", class:"item__image"
+                  = image_tag "#{item.images[0].image}", class:"item__image"
                   %span.item__price
                     = "¥#{item.total_price.to_s(:delimited)}"
                   .item__name

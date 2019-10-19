@@ -1,22 +1,29 @@
 class UsersController < ApplicationController
-  def index
-  end
+  def step1; end
 
-  def logout
-  end
+  def step2; end
 
-  def card
-  end
+  def step3; end
 
-  def identification
-  end
+  def step4; end
 
-  def henshuu
-  end
+  def index; end
 
+  def logout; end
   def selling
+    @items = Item.order("created_at DESC")  #user機能を実装したら変更
   end
 
+  def progression
+  end
+
+  def completion
+  end
 end
 
+  def card; end
 
+  def identification; end
+
+  def henshuu; end
+end
