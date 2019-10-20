@@ -100,10 +100,10 @@
       or
 
     .item__edit-btn-a
-      = link_to '出品を一旦停止する', "/items/:id/purchase", class:"item__edit-btn-a"
+      = link_to '出品を一旦停止する',detail_item_path(@item), class:"item__edit-btn-a"
 
     .item__edit-btn-a
-      = link_to 'この商品を削除する', "/items/#{@item.id}", method: :delete, class:"item__edit-btn",'data-turbolinks': false
+      = link_to 'この商品を削除する',item_path(@item), method: :delete, class:"item__edit-btn",'data-turbolinks': false
 
 
   .item__chat-message
