@@ -11,25 +11,25 @@
 |family_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |birthday|date|null: false|
-|iine|string|-------|
-|mer_point|string|-------|
-|icon_image|string|-------|
-|profiile_comments|text|-------|
-|number_of_exhibits|integer|-------|
-|number_of_evaluations|integer|-------|
-|excerent|string|-------|
-|good|string|-------|
-|bad|string|-------|
-|postal_code|string|-------|
-|prefectures|string|-------|
-|city|string|-------|
-|address|string|-------|
-|building_name|string|-------|
-|reset_password_token|string|-------|
-|reset_password_sent_at|datetime|-------|
-|remember_created_at|datetime|-------|
-|phone_number|string|-------|
-|phone_number2|string|-------|
+|iine|string||
+|mer_point|string||
+|icon_image|string||
+|profiile_comments|text||
+|number_of_exhibits|integer||
+|number_of_evaluations|integer||
+|excerent|string||
+|good|string||
+|bad|string||
+|postal_code|string||
+|prefectures|string||
+|city|string||
+|address|string||
+|building_name|string||
+|reset_password_token|string||
+|reset_password_sent_at|datetime||
+|remember_created_at|datetime||
+|phone_number|string||
+|phone_number2|string||
 |index [email], name: "index_users_on_email", unique: true|
 |index [reset_password_token], name:"index_users_on_reset_password_token", unique: true|
 
@@ -65,9 +65,9 @@
 |item_profile_comment|text|null:false|
 |item salse status|integer|null:false|
 |good|integer||
-|buyer_id|integer|-------|
-|seller_id|integer|-------|
-|category_id|bigint|-------|
+|buyer_id|integer||
+|seller_id|integer||
+|category_id|bigint||
 |index [category_id], name: "index_items_on_category_id"
 |user_id|references|integer|null: false, foreign_key: true|
 
@@ -92,8 +92,8 @@
 
 ## images_table
 |Column|Type|Options|
-|image|string|-------|
-|item_id|bigint|-------|
+|image|string||
+|item_id|bigint|  |
 |index [item_id], name: "index_images_on_item_id"|
 
 
