@@ -36,15 +36,15 @@
               %ul
                 %li
                   = link_to '#', class:"list__category" do
-                    -# = @item.category.parent.parent.name
+                    = @item.category.parent.parent.name 
                 %li
                   = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    -# = @item.category.parent.name
+                    = @item.category.parent.name 
                 %li
                   = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    -# = @item.category.name
+                    = @item.category.name
           %tr
             %th ブランド
             %td
@@ -74,7 +74,7 @@
 
     .item__price-box
       .item__price
-        = "¥#{@item.total_price.to_s(:delimited)}"
+        = "¥#{@total_price}"
       .item__tax
         (税込)
       .item__fee

@@ -24,8 +24,8 @@
                 %input.signin-input-text.input-list{placeholder: :メールアドレス, value: ""}/
               .form-list
                 %input.signin-input-text.input-list{placeholder:  :パスワード, type:"password"}/
-              .form-list
-                = image_tag "honninkakunin.png", size:"250x60"
+              -# .form-list
+              -#   = image_tag "honninkakunin.png", size:"250x60"
               %button.signin-submit.btn-list.btn-red{} ログイン
               %input{name: :__csrf_value, type: :hidden, value: :""}/
               = link_to "パスワードをお忘れの方"
