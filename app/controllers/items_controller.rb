@@ -75,8 +75,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image])
-      #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date, :total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image]).merge(seller_id: current_user.id)
   end
 
   def set_item
