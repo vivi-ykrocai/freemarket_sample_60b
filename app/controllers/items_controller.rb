@@ -30,10 +30,11 @@ class ItemsController < ApplicationController
 
   def show
     @images = @item.images
+    @total_price = @item.total_price.to_s(:delimited)
   end
 
   def edit
-    @output_fee = (@item.total_price/10)
+    # @output_fee = (@item.total_price/10)
     total_price = @item.total_price
     fee = (@item.total_price) / 10
     @fee = fee.to_s(:delimited)
