@@ -48,7 +48,7 @@
 |city|string|null: false|
 |address|string|null: false|
 |apartment_house|string||
-|user_id|null: false, foreign_key: true|
+|user_id|integer|null: false|
 |index [user_id], name: "index_addresses_on_user_id"
 
 
@@ -68,7 +68,7 @@
 |buyer_id|integer||
 |seller_id|integer||
 |category_id|bigint||
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false|
 |index [category_id], name: "index_items_on_category_id"
 
 
