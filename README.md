@@ -68,8 +68,9 @@
 |buyer_id|integer||
 |seller_id|integer||
 |category_id|bigint||
-|index [category_id], name: "index_items_on_category_id"
 |user_id|references|integer|null: false, foreign_key: true|
+|index [category_id], name: "index_items_on_category_id"
+
 
 
 ### Association
@@ -92,6 +93,7 @@
 
 ## images_table
 |Column|Type|Options|
+|------|----|-------|
 |image|string||
 |item_id|bigint|  |
 |index [item_id], name: "index_images_on_item_id"|
