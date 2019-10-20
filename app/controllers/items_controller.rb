@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :detail, :edit, :update]
+  before_action :set_item, only: [:show, :detail, :edit, :update, :destroy]
 
   def index
     @items = Item.order("created_at DESC").limit(10)
@@ -53,8 +53,17 @@ class ItemsController < ApplicationController
 
   end
 
+  def destroy
+    #  if @item.seller_id == current_user.id
+       @item.destroy
+      redirect_to root_path
+    # end
+    # ログイン機能が完成したらコメントアウトした部分を追加する。
+
+   end
+
   def create
-    # Item.create(name: item_params[:name], image: item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
+    # Item.create(name: item_params[:name], image : item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
     @item = Item.create(item_params)
     redirect_to action: :index
   end
@@ -76,13 +85,12 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image])
       #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
+
   end
 
   def set_item
     @item = Item.find(params[:id])
+    @images = @item.images
   end
-
-
-
 
 end
