@@ -1,4 +1,4 @@
-.sign_up_body
+.sign_up_body2
   .signup-content
     %header.signup-header
       %h1
@@ -29,7 +29,7 @@
           .l-signup-content
             = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'form-list'} do |f|
               %label 携帯電話の番号
-              = f.text_field :phone_number, placeholder: '携帯電話の番号を入力 例)08012345678' ,class: "input-list"
+              = f.text_field :phone_number, placeholder: '例) 08012345678' ,class: "input-list"
               -# %p.l-signup-text
                 -# 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
               %button.btn-red{onclick: "location.href='./signup/step3'"} 次へ進む
