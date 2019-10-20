@@ -9,3 +9,19 @@
     - breadcrumb :mypage_profile
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
+  - when ['users', 'selling']
+    - breadcrumb :mypage_listing
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['users', 'progression']
+    - breadcrumb :mypage_progression
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['users', 'completion']
+    - breadcrumb :mypage_completion
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['items', 'detail']
+    - breadcrumb :mypage_listing_item
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
