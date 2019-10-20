@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 end
 
 
-  resources :users, only: [:index, :update] do
+  resources :users, only: [:show, :update] do
     collection do
       get 'henshuu'
       get "logout"

@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def step4
   end
 
-  def index
+  def show
+    @user = User.find(params[:id])
   end
 
   def logout

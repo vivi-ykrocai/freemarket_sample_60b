@@ -23,7 +23,7 @@
         .lower-contents__right
           - if user_signed_in?
             .lower-contents__right__mypage
-              = link_to users_path, class: "lower-contents__right__mypage__button" do
+              = link_to user_path(current_user), class: "lower-contents__right__mypage__button" do
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "header-user-icon"
                 .mypage-link マイページ
           - else
