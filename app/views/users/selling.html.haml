@@ -25,7 +25,7 @@
             - @items.each do |item|
               %li.selling-item
                 = link_to "", class: "mypage-item-link" do
-                  = image_tag "#{item.image}", class: "selling-item-image"
+                  = image_tag "#{item.images[0].image}", class: "selling-item-image"
                   .mypage-item-body
                     .mypage-item-upper
                       = item.name
