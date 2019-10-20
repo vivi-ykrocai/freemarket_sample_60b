@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-         
+
         
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -26,7 +26,7 @@ class User < ApplicationRecord
     user = User.where(email: auth.info.email).first
 
       if user.present?
-        sns = SnsCredential.creae(
+        sns = SnsCredential.create(
           uid: auth.uid,
           provider: auth.provider,
           user_id: user.id
@@ -60,6 +60,14 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    password = Devise.friendly_token.first(7)
+    # if session[:provider].present? && session[:uid].present?
+    #   @user = User.create(nick_name:session[:nick_name], email: session[:email], password: "password", password_confirmation: "password", family_name_kana: session[:family_name_kana],last_name_kana: session[:last_name_kana], family_name: session[:family_name], last_name: session[:last_name], birthday: session[:birthday], phone_number: params[:user][:phone_number])
+    #   sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
+    # else
+    #   @user = User.create(nick_name:session[:nick_name], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], family_name_kana: session[:family_name_kana],last_name_kana: session[:last_name_kana], family_name: session[:family_name], last_name: session[:last_name], birthday: session[:birthday], phone_number: params[:user][:phone_number])
+    # end
+
     if snscredential.present?
       user = with_sns_data(auth, snscredential)[:user]
       sns = SnsCredential

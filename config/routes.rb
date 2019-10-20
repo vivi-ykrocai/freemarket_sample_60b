@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # controllers: {
-  #   sessions: 'users/sessions',
-  #   registrations: "users/registrations",
+  #   sessions: 'users/sign_in',
+  #   registrations: "users/sign_up",
   #   omniauth_callbacks: 'users/omniauth_callbacks'
   # }
   root 'items#index'

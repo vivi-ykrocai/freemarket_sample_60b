@@ -20,11 +20,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @sns = info[:sns]
       session[:provider] = @sns[:provider]
       session[:uid] = @sns[:uid]
-      render template: "signup/step1" 
+      # render template: "signup/step1" 
+      redirect_to root_path
     end
   end
-
   def failure
-    redirect_to root_path and return
+    redirect_to step1_signup_index_path and return
   end
 end

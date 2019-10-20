@@ -1,7 +1,26 @@
-.signup-content
-  = render partial: 'signup/sign_up_header', locals: { signup: @signup }
-  %nav.progress-bar.signup-bar
-    = image_tag "progress1.png", size:"1000x150", class:"progress-bar__image"
+.sign_up_body
+  .signup-content
+    %header.signup-header
+      %h1
+        =image_tag "mercari-logo.svg", size:"200x50"
+      %nav.progress-bar.signup-bar
+        %ol
+          %li.active
+            会員情報
+            .progress-status-red
+              .border
+          %li
+            電話番号認証
+            .progress-status
+          %li
+            お届け先住所入力
+            .progress-status
+          %li
+            支払い方法
+            .progress-status
+          %li
+            完了
+            .progress-status
   .signup-main
     .signup-main__content
       %h2.signup-main__content__head 会員情報入力
