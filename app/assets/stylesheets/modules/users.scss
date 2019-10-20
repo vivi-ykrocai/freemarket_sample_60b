@@ -9,7 +9,12 @@ body{
 a{
   text-decoration: none;
 }
-
+.container__left{
+  display: flex;
+  margin: 40px auto 0;
+  width: 1020px;
+  padding-bottom: 40px;
+}
 .container-mypage{
   display: flex;
   width: 1020px;
