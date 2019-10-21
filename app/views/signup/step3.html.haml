@@ -2,7 +2,7 @@
   .signup-content
     %header.signup-header
       %h1
-        =image_tag "mercari-logo.svg", size:"200x50"
+        =link_to image_tag("mercari-logo.svg", size:"200x50"), root_path
       %nav.progress-bar.signup-bar
         %ol
           %li
@@ -70,5 +70,5 @@
                 %span.form-require2 任意
               = f.text_field :phone_number2, placeholder: '例）09012345678' ,class: "login-input-text input-default"
             %p
-              =f.submit "次へ進む" , class:"btn-red"
+              %button.btn-list.btn-red{onclick: "location.href='/signup/step4'"} 次へ進む
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
