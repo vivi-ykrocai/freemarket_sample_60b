@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link 'マイページ', users_path
+  link 'マイページ', user_path(current_user)
   parent :root
 end
 
@@ -13,17 +13,17 @@ crumb :mypage_logout do
 end
 
 crumb :mypage_listing do
-  link '出品した商品-出品中',selling_users_path
+  link '出品した商品-出品中',selling_user_path(current_user)
   parent :mypage
 end
 
 crumb :mypage_progression do
-  link '出品した商品-取引中', progression_users_path
+  link '出品した商品-取引中', progression_user_path(current_user)
   parent :mypage
 end
 
 crumb :mypage_completion do
-  link '出品した商品-売却済', completion_users_path
+  link '出品した商品-売却済', completion_user_path(current_user)
   parent :mypage
 end
 
@@ -38,7 +38,7 @@ crumb :mypage_purchased do
 end
 
 crumb :mypage_profile do
-  link 'プロフィール', henshuu_users_path
+  link 'プロフィール', profile_user_path(current_user)
   parent :mypage
 end
 
