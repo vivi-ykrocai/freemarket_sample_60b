@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
   def buyer_add
     @item.update(buyer_id: current_user.id)
   end
-  
+
 
   private
 

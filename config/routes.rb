@@ -47,7 +47,7 @@ end
     end
   end
 
-  resources :cards, only: [:index, :edit, :update]
+  resources :cards, only: [:index, :edit, :update, :member, :new]
   resources :logouts, only: [:index]
 
 end
