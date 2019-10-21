@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
     @category_parents = Category.where(ancestry: nil).map{|i| [i.name, i.id]}
     @item_status = Item.item_statuses.keys
     @delivery_charged = Item.delivery_chargeds.keys
+    @delivery_method_cod = Item.delivery_methods.keys
+    @delivery_method_pod = Item.delivery_methods.keys.slice(0,4)
     @delivery_area = Prefecture.all
     @delivery_shipping_date = Item.delivery_shipping_dates.keys
   end

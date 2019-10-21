@@ -54,7 +54,7 @@
             .sell-content
               .sell-form-wrapper
                 %h3.sell-sub-head 配送について
-                = link_to "/jp/help_center/article/68/", class: "form-question", target: "_blank" do
+                = link_to "https://www.mercari.com/jp/help_center/article/68/", class: "form-question", target: "_blank" do
                   ?
                 .sell-form-box
                   .form-group-first
@@ -63,6 +63,22 @@
                       %span.form-require 必須
                     .select-wrap
                       = f.select :delivery_charged, @delivery_charged, prompt: "---"
+                  
+                  -# 送料込みが選択されたときの記述
+                  .form-group-second.hidden-form.cash-on-delivery
+                    %label.form-group-second__name
+                      配送の方法
+                      %span.form-require 必須
+                    .select-wrap
+                      = f.select :delivery_method, @delivery_method_cod, prompt: "---"
+                  -# 着払いが選択されたときの記述
+                  .form-group-second.hidden-form.payment-on-delivery
+                    %label.form-group-second__name
+                      配送の方法
+                      %span.form-require 必須
+                    .select-wrap
+                      = f.select :delivery_method, @delivery_method_pod, prompt: "---"
+                  
                   .form-group-second
                     %label.form-group-second__name
                       発送元の地域
@@ -78,7 +94,7 @@
             .sell-content
               .sell-form-wrapper
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
-                = link_to "/jp/help_center/article/64/", class: "form-question", target: "_blank" do
+                = link_to "https://www.mercari.com/jp/help_center/article/64/", class: "form-question", target: "_blank" do
                   ?
                 .sell-form-box
                   .sell-form-box__top
