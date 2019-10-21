@@ -13,17 +13,17 @@ crumb :mypage_logout do
 end
 
 crumb :mypage_listing do
-  link '出品した商品-出品中', root_path
+  link '出品した商品-出品中',selling_users_path
   parent :mypage
 end
 
 crumb :mypage_progression do
-  link '出品した商品-取引中', root_path
+  link '出品した商品-取引中', progression_users_path
   parent :mypage
 end
 
 crumb :mypage_completion do
-  link '出品した商品-売却済', root_path
+  link '出品した商品-売却済', completion_users_path
   parent :mypage
 end
 
@@ -51,3 +51,9 @@ crumb :mypage_identification do
   link '本人情報', root_path
   parent :mypage
 end
+
+crumb :mypage_listing_item do
+  link '商品出品画面', detail_item_path
+  parent :mypage_listing
+end
+

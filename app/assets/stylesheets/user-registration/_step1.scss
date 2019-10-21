@@ -1,83 +1,78 @@
-*{
-  box-sizing: border-box;
-  }
-  h3{
-  font-weight:bold;
-  }
-  p{
-  font-weight:initial;
-  }
-
-.signup-content{
-  padding: 0 0 220px;
-  background-color:#f5f5f5;
-  .signup-header{
-    text-align:center;
-    h1{
-      margin-bottom: 50px;
-      img{
-        float:center;
-      }
-    }
-    .progress-bar{
-      padding: 40px 0 0 44px;
-      border: 0;
-      display: inline-block;
-      vertical-align: top;
-      width: 552px;
-      height:72px;
-      text-align:right;
-      font-size: 0;
-      text-align: center;
-      ol{
-        margin: 0;
-        position: relative;
-        li.active{
-          font-weight: 600;
-          color: #ea352d;
+.sign_up_body1{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  padding:0 0 250px;
+  .signup-content{
+    padding: 0 0 250px;
+    .signup-header{
+      text-align:center;
+      h1{
+        margin-bottom: 50px;
+        img{
+          float:center;
         }
-        li{
-          min-width: 60px;
-          display: inline-block;
-          min-width: 40px;
-          margin: 0 5% 0 0;
-          font-size: 12px;
-          color: #888; 
-          .progress-status-red{
-            background-color:#ea352d;
-            width: 12px;
-            height: 12px;
-            margin: 8px auto 0;
-            border-radius: 50%;
-            position: relative;
-            z-index: 1;
-            .border{
-              position: absolute;
-              left:11px;
-              bottom: 5px;
-              z-index: 2;
-              display: block;
-              background:#cccccc;
-              border-style: solid;
-              height:2px;
-              width:370px;
+      }
+      .progress-bar{
+        padding: 40px 0 0 44px;
+        border: 0;
+        display: inline-block;
+        vertical-align: top;
+        width: 552px;
+        height:72px;
+        text-align:right;
+        font-size: 0;
+        text-align: center;
+        ol{
+          margin: 0;
+          position: relative;
+          li.active{
+            font-weight: 600;
+            color: #ea352d;
+          }
+          li{
+            min-width: 60px;
+            display: inline-block;
+            min-width: 40px;
+            margin: 0 5% 0 0;
+            font-size: 12px;
+            color: #888; 
+            .progress-status-red{
+              background-color:#ea352d;
+              width: 12px;
+              height: 12px;
+              margin: 8px auto 0;
+              border-radius: 50%;
+              position: relative;
+              z-index: 1;
+              .border{
+                position: absolute;
+                left:11px;
+                bottom: 5px;
+                z-index: 2;
+                display: block;
+                background:#cccccc;
+                border-style: solid;
+                height:2px;
+                width:290px;
+              }
+            }
+            .progress-status{
+              width: 12px;
+              height: 12px;
+              margin: 8px auto 0;
+              background: #ccc;
+              border-radius: 50%;
+              position: relative;
             }
           }
-
-          .progress-status{
-            width: 12px;
-            height: 12px;
-            margin: 8px auto 0;
-            background: #ccc;
-            border-radius: 50%;
-            position: relative;
-            }
         }
       }
     }
   }
-  }
-
   .signup-main{
     display: block;
     height:1350px;
@@ -95,7 +90,7 @@
         border-color: #f5f5f5;
         border-style: solid;
         text-align: center;
-    }
+      }
       .form-user{
         max-width: 390px;
         margin: 0 auto;
@@ -108,122 +103,136 @@
             line-height: 1.5;
           }
         }
-          .under-form{
-            height:250px;
-          .btn-red{
-            background-color:#ea352d;
-            padding: 2px 4px;
-            border-radius: 2px;
-            font-size: 14px;
-            font-weight: initial;
-            margin: 24px 0 0;
-            transition: all ease-out .3s;
-            cursor: pointer;
-            text-align: center;
-            color:#f5f5f5;
-            height:50px;
-            width:343px;
-          }
-          .text-right{
-            text-align:right;
-            p{
-              line-height: 1.5;
-              margin:20px 0 0;
-              a{
-                color: #0099e8;
-                text-decoration: none;
-                width:18px;
-              }
-              i{
-                color: #0099e8;
-              }
+      .under-form{
+        height:250px;
+        .btn-red{
+          background-color:#ea352d;
+          padding: 2px 4px;
+          border-radius: 2px;
+          font-size: 14px;
+          font-weight: initial;
+          margin: 24px 0 0;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          color:#f5f5f5;
+          height:50px;
+          width:343px;
+        }
+        .text-right{
+          text-align:right;
+          p{
+            line-height: 1.5;
+            margin:20px 0 0;
+            a{
+              color: #0099e8;
+              text-decoration: none;
+              width:18px;
+            }
+            i{
+              color: #0099e8;
             }
           }
         }
-          .form-list{
-            font-weight:600;
+      }
+        .form-list{
+          font-size:14px;
+          width: 100%;
+          margin: 32px 0 0;
+          label{
+            font-weight: 600;
+          }
+          .signup-text{
+            color:333333;
             font-size:14px;
-            width: 100%;
-            margin: 32px 0 0;
-            .signup-text{
-              color:333333;
-              font-size:16px;
-            }
-            .birthday-select-wrap{
-
-              margin-top: 8px;
-              .year,.month,.day{
-                width: 76px;
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                margin: 0 2px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-                }
-            }
-            .select-wrap{
-              display: inline-block;
-              width: calc(30% - 17px);
-              margin: 8px 0 0;
-              }
-            .select-default{
-              padding: 0 10px;
+          }
+          .birthday-select-wrap{
+            margin-top: 8px;
+            .year,.month,.day{
+              width: 76px;
               position: relative;
               z-index: 2;
               height: 48px;
               padding: 0 16px;
+              margin: 0 2px;
               border-radius: 4px;
               border: 1px solid #ccc;
               background: 0;
               font-size: 16px;
               line-height: 1.5;
-              width:90px;
               cursor: pointer;
-              }
-            }
-              .icon-bottom{
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                z-index: 2;
-                color: #888;
-                font-size: 8px;
-                -webkit-transform: translate(0, -50%);
-                transform: translate(0, -50%);
-              }
             }
           }
-            label{
-              vertical-align: bottom;
+          .l-single-text{
+            color:333333;
+            font-size:14px;
+          }
+          .l-single-text2{
+
+          }
+          .signup-text-l{
+            color:333333;
+            font-size:14px;
+            text-align: center;
+          }
+          .select-wrap{
+            display: inline-block;
+            width: calc(30% - 17px);
+            margin: 8px 0 0;
+          }
+          .select-default{
+            padding: 0 10px;
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            width:90px;
+            cursor: pointer;
             }
-            span{
-              background-color:#ea352d;
-              padding: 2px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: baseline;
-              font-weight: initial;
-              }
-              .input-list.half {
-                width: calc(50% - 15px);
-                margin-right:10px;
-              }
-              .input-list{
-                margin: 8px 0 0;
-                height: 50px;
-                width:100%;
-                padding: 15px 10px 8px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                line-height: 1.5;
-                font-size: 16px;
-                font-weight: initial; 
-                }
+          }
+            .icon-bottom{
+              position: absolute;
+              right: 16px;
+              top: 50%;
+              z-index: 2;
+              color: #888;
+              font-size: 8px;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+            }
+          }
+        }
+          label{
+            vertical-align: bottom;
+          }
+          span{
+            background-color:#ea352d;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: baseline;
+            font-weight: initial;
+          }
+          .input-list.half {
+            width: calc(50% - 15px);
+            margin-right:10px;
+          }
+          .input-list{
+            margin: 8px 0 0;
+            height: 50px;
+            width:100%;
+            padding: 15px 10px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+            font-size: 16px;
+            font-weight: initial; 
+          }
   }
+}
