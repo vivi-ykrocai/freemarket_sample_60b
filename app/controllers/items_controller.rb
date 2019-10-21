@@ -1,12 +1,15 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :detail, :edit, :update, :destroy]
+  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy]
+  after_action :buyer_add, only: [:pay]
 
   def index
     @items = Item.order("created_at DESC").limit(10)
   end
 
-  def purchase; end
+  def purchase
+    @total_price = @item.total_price.to_s(:delimited)
+  end
 
   def new
     @item = Item.new
@@ -52,8 +55,7 @@ class ItemsController < ApplicationController
       redirect_to detail_item_path
     else
       render :edit
-  end
-
+    end
   end
 
   def destroy
@@ -74,19 +76,23 @@ class ItemsController < ApplicationController
   def pay
     Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     charge = Payjp::Charge.create(
-    amount: 2000000,
+    amount: @item.total_price,
     card: params['payjp-token'],
     currency: 'jpy'
     )
     redirect_to root_path, notice: '決済が完了しました'
   end
 
+  # 商品購入が成功したらbuyer_idを付与する
+  def buyer_add
+    @item.update(buyer_id: current_user.id)
+  end
+
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image])
-      #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
-
+    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date, :total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image]).merge(seller_id: current_user.id)
   end
 
   def set_item

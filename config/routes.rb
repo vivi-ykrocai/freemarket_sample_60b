@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items do
+    member do
+      post 'pay'
+    end
+
     collection do
       get 'sell'
       get  'done'
-      post 'pay'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
@@ -21,7 +24,7 @@ Rails.application.routes.draw do
 end
 
 
-  resources :users, only: [:index, :update] do
+  resources :users, only: [:show, :update] do
     collection do
       get 'henshuu'
       get "logout"
@@ -35,7 +38,6 @@ end
 
   resources :signup do
     collection do
-      get 'sign_in'
       get 'sign_up'
       get 'step1'
       get 'step2'
