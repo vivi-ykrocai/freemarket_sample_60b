@@ -75,8 +75,6 @@ class ItemsController < ApplicationController
     Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     charge = Payjp::Charge.create(
     amount: 2000000,
-    #amountは一旦仮置きで3500とする。
-    # 後で amount: @item.total_price,にする
     card: params['payjp-token'],
     currency: 'jpy'
     )

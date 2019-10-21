@@ -4,11 +4,11 @@ class CardsController < ApplicationController
 
   def index
     if @card.present?
-      Payjp.api_key = "秘密鍵"
+      Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
       # 《＋α》 登録しているカード会社のブランドアイコンを表示するためのコードです。---------
-      @card_brand = @card_information.brand      
+      @card_brand = @card_information.brand
       case @card_brand
       when "Visa"
         @card_src = "visa.svg"
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
   end
 
   def destroy #PayjpとCardのデータベースを削除
-    Payjp.api_key = "秘密鍵"
+    Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy #削除に成功した時にポップアップを表示します。
@@ -38,12 +38,13 @@ class CardsController < ApplicationController
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    card = Card.where(user_id: current_user.id).first
-    redirect_to action: "index" if card.present?
+    # card = Card.where(user_id: current_user.id).first
+    @card = Card.find(1)
+    redirect_to action: "index" if @card.present?
   end
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = '秘密鍵'
+    Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
 
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -67,6 +68,7 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    # @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+      @card = Card.find(1)
   end
 end
