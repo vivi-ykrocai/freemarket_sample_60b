@@ -1,12 +1,15 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :detail, :edit, :update]
+  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update]
+  after_action :buyer_add, only: [:pay]
 
   def index
     @items = Item.order("created_at DESC").limit(10)
   end
 
-  def purchase; end
+  def purchase
+    @total_price = @item.total_price.to_s(:delimited)
+  end
 
   def new
     @item = Item.new
@@ -50,8 +53,7 @@ class ItemsController < ApplicationController
       redirect_to detail_item_path
     else
       render :edit
-  end
-
+    end
   end
 
   def create
@@ -61,16 +63,20 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
+    Payjp.api_key = "sk_test_f7a329f812e10628698362a0"
     charge = Payjp::Charge.create(
-    amount: 2000000,
-    #amountは一旦仮置きで3500とする。
-    # 後で amount: @item.total_price,にする
+    amount: @item.total_price,
     card: params['payjp-token'],
     currency: 'jpy'
     )
     redirect_to root_path, notice: '決済が完了しました'
   end
+
+  # 商品購入が成功したらbuyer_idを付与する
+  def buyer_add
+    @item.update(buyer_id: current_user.id)
+  end
+  
 
   private
 
@@ -81,8 +87,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
-
-
 end
