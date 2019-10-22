@@ -11,8 +11,12 @@
               メールアドレスで登録する
             %button.btn-list.btn-signup-facebook
               = image_tag "facebook-logo.svg"
-              Facebookで登録する
+              =link_to user_facebook_omniauth_authorize_path, method: :post  do
+                Facebookで登録する
             %button.btn-list.btn-signup-google
               = image_tag "google.logo.jpg"
-              Googleで登録する
+              = link_to user_google_oauth2_omniauth_authorize_path, method: :post  do
+                Googleで登録する
+
+          = 'loginok' if user_signed_in?
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
