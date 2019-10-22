@@ -11,9 +11,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
-  # has_many :items
-  # has_one :address
-  # has_one :credit_card
+  has_many :items
+  has_many :cards
   # belongs_to :registration_style
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"

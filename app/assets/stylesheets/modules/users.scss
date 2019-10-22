@@ -9,16 +9,86 @@ body{
 a{
   text-decoration: none;
 }
-.container__left{
+.wrapper-profile{
   display: flex;
-  margin: 40px auto 0;
   width: 1020px;
-  padding-bottom: 40px;
+  margin: 40px auto 0;
+  .container__left{
+    display: flex;
+    padding-bottom: 40px;
+  }
+  
+  .container__right{
+    width: 700px;
+    height: 100%;
+    background-color: #fff;
+    &--title{
+      display: inline-block;
+      width: 100%;
+      line-height: 24px;
+      font-size: 24px;
+      padding: 8px 24px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__form{
+      &__image{
+        padding: 72px 16px 24px;
+        background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?35731317");
+        text-align: center;
+        .avater{
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          vertical-align: middle;
+        }
+        .avater-name-form{
+          width: 220px;
+          margin-left: 8px;
+          vertical-align: middle;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+      &__content{
+        padding: 40px 16px;
+        &--text{
+          min-height: 216px;
+          width: 100%;
+          max-width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+        &--btn{
+          margin-top: 16px;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
+
+
+
 .container-mypage{
   display: flex;
   width: 1020px;
-  margin: 80px auto 0;
+  margin: 40px auto 0;
   padding-bottom: 40px;
   .container-mypage__content{
     width: calc(100% - 280px);
@@ -261,4 +331,3 @@ a{
   margin: 40px auto 0;
   background: #fff;
 }
-

@@ -1,11 +1,11 @@
 %nav.bread-container
   - case params.values_at :controller, :action
 
-  - when ['users','index']
+  - when ['users','show']
     - breadcrumb :mypage
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
-  - when ['users', 'henshuu']
+  - when ['users', 'profile']
     - breadcrumb :mypage_profile
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
