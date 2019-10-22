@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-
+  
         
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -22,54 +22,111 @@ class User < ApplicationRecord
 
 
 
-  def self.without_sns_data(auth)
-    user = User.where(email: auth.info.email).first
-      if user.present?
-        sns = SnsCredential.create(
-          uid: auth.uid,
-          provider: auth.provider,
-          user_id: user.id
-        )
-      else
-        user = User.new(
-          nick_name: auth.info.name,
-          email:auth.info.email,
-        )
-        sns = SnsCredential.new(
-          uid:auth.uid,
-          provider: auth.provider
-        )
-      end
-      return  { user: user, sns: sns }
-  end
-
-
-  def self.with_sns_data(auth, snscredential)
-    user = User.where(id: snscredential.user_id).first
-    unless user.present?
-      user = User.new(
-        nick_name: auth.info.name,
-        email: auth.info.email,
-      )
-    end
-    return {user: user}
-  end
+  # def self.create_user_model(auth)
+  #   password = Devise.friendly_token[0, 20]
+  #   user = User.new(
+  #     nick_name: auth.info.name,
+  #     email:    auth.info.email,
+  #     password: password,
+  #     password_confirmation: password
+  #   )
+  #   SnsCredential.create(
+  #     uid: auth.uid,
+  #     provider: auth.provider,
+  #     user_id: user.id
+  #   )
+  # end
 
   def self.find_oauth(auth)
+    # OAuthの情報でユーザーを見つける
     uid = auth.uid
     provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    sns = SnsCredential.where(uid: uid, provider: provider).first
+     if sns.present?
+      user = User.where(id: sns.user_id).first
 
-    if snscredential.present?
-      user = with_sns_data(auth, snscredential)[:user]
-      sns = snscredential
-
+      # idとsnsクレデンシャルのidが一緒の物を探して、最初の物を持って来る。
     else
-      user = without_sns_data(auth)[:user]
-      sns = without_sns_data(auth)[:sns]
+      # 登録していないSNSを利用してログインしようとした時に
+      user = User.where(email: auth.info.email).first
+      if user.present?
+        sns = SnsCredential.new(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+          )
+        return { user: user, sns: sns }
+      else
+        password = Devise.friendly_token[0, 20]
+        user = User.new(
+          nick_name: auth.info.name,
+          email:    auth.info.email,
+          password: password,
+          password_confirmation: password
+          )
+        #   binding.pry
+        sns = SnsCredential.new(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+          )
+      end
     end
-    return { user: user ,sns: sns}
+    return { user: user, sns: sns }
   end
+
+
+
+
+  # def self.find_oauth(auth)
+  #   uid = auth.uid
+  #   provider = auth.provider
+  #   snscredential = SnsCredential.where(uid: uid, provider: provider).first
+
+  #   if snscredential.present? #sns登録のみ完了してるユーザー
+  #     user = User.where(id: snscredential.user_id).first
+  #     unless user.present? #ユーザーが存在しないなら
+  #       user = User.new(
+  #         # snsの情報
+  #         # binding.pry => auth.infoとかで確認 
+  #         nick_name: auth.info.name,
+  #         email: auth.info.email
+  #       )
+  #     end
+  #     sns = snscredential
+  #     #binding.pry
+
+  #   else #sns登録 未
+  #     user = User.where(email: auth.info.email).first
+  #     if user.present? #会員登録 済
+  #       sns = SnsCredential.new(
+  #         uid: uid,
+  #         provider: provider,
+  #         user_id: user.id
+  #       )
+  #     else #会員登録 未
+  #       user = User.new(
+  #         nick_name: auth.info.name,
+  #         email: auth.info.email
+  #       )
+  #       # binding.pry
+  #       sns = SnsCredential.create(
+  #         uid: uid,
+  #         provider: provider
+  #       )
+  #       # binding.pry
+  #     end
+  #   end
+  #   # binding.pry
+  #   # hashでsnsのidを返り値として保持しておく
+  #   return { user: user , sns_id: sns.id }
+  # end
+
+
+
+
+
+
 
   validates :nick_name, presence: true
   validates :nick_name, uniqueness: true

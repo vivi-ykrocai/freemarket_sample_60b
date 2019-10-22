@@ -59,16 +59,48 @@ class SignupController < ApplicationController
       phone_number2: user_params[:phone_number2]
     )
     if @user.save
-      # ログインするための情報を保管
       session[:id] = @user.id
+      if session["devise.auth_data"].present?
+        # binding.pry
+        SnsCredential.create(
+          uid: session["devise.auth_data"]["uid"],
+          provider: session["devise.auth_data"]["provider"],
+          user_id: @user.id
+        )
+      end
       redirect_to finish_signup_index_path
     else
       render '/signup/sign_up'
     end
-    def done
+  end
+
+    def finish
       sign_in User.find(session[:id]) unless user_signed_in?
     end
-  end
+
+
+  # def create
+  #   if user_params[:password] == "" #sns登録なら
+  #     user_params.merge(password: Devise.friendly_token.first(6)) #deviseのパスワード自動生成機能を使用
+  #     user_params.merge(password_confirmation: Devise.friendly_token.first(6))
+  #     #super
+  #     @user = User.new(user_params)
+  #     sns = SnsCredential.update(user_id:  @user.id)
+  #   else #email登録なら
+  #     #super
+  #     @user = User.new(user_params)
+  #   end
+  #   password = Devise.friendly_token.first(8)
+  #   @user.password = password
+  #   @user.password_confirmation = password
+  #   if @user.save
+  #     redirect_to registration_address_path
+  #   else
+  #     render :new
+  #   end
+  # end
+
+
 
 
   
@@ -95,4 +127,4 @@ class SignupController < ApplicationController
       :phone_number2
     )
   end
-  end
+end

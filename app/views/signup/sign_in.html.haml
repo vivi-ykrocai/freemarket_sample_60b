@@ -18,6 +18,9 @@
               = image_tag "google.logo.jpg"
               = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
                 Googleでログイン
+            - if flash[:error].present?
+              %ul
+                %li #{flash[:error]}
           %form
             .signin-form-inner
               .form-list.form-first
