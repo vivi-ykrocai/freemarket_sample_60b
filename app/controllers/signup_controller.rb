@@ -59,19 +59,25 @@ class SignupController < ApplicationController
       phone_number2: user_params[:phone_number2]
     )
     if @user.save
-      # ログインするための情報を保管
       session[:id] = @user.id
+      if session["devise.auth_data"].present?
+        SnsCredential.create(
+          uid: session["devise.auth_data"]["uid"],
+          provider: session["devise.auth_data"]["provider"],
+          user_id: @user.id
+        )
+      end
       redirect_to finish_signup_index_path
     else
       render '/signup/sign_up'
     end
-    def done
-      sign_in User.find(session[:id]) unless user_signed_in?
-    end
   end
 
-
+    def finish
+      sign_in User.find(session[:id]) unless user_signed_in?
+    end
   
+    
     private
 
   # 許可するキーを設定します
@@ -95,4 +101,4 @@ class SignupController < ApplicationController
       :phone_number2
     )
   end
-  end
+end
