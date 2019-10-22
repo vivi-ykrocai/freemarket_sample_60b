@@ -26,10 +26,12 @@ end
 
   resources :users, only: [:show, :update] do
     collection do
-      get 'henshuu'
       get "logout"
       get "card"
       get "identification"
+    end
+    member do
+      get 'profile'
       get 'selling'
       get 'progression'
       get 'completion'

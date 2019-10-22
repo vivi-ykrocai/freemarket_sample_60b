@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.order("created_at DESC")  #user機能を実装したら変更
+    @items = current_user.saling_items.order("created_at DESC")
   end
 
   def progression
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def identification
   end
 
-  def henshuu
+  def profile
   end
 
 end
