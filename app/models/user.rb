@@ -20,17 +20,21 @@ class User < ApplicationRecord
   has_many :sns_credentials, dependent: :destroy
 
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def self.find_oauth(auth)
     # OAuthの情報でユーザーを見つける
     uid = auth.uid
     provider = auth.provider
-    sns = SnsCredential.where(uid: uid, provider: provider).first
+    sns = SnsCredential.find_by(uid: uid, provider: provider)
      if sns.present?
-      user = User.where(id: sns.user_id).first
+      user = User.find_by(id: sns.user_id)
       # idとsnsクレデンシャルのidが一緒の物を探して、最初の物を持って来る。
     else
       # 登録していないSNSを利用してログインしようとした時に
-      user = User.where(email: auth.info.email).first
+      user = User.find_by(email: auth.info.email)
       if user.present?
         sns = SnsCredential.new(
           uid: uid,
