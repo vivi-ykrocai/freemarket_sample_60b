@@ -4,7 +4,15 @@ class ItemsController < ApplicationController
   after_action :buyer_add, only: [:pay]
 
   def index
+    # ブランドはまだ未実装なので、とりあえず全ての商品を表示させる
     @items = Item.order("created_at DESC").limit(10)
+    
+    # カテゴリーごとの商品表示
+    @ladies_items = Item.where(category_id: 1..199).order("created_at DESC").limit(10)
+    @mens_items = Item.where(category_id: 200..345).order("created_at DESC").limit(10)
+    @electrical_appliance_items = Item.where(category_id: 898..983).order("created_at DESC").limit(10)
+    @toy_hobby_items = Item.where(category_id: 685..797).order("created_at DESC").limit(10)
+
   end
 
   def purchase
@@ -34,7 +42,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @images = @item.images
     @total_price = @item.total_price.to_s(:delimited)
   end
 
