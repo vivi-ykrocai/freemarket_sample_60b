@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
 
   def show
     @total_price = @item.total_price.to_s(:delimited)
+    @user_items = Item.where(seller_id: @item.seller).where.not(id: @item.id).order("created_at DESC").limit(6)
   end
 
   def edit

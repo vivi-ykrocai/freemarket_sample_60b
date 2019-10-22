@@ -174,119 +174,102 @@
       %li
         = fa_icon 'pinterest', class:"pinterest"
 
-  .item__in-user-boxes
-    .item__user-name
-      = link_to "#{@item.seller.nick_name}さんのその他の出品", '#', class:"item__user-name__title"
-    .item__user-other-items
-      .item-box
-        =image_tag 'https://static.mercdn.net/thumb/photos/m34261125424_1.jpg?1569881404', class:"item-box__photo"
+  .item__in-another-boxes
+    .item__another-name
+      = link_to "#{@item.seller.nick_name}さんのその他の出品", '#', class:"item__another-name__title"
+    .item__another-items
+      - @user_items.each do |user_item|
+        = link_to item_path(user_item) do
+          .another-item-box
+            =image_tag "#{user_item.images[0].image}", class:"another-item-box__photo"
+            .item-box__body
+              .item-box__name
+                = user_item.name
+              .item__numbers
+                .item__price
+                  = "¥#{user_item.total_price.to_s(:delimited)}"
+                .item__iine
+                  = fa_icon 'heart-o'
+                  6
+
+  .item__in-another-boxes
+    .item__another-name
+      = link_to 'コーチのショルダーバッグその他の出品', '#', class:"item__another-name__title"
+    .item__another-items
+      .another-item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m61354018553_1.jpg?1570595655', class:"another-item-box__photo"
         .item-box__body
           .item-box__name
-            COACH✩2wayバック✩値下げ4日金曜までの値段
+            COACHショルダーバッグ
           .item__numbers
             .item__price
-              ¥7,500
+              ¥7,900
             .item__iine
               = fa_icon 'heart-o'
               6
-      .item-box
-        =image_tag 'https://static.mercdn.net/thumb/photos/m60502397332_1.jpg?1566786201', class:"item-box__photo"
+      .another-item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m56026905237_1.jpg?1568313448', class:"another-item-box__photo"
         .item-box__body
           .item-box__name
-            マーティンネックレス10/8火曜昼12時まで限定
+            コーチ / COACH / シグネチャー/ショルダーバッグ
           .item__numbers
             .item__price
               ¥3,780
             .item__iine
               = fa_icon 'heart-o'
-              5
-      .item-box
-        =image_tag 'https://static.mercdn.net/thumb/photos/m34261125424_1.jpg?1569881404', class:"item-box__photo"
+              10
+      .another-item-box
+        =image_tag "https://static.mercdn.net/thumb/photos/m54851888084_1.jpg?1570678345", class:"another-item-box__photo"
         .item-box__body
           .item-box__name
-            COACH✩2wayバック✩値下げ4日金曜までの値段
+            鑑定済 COACH コーチ ショルダーバッグ
           .item__numbers
             .item__price
-              ¥7,500
+              ¥6,500
             .item__iine
               = fa_icon 'heart-o'
-              6
-
-  .item__in-another-boxes
-    .tameshi
-      .item__another-name
-        = link_to 'コーチのショルダーバッグその他の出品', '#', class:"item__another-name__title"
-      .item__another-items
-        .another-item-box
-          =image_tag 'https://static.mercdn.net/thumb/photos/m61354018553_1.jpg?1570595655', class:"another-item-box__photo"
-          .item-box__body
-            .item-box__name
-              COACHショルダーバッグ
-            .item__numbers
-              .item__price
-                ¥7,900
-              .item__iine
-                = fa_icon 'heart-o'
-                6
-        .another-item-box
-          =image_tag 'https://static.mercdn.net/thumb/photos/m56026905237_1.jpg?1568313448', class:"another-item-box__photo"
-          .item-box__body
-            .item-box__name
-              コーチ / COACH / シグネチャー/ショルダーバッグ
-            .item__numbers
-              .item__price
-                ¥3,780
-              .item__iine
-                = fa_icon 'heart-o'
-                10
-        .another-item-box
-          =image_tag "https://static.mercdn.net/thumb/photos/m54851888084_1.jpg?1570678345", class:"another-item-box__photo"
-          .item-box__body
-            .item-box__name
-              鑑定済 COACH コーチ ショルダーバッグ
-            .item__numbers
-              .item__price
-                ¥6,500
-              .item__iine
-                = fa_icon 'heart-o'
-                8
-        .another-item-box
-          =image_tag 'https://static.mercdn.net/thumb/photos/m92349942579_1.jpg?1570692919', class:"another-item-box__photo"
-          .item-box__body
-            .item-box__name
-              COACH‼️シグネチアキャンバス(^^)
-            .item__numbers
-              .item__price
-                ¥8,500
-              .item__iine
-                = fa_icon 'heart-o'
-                4
-        .another-item-box
-          =image_tag 'https://static.mercdn.net/thumb/photos/m89330509639_1.jpg?1570632116', class:"another-item-box__photo"
-          .item-box__body
-            .item-box__name
-              ショルダーバッグ COACH コーチ
-            .item__numbers
-              .item__price
-                ¥4,780
-              .item__iine
-                = fa_icon 'heart-o'
-                5
-        .another-item-box
-          =image_tag 'https://static.mercdn.net/thumb/photos/m78411505604_1.jpg?1570715951', class:"another-item-box__photo"
-          .item-box__body
-            .item-box__name
-              コーチ ショルダーバッグ
-            .item__numbers
-              .item__price
-                ¥6,500
-              .item__iine
-                = fa_icon 'heart-o'
-                1
+              8
+      .another-item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m92349942579_1.jpg?1570692919', class:"another-item-box__photo"
+        .item-box__body
+          .item-box__name
+            COACH‼️シグネチアキャンバス(^^)
+          .item__numbers
+            .item__price
+              ¥8,500
+            .item__iine
+              = fa_icon 'heart-o'
+              4
+      .another-item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m89330509639_1.jpg?1570632116', class:"another-item-box__photo"
+        .item-box__body
+          .item-box__name
+            ショルダーバッグ COACH コーチ
+          .item__numbers
+            .item__price
+              ¥4,780
+            .item__iine
+              = fa_icon 'heart-o'
+              5
+      .another-item-box
+        =image_tag 'https://static.mercdn.net/thumb/photos/m78411505604_1.jpg?1570715951', class:"another-item-box__photo"
+        .item-box__body
+          .item-box__name
+            コーチ ショルダーバッグ
+          .item__numbers
+            .item__price
+              ¥6,500
+            .item__iine
+              = fa_icon 'heart-o'
+              1
 
   .nav-bottom
-    .nav-bottom__name
-      メルカリ > COACH コーチ ショルダーバッグ✩9日(水)昼12時までの値段
+    %ul
+      %li
+        = link_to "メルカリ", root_path, class:"nav-bottom__name"
+        = fa_icon "chevron-right", class:"nav-icon-right"
+      %li
+        = @item.name
 
 = render partial: '/items/aside', locals: { }
 = render partial: '/items/footer', locals: { }
