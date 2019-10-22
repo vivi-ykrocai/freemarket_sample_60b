@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # has_secure_password
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+        #  omniauth
+        #  :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
         
 
@@ -24,41 +25,42 @@ class User < ApplicationRecord
     @user = User.find(params[:id])
   end
 
-  def self.find_oauth(auth)
-    # OAuthの情報でユーザーを見つける
-    uid = auth.uid
-    provider = auth.provider
-    sns = SnsCredential.find_by(uid: uid, provider: provider)
-     if sns.present?
-      user = User.find_by(id: sns.user_id)
-      # idとsnsクレデンシャルのidが一緒の物を探して、最初の物を持って来る。
-    else
-      # 登録していないSNSを利用してログインしようとした時に
-      user = User.find_by(email: auth.info.email)
-      if user.present?
-        sns = SnsCredential.new(
-          uid: uid,
-          provider: provider,
-          user_id: user.id
-          )
-        return { user: user, sns: sns }
-      else
-        password = Devise.friendly_token[0, 20]
-        user = User.new(
-          nick_name: auth.info.name,
-          email:    auth.info.email,
-          password: password,
-          password_confirmation: password
-          )
-        sns = SnsCredential.new(
-          uid: uid,
-          provider: provider,
-          user_id: user.id
-          )
-      end
-    end
-    return { user: user, sns: sns }
-  end
+  # omniauth
+  # def self.find_oauth(auth)
+  #   # OAuthの情報でユーザーを見つける
+  #   uid = auth.uid
+  #   provider = auth.provider
+  #   sns = SnsCredential.find_by(uid: uid, provider: provider)
+  #    if sns.present?
+  #     user = User.find_by(id: sns.user_id)
+  #     # idとsnsクレデンシャルのidが一緒の物を探して、最初の物を持って来る。
+  #   else
+  #     # 登録していないSNSを利用してログインしようとした時に
+  #     user = User.find_by(email: auth.info.email)
+  #     if user.present?
+  #       sns = SnsCredential.new(
+  #         uid: uid,
+  #         provider: provider,
+  #         user_id: user.id
+  #         )
+  #       return { user: user, sns: sns }
+  #     else
+  #       password = Devise.friendly_token[0, 20]
+  #       user = User.new(
+  #         nick_name: auth.info.name,
+  #         email:    auth.info.email,
+  #         password: password,
+  #         password_confirmation: password
+  #         )
+  #       sns = SnsCredential.new(
+  #         uid: uid,
+  #         provider: provider,
+  #         user_id: user.id
+  #         )
+  #     end
+  #   end
+  #   return { user: user, sns: sns }
+  # end
 
 
   validates :nick_name, presence: true
