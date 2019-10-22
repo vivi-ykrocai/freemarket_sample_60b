@@ -8,8 +8,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
-
-# 1
   def callback_for(provider)
     info = User.find_oauth(request.env["omniauth.auth"]) 
     @user = info[:user]
@@ -29,27 +27,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def failure
     redirect_to root_path and return
   end
-
-# 2
-# def callback_for(provider)
-#   info = User.find_oauth(request.env["omniauth.auth"]) 
-#   @user = info[:user]
-#   sns_id = info[:sns_id]
-#   if @user.persisted? 
-#     sign_in_and_redirect @user, event: :authentication
-#     set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-#   else 
-#     session["devise.sns_id"] = sns_id 
-#     render template: "signup/step1" 
-#   end
-# end
-
-# def failure
-#   redirect_to root_path and return
-# end
-
-
-
 
 end
 
