@@ -59,14 +59,14 @@ class SignupController < ApplicationController
       phone_number2: user_params[:phone_number2]
     )
     if @user.save
-      session[:id] = @user.id
-      if session["devise.auth_data"].present?
-        SnsCredential.create(
-          uid: session["devise.auth_data"]["uid"],
-          provider: session["devise.auth_data"]["provider"],
-          user_id: @user.id
-        )
-      end
+      # session[:id] = @user.id
+      # if session["devise.auth_data"].present?
+      #   SnsCredential.create(
+      #     uid: session["devise.auth_data"]["uid"],
+      #     provider: session["devise.auth_data"]["provider"],
+      #     user_id: @user.id
+      #   )
+      # end
       redirect_to finish_signup_index_path
     else
       render '/signup/sign_up'
