@@ -41,16 +41,16 @@
 - belongs_to_active_hash :prefecture
 
 
-## addresses_table
+## cards_table
 |Column|Type|Options|
 |------|----|-------|
-|prefecture_id|integer|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|apartment_house|string||
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 |user_id|integer|null: false|
 |index [user_id], name: "index_addresses_on_user_id"
 
+### Association
+- belongs_to :users
 
 ## items_table
 |Column|Type|Options|
