@@ -43,7 +43,7 @@
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
-        出品した商品 - 過去の取引
+        購入した商品 - 過去の取引
         = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
@@ -83,8 +83,8 @@
       設定
 
     .side--list--item
-      -# = link_to profile_user_path(current_user), class: "side--list--item--link" do
-        プロフィール
+      = link_to profile_user_path(current_user), class: "side--list--item--link" do
+        プロフィール編集
         = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
 
