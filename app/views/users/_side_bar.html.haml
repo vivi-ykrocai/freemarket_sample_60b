@@ -94,9 +94,8 @@
         = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
-      = link_to root_path, class: "side--list--item--link" do
-        支払い方法
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = link_to "支払い方法", "/card/new", class: "card"
+      = fa_icon "angle-right" , class: "side--list--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
