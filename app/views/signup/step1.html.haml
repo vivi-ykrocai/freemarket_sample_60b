@@ -36,14 +36,18 @@
               %span 必須
               = f.email_field :email, placeholder: 'PC・携帯どちらでも可' ,class: "input-list"
               %input{name:"login_type", type: "hidden", value:""}/
-            .form-list
-              %label{for:"password"} パスワード
-              %span 必須
-              = f.password_field :password, placeholder: '7文字以上' ,class: "input-list"
-            .form-list
-              %label{for:":password_confirmation"} パスワード (確認)
-              %span 必須
-              = f.password_field :password_confirmation, placeholder: '7文字以上' ,class: "input-list"
+              - if session["devise.auth_data"].present?
+                = f.hidden_field :password
+                = f.hidden_field :password_confirmation
+              - else
+                .form-list
+                  %label{for:"password"} パスワード
+                  %span 必須
+                  = f.password_field :password, placeholder: '7文字以上' ,class: "input-list"
+                .form-list
+                  %label{for:":password_confirmation"} パスワード (確認)
+                  %span 必須
+                  = f.password_field :password_confirmation, placeholder: '7文字以上' ,class: "input-list"
             .form-list
               %h3.text-left.l-chapter-sub-head 本人確認
               %p.l-single-text2

@@ -1,12 +1,27 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :detail, :edit, :update, :destroy]
+  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy]
+  after_action :buyer_add, only: [:pay]
 
   def index
+    # ブランドはまだ未実装なので、とりあえず全ての商品を表示させる
     @items = Item.order("created_at DESC").limit(10)
+    
+    # カテゴリーごとの商品表示
+    @lady_category = Category.find(1)
+    @men_category = Category.find(200)
+    @electrical_category = Category.find(898)
+    @toy_category = Category.find(685)
+
+    @ladies_items = Item.where(category_id: @lady_category.indirect_ids).order("created_at DESC").limit(10)
+    @mens_items = Item.where(category_id: @men_category.indirect_ids).order("created_at DESC").limit(10)
+    @electrical_appliance_items = Item.where(category_id: @electrical_category.indirect_ids).order("created_at DESC").limit(10)
+    @toy_hobby_items = Item.where(category_id: @toy_category.indirect_ids).order("created_at DESC").limit(10)
   end
 
-  def purchase; end
+  def purchase
+    @total_price = @item.total_price.to_s(:delimited)
+  end
 
   def new
     @item = Item.new
@@ -31,8 +46,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @images = @item.images
     @total_price = @item.total_price.to_s(:delimited)
+    @user_items = Item.where(seller_id: @item.seller).where.not(id: @item.id).order("created_at DESC").limit(6)
   end
 
   def edit
@@ -52,8 +67,7 @@ class ItemsController < ApplicationController
       redirect_to detail_item_path
     else
       render :edit
-  end
-
+    end
   end
 
   def destroy
@@ -74,21 +88,23 @@ class ItemsController < ApplicationController
   def pay
     Payjp.api_key = ENV['PAYJP_ACCESS_KEY']
     charge = Payjp::Charge.create(
-    amount: 2000000,
-    #amountは一旦仮置きで3500とする。
-    # 後で amount: @item.total_price,にする
+    amount: @item.total_price,
     card: params['payjp-token'],
     currency: 'jpy'
     )
     redirect_to root_path, notice: '決済が完了しました'
   end
 
+  # 商品購入が成功したらbuyer_idを付与する
+  def buyer_add
+    @item.update(buyer_id: current_user.id)
+  end
+
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date,:total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image])
-      #user機能実装したら）の後ろに追記    .merge(user_id: current_user.id)
-
+    params.require(:item).permit(:name, :image, :item_status, :delivery_charged,:delivery_method, :delivery_area, :delivery_shipping_date, :total_price, :item_profile_comment, :item_salse_status, :good, :category_id, images_attributes: [:id, :image]).merge(seller_id: current_user.id)
   end
 
   def set_item
