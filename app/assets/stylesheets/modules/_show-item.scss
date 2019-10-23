@@ -372,11 +372,11 @@
     }
   }
 
-  // ユーザーのその他の出品紹介
-  .item__in-user-boxes {
+  // 出品したユーザー・同じ商品種類のその他の出品一覧
+  .item__in-another-boxes {
     width: 700px;
     margin: 0 auto;
-    .item__user-name {
+    .item__another-name {
       font-size: 22px;
       font-weight: bold;
       margin: 24px 0 8px;
@@ -386,18 +386,22 @@
         text-decoration: none;
       }
     }
-    .item__user-other-items {
+    .item__another-items {
       width: 700px;
-      height: 350px;
+      height: 700px;
       display: flex;
-      .item-box {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .another-item-box {
         width: 220px;
-        margin: 0 20px 20px 0;
+        height: 330px;
+        color: black;
+        margin-bottom:20px;
         &__photo {
           width: 220px;
           height: 220px;
         }
-        &__body {
+        .item-box__body {
           height: 110px;
           padding: 16px;
           background-color: #fff;
@@ -415,64 +419,22 @@
     }
   }
 
-  // 同じ商品種類のその他の出品紹介
-  .item__in-another-boxes {
-    width: 700px;
-    margin: 0 auto;
-    .tameshi {
-      width: 100%;
-      margin-right: 24px;
-
-      .item__another-name {
-        font-size: 22px;
-        font-weight: bold;
-        margin: 24px 0 8px;
-        line-height: 1.4;
-        &__title {
-          color: #0099E8;
-          text-decoration: none;
-        }
-      }
-      .item__another-items {
-        width: 700px;
-        height: 700px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        .another-item-box {
-          width: 220px;
-          height: 330px;
-          margin-bottom:20px;
-          &__photo {
-            width: 220px;
-            height: 220px;
-          }
-          .item-box__body {
-            height: 110px;
-            padding: 16px;
-            background-color: #fff;
-            .item-box__name {
-              font-size: 16px;
-              height: 48px;
-            }
-            .item__numbers {
-              display: flex;
-              margin-top: 8px;
-              justify-content: space-between;
-            }
-          }
-        }
-      }
-    }
-  }
-
   .nav-bottom {
     border-top: 1px solid #eee;
-    &__name {
-      width: 700px;
+    ul {
+      display: block;
+      width: 1020px;
       margin: 0 auto;
-      padding: 16px 0;
-      font-size: 14px;
+      line-height: 48px;
+      display: flex;
+      .nav-bottom__name {
+        color: black;
+        padding: 16px 0;
+        font-size: 14px;
+      }
+      .nav-icon-right {
+        margin-right: 5px;
+      }
     }
   }
 
