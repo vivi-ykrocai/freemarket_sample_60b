@@ -4,7 +4,19 @@ class ItemsController < ApplicationController
   after_action :buyer_add, only: [:pay]
 
   def index
+    # ブランドはまだ未実装、発送完了の商品と公開停止の商品は一覧から外す
     @items = Item.where(item_salse_status: nil).order("created_at DESC").limit(10)
+    
+    # カテゴリーごとの商品表示
+    @lady_category = Category.find(1)
+    @men_category = Category.find(200)
+    @electrical_category = Category.find(898)
+    @toy_category = Category.find(685)
+
+    @ladies_items = Item.where(category_id: @lady_category.indirect_ids).order("created_at DESC").limit(10)
+    @mens_items = Item.where(category_id: @men_category.indirect_ids).order("created_at DESC").limit(10)
+    @electrical_appliance_items = Item.where(category_id: @electrical_category.indirect_ids).order("created_at DESC").limit(10)
+    @toy_hobby_items = Item.where(category_id: @toy_category.indirect_ids).order("created_at DESC").limit(10)
   end
 
   def purchase
@@ -39,8 +51,8 @@ class ItemsController < ApplicationController
   # end
 
   def show
-    @images = @item.images
     @total_price = @item.total_price.to_s(:delimited)
+    @user_items = Item.where(seller_id: @item.seller).where.not(id: @item.id).order("created_at DESC").limit(6)
   end
 
   def edit

@@ -31,16 +31,16 @@
             =fa_icon 'chevron-right'
         .item-index
           .items
-            - @items.each do |item|
+            - @ladies_items.each do |la_item|
               .item
-                = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.images[0].image}", class:"item__image"
+                = link_to item_path(la_item), class: "item-link" do
+                  = image_tag "#{la_item.images[0].image}", class:"item__image"
                   %span.item__price
-                    = "¥#{item.total_price.to_s(:delimited)}"
+                    = "¥#{la_item.total_price.to_s(:delimited)}"
                   .item__name
                     %span.item__name__text
-                      = item.name
-                -if item.buyer_id.present?
+                      = la_item.name
+                -if la_item.buyer_id.present?
                   .items-box_photo__sold
                     .items-box_photo__sold__inner
                       SOLD
@@ -52,16 +52,16 @@
             =fa_icon 'chevron-right'
         .item-index
           .items
-            - @items.each do |item|
+            - @mens_items.each do |me_item|
               .item
-                = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.images[0].image}", class:"item__image"
+                = link_to item_path(me_item), class: "item-link" do
+                  = image_tag "#{me_item.images[0].image}", class:"item__image"
                   %span.item__price
-                    = "¥#{item.total_price.to_s(:delimited)}"
+                    = "¥#{me_item.total_price.to_s(:delimited)}"
                   .item__name
                     %span.item__name__text
-                      = item.name
-                -if item.buyer_id.present? 
+                      = me_item.name
+                -if me_item.buyer_id.present? 
                   .items-box_photo__sold
                     .items-box_photo__sold__inner
                       SOLD
@@ -73,16 +73,16 @@
             =fa_icon 'chevron-right'
         .item-index
           .items
-            - @items.each do |item|
+            - @electrical_appliance_items.each do |el_item|
               .item
-                = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.images[0].image}", class:"item__image"
+                = link_to item_path(el_item), class: "item-link" do
+                  = image_tag "#{el_item.images[0].image}", class:"item__image"
                   %span.item__price
-                    = "¥#{item.total_price.to_s(:delimited)}"
+                    = "¥#{el_item.total_price.to_s(:delimited)}"
                   .item__name
                     %span.item__name__text
-                      = item.name
-                -if item.buyer_id.present? 
+                      = el_item.name
+                -if el_item.buyer_id.present? 
                   .items-box_photo__sold
                     .items-box_photo__sold__inner
                       SOLD
@@ -94,16 +94,16 @@
             =fa_icon 'chevron-right'
         .item-index
           .items
-            - @items.each do |item|
+            - @toy_hobby_items.each do |to_item|
               .item
-                = link_to item_path(item), class: "item-link" do
-                  = image_tag "#{item.images[0].image}", class:"item__image"
+                = link_to item_path(to_item), class: "item-link" do
+                  = image_tag "#{to_item.images[0].image}", class:"item__image"
                   %span.item__price
-                    = "¥#{item.total_price.to_s(:delimited)}"
+                    = "¥#{to_item.total_price.to_s(:delimited)}"
                   .item__name
                     %span.item__name__text
-                      = item.name
-                -if item.buyer_id.present? 
+                      = to_item.name
+                -if to_item.buyer_id.present? 
                   .items-box_photo__sold
                     .items-box_photo__sold__inner
                       SOLD
