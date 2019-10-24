@@ -12,7 +12,10 @@
         .item__little-photos
           - @images.each do |small_image|
             = image_tag "#{small_image.image}", class:"item__little-photo"
-
+      - if @item.buyer_id.present? 
+        .items-box_photo__sold
+          .items-box_photo__sold__inner
+            SOLD
       %table.item-detail-table
         %tbody
           %tr
@@ -80,9 +83,15 @@
       .item__fee
         送料込み
 
-
-    .item__buy-btn
-      = link_to '購入画面に進む', purchase_item_path, class:"item__buy-btn", "data-turbolinks": false
+    - if @item.buyer_id.present? 
+      .item__sold-btn
+        売り切れました
+    - elsif @item.seller_id == current_user.id
+      .item__buy-btn
+        = link_to '商品を編集する', edit_item_path(@item), class:"item__buy-btn", "data-turbolinks": false
+    - else
+      .item__buy-btn
+        = link_to '購入画面に進む', purchase_item_path, class:"item__buy-btn", "data-turbolinks": false
 
 
     .item-introduction

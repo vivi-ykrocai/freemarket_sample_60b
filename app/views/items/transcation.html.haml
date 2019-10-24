@@ -1,0 +1,122 @@
+= render partial: '/items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
+
+%main.container
+  .side
+    .side__container
+      %h3.side__container__title 取引情報
+      .side__container__inner
+        %ul.transact-info-table
+          %li.transact-info-table__row
+            .table-left 商品
+            .table-right
+              .table-content
+                = link_to item_path(@item) , class: "item-link" do
+                  = image_tag "#{@item.images[0].image}", class: "item-image"
+                  .transact-item
+                    = @item.name
+                    %br/
+                    = "¥#{@item.total_price.to_s(:delimited)}"
+          %li.transact-info-table__row.gray
+            .table-left 送料
+            .table-right
+              .table-content
+                = @item.delivery_charged
+          %li.transact-info-table__row
+            .table-left 販売手数料
+            .table-right
+              .table-content
+                = "¥#{@fee}"
+          %li.transact-info-table__row.gray
+            .table-left 販売利益
+            .table-right
+              .table-content
+                = "¥#{@profit}"
+          %li.transact-info-table__row
+            .table-left 購入日時
+            .table-right
+              .table-content
+                = @item.updated_at.strftime("%Y-%m-%d %H:%M")
+          %li.transact-info-table__row.gray
+            .table-left 商品ID
+            .table-right
+              .table-content
+                = @item.id
+          %li.transact-info-table__row
+            .table-left お届け先
+            .table-right
+              .table-content
+                %p
+                  = "〒#{@postal_code}"
+                %p
+                  = @item.buyer.prefectures
+                %p
+                  = @item.buyer.city
+                %p
+                  = @item.buyer.address
+                %p
+                  = @item.buyer.building_name
+                .buyer-name
+                  = @item.buyer.family_name
+                  %span
+                    = @item.buyer.last_name
+                  %span.honorific-title 　様
+    .side__container
+      %h3.transact-info-head 購入者情報
+      .side__container__inner
+        = link_to "", class: "buyer-link" do
+          .buyer-inner
+            .buyer-inner__image
+              = image_tag "#{@item.buyer.icon_image}"
+            .buyer-inner__name
+              = @item.buyer.nick_name
+            = fa_icon "angle-right", class: "icon-arrow-right"
+
+  .main
+    .main__container
+      %h3.main__container__title 取引画面
+      - if @item.item_salse_status.present?
+        .main__container__inner
+          .main__container__inner__upper
+            = fa_icon "truck", class: "truck-icon"
+            %span.ship 発送をしてください
+          .main__container__inner__lower
+            商品が購入され支払いされました。商品の発送を行ってください。
+        .transact-guide
+          = link_to "", class: "transact-guide__text" do
+            商品が売れた後の流れ
+            = fa_icon "angle-right", class: "icon-arrow-right"
+          = link_to "", class: "transact-guide__text" do
+            出品者のよくある質問
+            = fa_icon "angle-right", class: "icon-arrow-right"
+        .transact-shipping
+          = link_to completion_item_path(@item), method: :patch do
+            商品の発送をしたので、発送通知をする
+          %h3.text-center らくらくメルカリ便に変更できます
+          %h4.text-center.text-attention （※匿名配送は利用できません）
+          .transact-button
+            = link_to "", class: "change-btn" do
+              変更する
+      - else
+        .main__container__inner
+          .main__container__inner__upper
+            = fa_icon "clock", class: "truck-icon"
+            %span.ship 発送をお待ちください
+          .main__container__inner__lower
+        .transact-guide
+          = link_to "", class: "transact-guide__text" do
+            購入した後の流れ
+            = fa_icon "angle-right", class: "icon-arrow-right"
+      .message-container
+        %form.message-form
+          %p.announce 取引メッセージの内容は、必要に応じて事務局で確認しています
+          %textarea.textarea-default{:name => "body", :type => "text", :value => "", class: "message-area"}
+          %button.message-submit.btn-default.btn-gray{:type => "submit"}
+            取引メッセージを送る
+      .message-content
+        ※お困りの際は
+        = link_to "よくある質問"
+        をご確認ください。
+
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }

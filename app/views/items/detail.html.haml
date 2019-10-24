@@ -1,6 +1,10 @@
 = render partial: '/items/header', locals: { }
 = render partial: '/users/bread-crumbs', locals: { }
 
+- if flash[:notice]
+  .flash-notice
+    = flash[:notice]
+
 .item-detail-wrapper
 
   .item-box-container
@@ -11,21 +15,19 @@
       .item__photos
         = image_tag "#{@item.images[0].image}", class:"item__main-photo"
         .item__little-photos
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m94173632764_1.jpg?1569882243', class:"item__little-photo"
-
+          - @images.each do |small_image|
+            = image_tag "#{small_image.image}", class:"item__little-photo"
+      - if @item.item_salse_status.present? && @item.buyer_id.nil?
+        .items-box_photo__stop
+          .items-box_photo__stop__inner
+            公開停止中
       %table.item-detail-table
         %tbody
           %tr
             %th
-              -# = @user.name
+              出品者
             %td
-              = link_to 'ここなつ', 'https://www.mercari.com/jp/mypage/', class: "td__user-name"
+              = link_to current_user.nick_name, 'https://www.mercari.com/jp/mypage/', class: "td__user-name"
               .item-user__information
                 .item-user__ratings
                   = fa_icon 'laugh',class:"icon-good"
@@ -42,15 +44,15 @@
               %ul
                 %li
                   = link_to '#', class:"list__category" do
-                    -# = @item.category.parent.parent.name
+                    = @item.category.parent.parent.name
                 %li
                   = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    -# = @item.category.parent.name
+                    = @item.category.parent.name
                 %li
                   = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    -# = @item.category.name
+                    = @item.category.name
           %tr
             %th ブランド
             %td
@@ -99,11 +101,15 @@
     .center-comment
       or
 
-    .item__edit-btn-a
-      = link_to '出品を一旦停止する',detail_item_path(@item), class:"item__edit-btn-a"
+    - if @item.item_salse_status.present?
+      .item__edit-btn-a
+        = link_to '出品を再開する',restart_selling_item_path(@item), class:"item__edit-btn", method: :patch
+    - else
+      .item__edit-btn-a
+        = link_to '出品を一旦停止する',stop_selling_item_path(@item), class:"item__edit-btn-a", method: :patch
 
     .item__edit-btn-a
-      = link_to 'この商品を削除する',item_path(@item), method: :delete, class:"item__edit-btn",'data-turbolinks': false
+      = link_to 'この商品を削除する',item_path(@item), method: :delete, class:"item__edit-btn-a",'data-turbolinks': false
 
 
   .item__chat-message

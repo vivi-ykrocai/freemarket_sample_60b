@@ -12,7 +12,7 @@
     }
     .status-tabs{
       display: flex;
-      .status-active{
+      .active{
         background-color: rgb(255, 255, 255);
         border-top: solid 2px #ea352d;
         line-height: 72px;
@@ -21,6 +21,7 @@
       }
       .status{
         background-color: rgb(238, 238, 238);
+        border-bottom: solid 2px #fff;
         width: 33.3%;
         text-align: center;
         &__name{
@@ -42,6 +43,9 @@
             color: rgb(136, 136, 136);
           }
         }
+      }
+      .purchase{
+        width: 50%;
       }
     }
     .tab-content{
@@ -79,13 +83,18 @@
                   color: #ccc;
                 }
                 .mypage-item-status{
-                  background-color: #0095ee;
                   padding: 5px 6px;
                   border-radius: 2px;
                   font-size: 12px;
                   color: #fff;
                 }
-                .completion{
+                .blue{
+                  background-color: #0095ee;
+                }
+                .red{
+                  background-color: #ea352d;
+                }
+                .gray{
                   background-color: darkgray;
                 }
               }
