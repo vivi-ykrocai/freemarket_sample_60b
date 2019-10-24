@@ -45,18 +45,12 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
   end
 
-  # def get_delivery_method
-  #   @delivery_method_cod = Item.delivery_methods.keys
-  #   @delivery_method_pod = Item.delivery_methods.keys.slice(0,4)
-  # end
-
   def show
     @total_price = @item.total_price.to_s(:delimited)
     @user_items = Item.where(seller_id: @item.seller).where.not(id: @item.id).order("created_at DESC").limit(6)
   end
 
   def edit
-    # @output_fee = (@item.total_price/10)
     total_price = @item.total_price
     fee = (@item.total_price) / 10
     @fee = fee.to_s(:delimited)
@@ -76,11 +70,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    #  if @item.seller_id == current_user.id
+    if @item.seller_id == current_user.id
       @item.destroy
       redirect_to root_path
-    # end
-    # ログイン機能が完成したらコメントアウトした部分を追加する。
+    else
+      redirect_to detail_item_path(@item), notice: "商品の削除はできません"
+    end
   end
 
   def transcation
@@ -89,26 +84,33 @@ class ItemsController < ApplicationController
     @fee = fee.to_s(:delimited)
     @profit = (total_price - fee).to_s(:delimited)
     @postal_code= @item.buyer.postal_code
-    # @postal_code= @item.buyer.postal_code.gsub(/#{@item.buyer.postal_code.to_s}/,/^〒\s[0-9]{3}-[0-9]{4}$/)
   end
 
   def stop_selling
-    @item.update(item_salse_status: current_user.id)
-    redirect_to detail_item_path(@item), notice: "出品の一旦停止をしました"
+    if @item.update(item_salse_status: current_user.id)
+      redirect_to detail_item_path(@item), notice: "出品の一旦停止をしました"
+    else
+      redirect_to detail_item_path(@item), notice: "公開停止にできませんでした"
+    end
   end
 
   def restart_selling
-    @item.update(item_salse_status: nil)
-    redirect_to detail_item_path(@item), notice: "出品の再開をしました"
+    if @item.update(item_salse_status: nil)
+      redirect_to detail_item_path(@item), notice: "出品の再開をしました"
+    else
+      redirect_to detail_item_path(@item), notice: "出品の再開ができませんでした"
+    end
   end
 
   def completion
-    @item.update(item_salse_status: current_user.id)
-    redirect_to completion_user_path(current_user)
+    if @item.update(item_salse_status: current_user.id)
+      redirect_to completion_user_path(current_user)
+    else
+      redirect_to transcation_item_path(@item), notice: "商品の発送ができませんでした"
+    end
   end
 
   def create
-    # binding.pry
     @item = Item.create(item_params)
     redirect_to action: :index
   end

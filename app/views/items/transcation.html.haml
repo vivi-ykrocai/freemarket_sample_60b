@@ -1,6 +1,11 @@
 = render partial: '/items/header', locals: { }
 = render partial: '/users/bread-crumbs', locals: { }
 
+
+- if flash[:notice]
+  .flash-notice
+    = flash[:notice]
+    
 %main.container
   .side
     .side__container

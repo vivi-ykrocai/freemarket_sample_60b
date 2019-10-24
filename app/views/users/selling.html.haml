@@ -45,23 +45,6 @@
                           .mypage-item-status.gray
                             公開停止中
                     = fa_icon "angle-right", class: "icon-arrow-right"
-              -# - @selling_items.each do |item|
-              -#   %li.selling-item
-              -#     = link_to detail_item_path(item), class: "mypage-item-link" do
-              -#       = image_tag "#{item.images[0].image}", class: "selling-item-image"
-              -#       .mypage-item-body
-              -#         .mypage-item-upper
-              -#           = item.name
-              -#         .mypage-item-lower
-              -#           %span.selling-item-count
-              -#             = fa_icon "heart", class: "selling-icon-heart"
-              -#             %span 0
-              -#           %span.selling-item-count
-              -#             = fa_icon "comment", class: "selling-icon-comment"
-              -#             %span 0
-              -#           .mypage-item-status.selling
-              -#             出品中
-              -#       = fa_icon "angle-right", class: "icon-arrow-right"
             - else
               .empty-status
                 = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
