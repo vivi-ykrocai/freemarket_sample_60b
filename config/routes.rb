@@ -53,6 +53,8 @@ end
     end
   end
 
+  resources :categories, only: [:index]
+
   resources :cards, only: [:index, :edit, :update, :member, :new]
   resources :logouts, only: [:index]
 
