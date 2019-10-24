@@ -1,7 +1,6 @@
 = render partial: '/items/header', locals: { }
 .card_body5
   .card-content
-    -# = render partial: "side_bar"
     .card-main
       .l-card-content
         %h2.card-head 支払い方法
@@ -65,4 +64,6 @@
                     カード裏面の番号とは？
                   #card_token
                   = submit_tag "追加する", id: "token_submit" , class: "btn-red"
-  = render partial: 'card/card_footer', locals: { card: @card }
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }
