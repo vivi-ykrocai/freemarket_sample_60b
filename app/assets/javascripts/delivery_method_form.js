@@ -3,7 +3,6 @@ $(document).on("turbolinks:load",function(){
   // 配送料の負担選択後のイベント
   $('#item_delivery_charged').on('change', function(){
     var itemDeliveryCharged = document.getElementById('item_delivery_charged').value;
-    console.log(itemDeliveryCharged)
     // 選択結果によってセレクトボックスを表示・非表示
     if (itemDeliveryCharged == "送料込み（出品者負担）"){
       $(".cash-on-delivery").show();
