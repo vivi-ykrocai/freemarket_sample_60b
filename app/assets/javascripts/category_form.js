@@ -60,7 +60,6 @@ $(document).on("turbolinks:load",function(){
   // 子カテゴリー選択後のイベント
   $('.form-group-first').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    console.log(childId)
     if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_grandchildren',
@@ -75,7 +74,6 @@ $(document).on("turbolinks:load",function(){
   //         $('#brand_wrapper').remove();   もしブランドを選べるようにするなら追記
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
-            console.log(grandchild)
             insertHTML += appendOption(grandchild);
           });
           appendGrandchidrenBox(insertHTML);

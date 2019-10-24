@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy]
+  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy, :transcation, :stop_selling, :restart_selling, :completion]
   after_action :buyer_add, only: [:pay]
 
   def index
-    # ブランドはまだ未実装なので、とりあえず全ての商品を表示させる
-    @items = Item.order("created_at DESC").limit(10)
+    # ブランドはまだ未実装、発送完了の商品と公開停止の商品は一覧から外す
+    @items = Item.where(item_salse_status: nil).order("created_at DESC").limit(10)
     
     # カテゴリーごとの商品表示
     @lady_category = Category.find(1)
@@ -51,7 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @output_fee = (@item.total_price/10)
     total_price = @item.total_price
     fee = (@item.total_price) / 10
     @fee = fee.to_s(:delimited)
@@ -71,16 +70,47 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    #  if @item.seller_id == current_user.id
-       @item.destroy
+    if @item.seller_id == current_user.id
+      @item.destroy
       redirect_to root_path
-    # end
-    # ログイン機能が完成したらコメントアウトした部分を追加する。
+    else
+      redirect_to detail_item_path(@item), notice: "商品の削除はできません"
+    end
+  end
 
-   end
+  def transcation
+    total_price = @item.total_price
+    fee = (@item.total_price) / 10
+    @fee = fee.to_s(:delimited)
+    @profit = (total_price - fee).to_s(:delimited)
+    @postal_code= @item.buyer.postal_code
+  end
+
+  def stop_selling
+    if @item.update(item_salse_status: current_user.id)
+      redirect_to detail_item_path(@item), notice: "出品の一旦停止をしました"
+    else
+      redirect_to detail_item_path(@item), notice: "公開停止にできませんでした"
+    end
+  end
+
+  def restart_selling
+    if @item.update(item_salse_status: nil)
+      redirect_to detail_item_path(@item), notice: "出品の再開をしました"
+    else
+      redirect_to detail_item_path(@item), notice: "出品の再開ができませんでした"
+    end
+  end
+
+  def completion
+    if @item.update(item_salse_status: current_user.id)
+      redirect_to completion_user_path(current_user)
+    else
+      redirect_to transcation_item_path(@item), notice: "商品の発送ができませんでした"
+    end
+  end
 
   def create
-    # Item.create(name: item_params[:name], image : item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
     @item = Item.create(item_params)
     redirect_to action: :index
   end

@@ -22,18 +22,23 @@ crumb :mypage_progression do
   parent :mypage
 end
 
+crumb :mypage_transcation do
+  link '取引画面', transcation_item_path
+  parent :mypage_progression
+end
+
 crumb :mypage_completion do
   link '出品した商品-売却済', completion_user_path(current_user)
   parent :mypage
 end
 
 crumb :mypage_purchase do
-  link '購入した商品-取引中', root_path
+  link '購入した商品-取引中', purchase_user_path(current_user)
   parent :mypage
 end
 
 crumb :mypage_purchased do
-  link '出品した商品-過去の取引', proot_path
+  link '購入した商品-過去の取引', purchased_user_path(current_user)
   parent :mypage
 end
 
@@ -53,7 +58,7 @@ crumb :mypage_identification do
 end
 
 crumb :mypage_listing_item do
-  link '商品出品画面', detail_item_path
+  link '出品商品画面', detail_item_path
   parent :mypage_listing
 end
 
