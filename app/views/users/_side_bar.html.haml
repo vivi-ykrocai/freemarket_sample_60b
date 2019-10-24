@@ -1,70 +1,54 @@
 .side
   .side--list
     .side--list--item
-      = sidebar_link('マイページ', user_path(current_user)) do
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('マイページ', user_path(current_user))
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         お知らせ
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         やることリスト
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         いいね！一覧
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         出品する
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
-      = sidebar_link('出品した商品 - 出品中', selling_user_path(current_user)) do
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('出品した商品 - 出品中', selling_user_path(current_user))
 
     .side--list--item
-      = sidebar_link('出品した商品 - 取引中', progression_user_path(current_user)) do
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('出品した商品 - 取引中', progression_user_path(current_user))
 
     .side--list--item
-      = sidebar_link('出品した商品 - 売却済み', completion_user_path(current_user)) do
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('出品した商品 - 売却済み', completion_user_path(current_user))
 
     .side--list--item
-      = link_to root_path, class: "side--list--item--link" do
-        購入した商品 - 取引中
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('購入した商品 - 取引中', purchase_user_path(current_user))
 
     .side--list--item
-      = link_to root_path, class: "side--list--item--link" do
-        出品した商品 - 過去の取引
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('購入した商品 - 過去の取引', purchased_user_path(current_user))
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         ニュース一覧
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         評価一覧
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         ガイド
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         お問い合わせ
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--head
       メルペイ
@@ -72,47 +56,36 @@
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         売上・振込申請
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         ポイント
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--head
       設定
 
     .side--list--item
-      -# = link_to profile_user_path(current_user), class: "side--list--item--link" do
-        プロフィール
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
-
+      = sidebar_link('プロフィール', profile_user_path(current_user))
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         発送元・お届け先住所変更
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         支払い方法
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         メール/パスワード
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         本人情報
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
         電話番号の確認
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
-      = sidebar_link('ログアウト', logout_users_path) do
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+      = sidebar_link('ログアウト', logout_users_path) 
