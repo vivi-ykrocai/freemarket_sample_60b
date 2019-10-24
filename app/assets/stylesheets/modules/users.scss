@@ -42,6 +42,9 @@ a{
           border-radius: 50%;
           vertical-align: middle;
         }
+        .hidden-form{
+          display: none;
+        }
         .avater-name-form{
           width: 220px;
           margin-left: 8px;
@@ -330,4 +333,8 @@ a{
 .side {
   margin: 40px auto 0;
   background: #fff;
+}
+
+.buyed_item{
+  display: none;
 }
