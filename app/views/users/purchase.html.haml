@@ -6,27 +6,22 @@
     = render partial: "side_bar"
     .wrapper-contener
       .mypage-tab-container
-        %h2.mypage-tab-head 出品した商品
-
+        %h2.mypage-tab-head 購入した商品
         %ul.status-tabs
-          %li.active
+          %li.active.purchase
             %h3.status__name
-              = link_to selling_user_path(current_user), class: "status-link" do
-                出品中
-          %li.status
-            %h3.status__name
-              = link_to progression_user_path(current_user), class: "status-link" do
+              = link_to purchase_user_path(current_user), class: "status-link" do
                 取引中
-          %li.status
+          %li.status.purchase
             %h3.status__name
-              = link_to completion_user_path(current_user), class: "status-link" do
-                売却済み
+              = link_to purchased_user_path(current_user), class: "status-link" do
+                過去の取引
         .tab-content
-          %ul#mypage-tab-transcation
-            - if @sell_items.present?
-              - @sell_items.each do |item|
+          %ul#mypage-tab-transcation-now.mypage-item-list.tab-pane.active
+            - if @during_items.present?
+              - @during_items.each do |item|
                 %li.selling-item
-                  = link_to detail_item_path(item), class: "mypage-item-link" do
+                  = link_to item_path(item), class: "mypage-item-link" do
                     = image_tag "#{item.images[0].image}", class: "selling-item-image"
                     .mypage-item-body
                       .mypage-item-upper
@@ -40,33 +35,16 @@
                           %span 0
                         - if item.item_salse_status.nil?
                           .mypage-item-status.blue
-                            出品中
+                            発送待ち
                         - else
-                          .mypage-item-status.gray
-                            公開停止中
+                          .mypage-item-status.red
+                            受取評価待ち
                     = fa_icon "angle-right", class: "icon-arrow-right"
-              -# - @selling_items.each do |item|
-              -#   %li.selling-item
-              -#     = link_to detail_item_path(item), class: "mypage-item-link" do
-              -#       = image_tag "#{item.images[0].image}", class: "selling-item-image"
-              -#       .mypage-item-body
-              -#         .mypage-item-upper
-              -#           = item.name
-              -#         .mypage-item-lower
-              -#           %span.selling-item-count
-              -#             = fa_icon "heart", class: "selling-icon-heart"
-              -#             %span 0
-              -#           %span.selling-item-count
-              -#             = fa_icon "comment", class: "selling-icon-comment"
-              -#             %span 0
-              -#           .mypage-item-status.selling
-              -#             出品中
-              -#       = fa_icon "angle-right", class: "icon-arrow-right"
             - else
               .empty-status
                 = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
                 .empty-status__text
-                  出品中の商品がありません
+                  取引中の商品がありません
       %ul.mypage-history
         %li.pager-prev.pager-cell
           = link_to "", class: "prev-button" do
