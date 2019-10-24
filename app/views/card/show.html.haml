@@ -1,16 +1,5 @@
 = render partial: '/items/header', locals: { }
 
-.l-container1
-  .l-content
-    %section.l-chapter-container
-      %section.settings-add-card
-        .l-single-content
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'add_btn'
-
-= render partial: '/items/aside', locals: { }
-= render partial: '/items/footer', locals: { }
-= render partial: '/items/sell-icon', locals: { }
-
 %label 登録クレジットカード情報
 %br
 = "**** **** **** " + @default_card_information.last4
@@ -21,3 +10,8 @@
 = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
   %input{ type: "hidden", name: "card_id", value: "" }
   %button 削除する
+
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }
+

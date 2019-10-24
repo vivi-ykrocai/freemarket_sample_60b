@@ -29,11 +29,6 @@ class UsersController < ApplicationController
   end
 
   def card
-    if @card.save
-      redirect_to action: "show"
-    else
-      redirect_to action: "pay"
-    end
   end
 
   def identification

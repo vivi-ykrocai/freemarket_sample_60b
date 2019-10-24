@@ -82,10 +82,10 @@
     .side--list--head
       設定
 
-    .side--list--item
-      -# = link_to profile_user_path(current_user), class: "side--list--item--link" do
-        プロフィール
-        = fa_icon "angle-right" , class: "side--list--item--link--icon"
+    -# .side--list--item
+      -# -# = link_to profile_user_path(current_user), class: "side--list--item--link" do
+      -#   プロフィール
+      -#   = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
 
     .side--list--item
@@ -94,8 +94,9 @@
         = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
-      = link_to "支払い方法", "/card/new", class: "card"
-      = fa_icon "angle-right" , class: "side--list--icon"
+      = link_to card_show_path, class: "side--list--item--link" do
+        支払い方法
+        = fa_icon "angle-right" , class: "side--list--item--link--icon"
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
