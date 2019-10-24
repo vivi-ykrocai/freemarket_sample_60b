@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy]
+  before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy, :transcation, :stop_selling, :restart_selling, :completion]
   after_action :buyer_add, only: [:pay]
 
   def index
-    @items = Item.order("created_at DESC").limit(10)
+    @items = Item.where(item_salse_status: nil).order("created_at DESC").limit(10)
   end
 
   def purchase
@@ -33,6 +33,11 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
   end
 
+  # def get_delivery_method
+  #   @delivery_method_cod = Item.delivery_methods.keys
+  #   @delivery_method_pod = Item.delivery_methods.keys.slice(0,4)
+  # end
+
   def show
     @images = @item.images
     @total_price = @item.total_price.to_s(:delimited)
@@ -60,15 +65,38 @@ class ItemsController < ApplicationController
 
   def destroy
     #  if @item.seller_id == current_user.id
-       @item.destroy
+      @item.destroy
       redirect_to root_path
     # end
     # ログイン機能が完成したらコメントアウトした部分を追加する。
+  end
 
-   end
+  def transcation
+    total_price = @item.total_price
+    fee = (@item.total_price) / 10
+    @fee = fee.to_s(:delimited)
+    @profit = (total_price - fee).to_s(:delimited)
+    @postal_code= @item.buyer.postal_code
+    # @postal_code= @item.buyer.postal_code.gsub(/#{@item.buyer.postal_code.to_s}/,/^〒\s[0-9]{3}-[0-9]{4}$/)
+  end
+
+  def stop_selling
+    @item.update(item_salse_status: current_user.id)
+    redirect_to detail_item_path(@item), notice: "出品の一旦停止をしました"
+  end
+
+  def restart_selling
+    @item.update(item_salse_status: nil)
+    redirect_to detail_item_path(@item), notice: "出品の再開をしました"
+  end
+
+  def completion
+    @item.update(item_salse_status: current_user.id)
+    redirect_to completion_user_path(current_user)
+  end
 
   def create
-    # Item.create(name: item_params[:name], image : item_params[:image], item_status: item_params[:item_status], delivery_charged: item_params[:delivery_charged], delivery_method: item_params[:delivery_method], delivery_area: item_params[:delivery_area], delivery_shipping_date: item_params[:delivery_shipping_date], total_price: item_params[:total_price], item_profile_comment: item_params[:item_profile_comment], item_salse_status: item_params[:item_salse_status], good: item_params[:good], category_id: item_params[:category_id])
+    # binding.pry
     @item = Item.create(item_params)
     redirect_to action: :index
   end
