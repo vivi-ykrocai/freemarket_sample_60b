@@ -74,13 +74,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .buyer-inner__image{
+            &__image{
               overflow: hidden;
               width: 40px;
               height: 40px;
               border-radius: 50%;
             }
-            .buyer-inner__name{
+            &__name{
               max-width: 160px;
               height: auto;
               overflow: hidden;
@@ -114,7 +114,7 @@
         padding: 24px 8px;
         background-color: rgb(255, 246, 222);
         text-align: center;
-        .main__container__inner__upper{
+        &__upper{
           font-size: 16px;
           color: #ea352d;
           .truck-icon{
@@ -127,7 +127,7 @@
             font-weight: bold;
           }
         }
-        .main__container__inner__lower{
+        &__lower{
           margin-top: 8px;
           font-size: 14px;
           line-height: 1.5;
