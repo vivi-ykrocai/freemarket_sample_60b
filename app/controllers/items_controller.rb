@@ -99,7 +99,6 @@ class ItemsController < ApplicationController
     @item.update(buyer_id: current_user.id)
   end
 
-
   private
 
   def item_params
