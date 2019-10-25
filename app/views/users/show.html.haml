@@ -6,8 +6,12 @@
     .container-mypage__usericon
       = link_to "" do
         %figure
-          =image_tag "mypage/mypage-icon-kudo.png", size: '50x50', class: "avater", alt:"avater"
-        .user つば九郎
+          - if @user.icon_image.present?
+            = image_tag "#{@user.icon_image}", size: '50x50', class: "avater", alt:"avater"
+          - else
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '50x50', class: "avater", alt:"avater"
+        .user
+          = @user.nick_name
         .user--number
           .user--number__evaluation
             評価 234
