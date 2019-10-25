@@ -17,9 +17,22 @@
     - breadcrumb :mypage_progression
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
+  - when ['items', 'transcation']
+    - breadcrumb :mypage_transcation
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
   - when ['users', 'completion']
     - breadcrumb :mypage_completion
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['users', 'purchase']
+    - breadcrumb :mypage_purchase
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['users', 'purchased']
+    - breadcrumb :mypage_purchased
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
 
   - when ['items', 'detail']
     - breadcrumb :mypage_listing_item

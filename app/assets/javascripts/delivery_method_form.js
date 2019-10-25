@@ -15,4 +15,13 @@ $(document).on("turbolinks:load",function(){
       $(".payment-on-delivery").hide();
     }
   });
+  // 送料込み・着払いそれぞれの情報をhidden_formへ渡す
+  $("#cash-on-delivery").on('change', function(){
+    var itemDeliveryMethod = document.getElementById('cash-on-delivery').value;
+    $("#item_delivery_method_decision").val(itemDeliveryMethod)
+  });
+  $("#payment-on-delivery").on('change', function(){
+    var itemDeliveryMethod = document.getElementById('payment-on-delivery').value;
+    $("#item_delivery_method_decision").val(itemDeliveryMethod)
+  });
 });

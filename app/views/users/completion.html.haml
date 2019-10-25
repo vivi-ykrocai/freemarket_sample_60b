@@ -16,17 +16,17 @@
             %h3.status__name
               = link_to progression_user_path(current_user), class: "status-link" do
                 取引中
-          %li.status-active
+          %li.active
             %h3.status__name
               = link_to completion_user_path(current_user), class: "status-link" do
                 売却済み
         .tab-content
-          %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %ul#mypage-tab-transcation-now.mypage-item-list.tab-pane.active
             - if @items.present?
               - @items.each do |item|
                 %li.selling-item
-                  = link_to "", class: "mypage-item-link" do
-                    = image_tag "#{item.image}", class: "selling-item-image"
+                  = link_to item_path(item), class: "mypage-item-link" do
+                    = image_tag "#{item.images[0].image}", class: "selling-item-image"
                     .mypage-item-body
                       .mypage-item-upper
                         = item.name
@@ -37,7 +37,7 @@
                         %span.selling-item-count
                           = fa_icon "comment", class: "selling-icon-comment"
                           %span 0
-                        .mypage-item-status.completion
+                        .mypage-item-status.gray
                           売却済
                     = fa_icon "angle-right", class: "icon-arrow-right"
             - else
