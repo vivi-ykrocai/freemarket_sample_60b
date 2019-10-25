@@ -6,8 +6,9 @@
     .container-mypage__usericon
       = link_to "" do
         %figure
-          =image_tag "mypage/mypage-icon-kudo.png", size: '50x50', class: "avater", alt:"avater"
-        .user つば九郎
+          =image_tag "#{@user.icon_image}", size: '50x50', class: "avater", alt:"avater"
+        .user
+          = @user.nick_name
         .user--number
           .user--number__evaluation
             評価 234
@@ -94,7 +95,7 @@
             - if @during_items.present?
               - @during_items.each do |item|
                 %li.selling-item.during_item
-                  = link_to item_path(item), class: "mypage-item-link" do
+                  = link_to transcation_item_path(item), class: "mypage-item-link" do
                     = image_tag "#{item.images[0].image}", class: "selling-item-image"
                     .mypage-item-body
                       .mypage-item-upper
@@ -121,7 +122,7 @@
             - if @buyed_items.present?
               - @buyed_items.each do |item|
                 %li.selling-item.buyed_item
-                  = link_to item_path(item), class: "mypage-item-link" do
+                  = link_to transcation_item_path(item), class: "mypage-item-link" do
                     = image_tag "#{item.images[0].image}", class: "selling-item-image"
                     .mypage-item-body
                       .mypage-item-upper
