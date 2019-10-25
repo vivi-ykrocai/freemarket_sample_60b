@@ -44,7 +44,7 @@ end
     end
   end
 
-  resources :signup do
+  resources :signup, only:[:new, :create] do
     collection do
       get 'sign_up'
       get 'step1'
@@ -52,6 +52,7 @@ end
       get 'step3'
       get 'step4'
       get 'finish'
+      get 'error'
     end
   end
 

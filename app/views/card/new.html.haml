@@ -1,5 +1,8 @@
 = render partial: '/items/header', locals: { }
-.card_body5
+= render partial: '/users/bread-crumbs', locals: { }
+
+.card_body
+  = render partial: "/users/side_bar"
   .card-content
     .card-main
       .l-card-content

@@ -1,3 +1,6 @@
+= render partial: '/items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
+
 .l-container
   = render partial: "side_bar"
   .l-content
@@ -16,3 +19,6 @@
           -# %a{href:"https://www.mercari.com/jp/mypage/card/", target:"_blank"}
           -#   %span 支払い方法について
             -# = fa_icon 'angle-right'
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }

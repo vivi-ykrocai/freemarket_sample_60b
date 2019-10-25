@@ -27,16 +27,6 @@ class SignupController < ApplicationController
     @prefectures = Prefecture.all
   end
 
-  # def step4
-  #   # step3で入力された値をsessionに保存
-  #   session[:postal_code] = user_params[:postal_code]
-  #   session[:prefectures] = user_params[:prefectures]
-  #   session[:city] = user_params[:city]
-  #   session[:addres] = user_params[:addres]
-  #   session[:building_name] = user_params[:building_name]
-  #   @user = User.new # 新規インスタンス作成
-  # end
-
   def create
     @user = User.new(
       nick_name: session[:nick_name], # sessionに保存された値をインスタンスに渡す
@@ -67,17 +57,23 @@ class SignupController < ApplicationController
           user_id: @user.id
         )
       end
-      redirect_to finish_signup_index_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to step4_signup_index_path
     else
-      render '/signup/sign_up'
+      render '/signup/error'
     end
   end
 
+    def step4
+      user = User.where(id: current_user.id)
+    end
+  
+    def error
+    end
+    
     def finish
       sign_in User.find(session[:id]) unless user_signed_in?
     end
-  
-    
     private
 
   # 許可するキーを設定します
