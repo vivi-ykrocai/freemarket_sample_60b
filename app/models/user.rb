@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
-        
+  mount_uploader :icon_image, ImageUploader
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
@@ -70,23 +70,23 @@ class User < ApplicationRecord
   end
 
 
-  validates :nick_name, presence: true
-  validates :nick_name, uniqueness: true
-  validates :last_name, presence: true
-  validates :family_name, presence: true
-  validates :last_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
-  validates :family_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
-  validates :email, presence: true
-  validates :email, uniqueness: true
-  validates :password, presence: true
-  validates :password, length: { minimum: 7 }
-  validates :birthday, presence: true
-  validates :phone_number, presence: true
-  validates :phone_number, uniqueness: true
-  validates :phone_number, length: { is: 11 }
-  validates :postal_code, presence: true
-  validates :postal_code, length: { is: 7 }
-  validates :prefectures, presence: true
-  validates :city, presence: true
-  validates :address, presence: true
+  validates :nick_name, presence: true, on: :create
+  validates :nick_name, uniqueness: true, on: :create
+  validates :last_name, presence: true, on: :create
+  validates :family_name, presence: true, on: :create
+  validates :last_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }, on: :create
+  validates :family_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }, on: :create
+  validates :email, presence: true, on: :create
+  validates :email, uniqueness: true, on: :create
+  validates :password, presence: true, on: :create
+  validates :password, length: { minimum: 7 }, on: :create
+  validates :birthday, presence: true, on: :create
+  validates :phone_number, presence: true, on: :create
+  validates :phone_number, uniqueness: true, on: :create
+  validates :phone_number, length: { is: 11 }, on: :create
+  validates :postal_code, presence: true, on: :create
+  validates :postal_code, length: { is: 7 }, on: :create
+  validates :prefectures, presence: true, on: :create
+  validates :city, presence: true, on: :create
+  validates :address, presence: true, on: :create
 end
