@@ -68,7 +68,20 @@ header{
           .genre{
             padding-left: 0px;
           }
-          &__search{
+          &__search-1{
+            height: 44px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+            white-space: nowrap;
+            display: block;
+            line-height: 36px;
+            padding-right: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            
+          }
+          &__search-2{
             height: 44px;
             font-size: 14px;
             font-weight: 600;
@@ -87,6 +100,7 @@ header{
             margin-right: 4px;
           }
         }
+        
         &__right{
           display: flex;
           vertical-align: baseline;

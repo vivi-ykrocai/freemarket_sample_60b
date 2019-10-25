@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  include CommonActions
+  before_action :set_categories
 
   before_action :set_item, only: [:purchase, :pay, :buyer_add, :show, :detail, :edit, :update, :destroy, :transcation, :stop_selling, :restart_selling, :completion]
   after_action :buyer_add, only: [:pay]

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  include CommonActions
+  before_action :set_categories
+  
 
   before_action :purchase, only: :show
   before_action :purchased, only: :show
