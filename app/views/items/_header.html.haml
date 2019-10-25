@@ -41,7 +41,7 @@
           - if user_signed_in?
             .lower-contents__right__mypage
               = link_to user_path(current_user), class: "lower-contents__right__mypage__button" do
-                - if @user.icon_image.present?
+                - if current_user.icon_image.present?
                   = image_tag "#{current_user.icon_image}", class: "header-user-icon"
                 - else
                   = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "header-user-icon"
