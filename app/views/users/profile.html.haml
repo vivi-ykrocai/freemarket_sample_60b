@@ -16,7 +16,10 @@
       .container__right__form__image
         = f.label :icon_image do
           = f.file_field :icon_image, class: "avater hidden-form", alt:"avater"
-          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "avater"
+          - if @user.icon_image.present?
+            = image_tag "#{@user.icon_image}", class: "avater"
+          - else
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "avater"
         = f.text_area :nick_name, class: "avater-name-form", placeholder: "つば九郎", type: "text"
       .container__right__form__content
         = f.text_area :profiile_comments,class: "container__right__form__content--text", placeholder: "例）こんにちは！！！！つば九郎だよ！！！！ たくさん購入してね！！！！"
