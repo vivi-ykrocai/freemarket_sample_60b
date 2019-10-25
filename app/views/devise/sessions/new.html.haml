@@ -21,15 +21,15 @@
             - if flash[:error].present?
               %ul
                 %li #{flash[:error]}
-          %form
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .signin-form-inner
               .form-list.form-first
-                %input.signin-input-text.input-list{placeholder: :メールアドレス, value: ""}/
+                = f.email_field :email, autofocus: true, class:"signin-input-text input-list", placeholder:"メールアドレス", value: ""
               .form-list
-                %input.signin-input-text.input-list{placeholder:  :パスワード, type:"password"}/
-              -# .form-list
-              -#   = image_tag "honninkakunin.png", size:"250x60"
-              %button.signin-submit.btn-list.btn-red{} ログイン
+                = f.password_field :password, autocomplete: "off", class:"signin-input-text input-list", placeholder:"パスワード", value: ""
+              .form-list
+                = image_tag "honninkakunin.png", size:"250x60"
+                = f.submit "ログイン", class: "btn signin-submit btn-list btn-red"
               %input{name: :__csrf_value, type: :hidden, value: :""}/
               = link_to "パスワードをお忘れの方"
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
