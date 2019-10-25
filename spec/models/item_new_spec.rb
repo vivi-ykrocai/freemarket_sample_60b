@@ -52,22 +52,5 @@ describe Item do
       item.valid?
       expect(item.errors[:category_id]).to include("can't be blank")
     end
-
-
-    # it "is invalid without a category_id" do
-    #   item = build(:item,category_id:nil)
-    #   item.valid?
-    #   expect(item.errors[:category_id]).to include("can't be blank")
-    # end
-    # it "is invalid without a created_at" do
-    #   item = build(:item,created_at:nil)
-    #   item.valid?
-    #   expect(item.errors[:created_at]).to include("can't be blank")
-    # end
-    # it "is invalid without a updated_at" do
-    #   item = build(:item,updated_at:nil)
-    #   item.valid?
-    #   expect(item.errors[:updated_at]).to include("can't be blank")
-    # end
   end
 end
