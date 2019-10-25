@@ -1,5 +1,5 @@
-FactoryBot.define do
-  factory :card do
-    
-  end
-end
+# FactoryBot.define do
+#   factory :card do
+
+#   end
+# end

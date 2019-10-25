@@ -6,13 +6,12 @@ class ItemsController < ApplicationController
   def index
     # ブランドはまだ未実装なので、とりあえず全ての商品を表示させる
     @items = Item.order("created_at DESC").limit(10)
-    
+
     # カテゴリーごとの商品表示
     @lady_category = Category.find(1)
     @men_category = Category.find(200)
     @electrical_category = Category.find(898)
     @toy_category = Category.find(685)
-
     @ladies_items = Item.where(category_id: @lady_category.indirect_ids).order("created_at DESC").limit(10)
     @mens_items = Item.where(category_id: @men_category.indirect_ids).order("created_at DESC").limit(10)
     @electrical_appliance_items = Item.where(category_id: @electrical_category.indirect_ids).order("created_at DESC").limit(10)
