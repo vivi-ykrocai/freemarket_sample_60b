@@ -15,19 +15,20 @@ class Item < ApplicationRecord
   }
 
   enum delivery_method: {
-    "未定":1, "クロネコヤマト":6, "ゆうパック":7, "ゆうメール":3, 
+    "未定":1, "クロネコヤマト":6, "ゆうパック":7, "ゆうメール":3,
     "らくらくメルカリ便":2,  "レターパック":4, "普通郵便（定形、定形外）":5,
     "クリックポスト":8, "ゆうパケット":9
   }
 
-  # belongs_to :user
-  # has_many :comments
-
   belongs_to :category
-
   belongs_to :buyer, class_name: "User", optional: true
   belongs_to :seller, class_name: "User", optional: true
-
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
+
+  validates :name, :item_status, :delivery_charged, :delivery_method, :delivery_area, :delivery_shipping_date, :total_price, :category_id, :item_profile_comment,  presence: true
 end
+
+
+# :delivery_charged, :delivery_method, :delivery_area, :delivery_shipping_date,
+
