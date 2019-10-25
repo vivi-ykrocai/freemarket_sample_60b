@@ -54,4 +54,20 @@ class UsersController < ApplicationController
   def profile
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.id == current_user.id
+      current_user.update(user_params)
+      redirect_to profile_user_path, notice: 'プロフィールを更新しました'
+    else
+      redirect_to profile_user_path, notice: "編集に失敗しました"
+    end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:nick_name, :icon_image, :profiile_comments)
+  end
+  
+
 end
