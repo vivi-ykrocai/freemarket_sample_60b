@@ -61,23 +61,23 @@ class User < ApplicationRecord
   end
 
 
-  validates :nick_name, presence: true
-  validates :nick_name, uniqueness: true
-  validates :last_name, presence: true
-  validates :family_name, presence: true, format: { with: /\A[一-龥]+\z/ }
-  validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :email, presence: true
+  validates :nick_name, presence: true, on: :create
+  validates :nick_name, uniqueness: true, on: :create
+  validates :last_name, presence: true, on: :create
+  validates :family_name, presence: true, format: { with: /\A[一-龥]+\z/ }, on: :create
+  validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
+  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
+  validates :email, presence: true, on: :create
   validates :email, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, on: :create
   validates :password, length: { minimum: 7 }
-  validates :birthday, presence: true
-  validates :phone_number, presence: true
+  validates :birthday, presence: true, on: :create
+  validates :phone_number, presence: true, on: :create
   validates :phone_number, uniqueness: true
   validates :phone_number, length: { is: 11 }
-  validates :postal_code, presence: true
+  validates :postal_code, presence: true, on: :create
   validates :postal_code, length: { is: 7 }
-  validates :prefectures, presence: true
-  validates :city, presence: true
-  validates :address, presence: true
+  validates :prefectures, presence: true, on: :create
+  validates :city, presence: true, on: :create
+  validates :address, presence: true, on: :create
 end
