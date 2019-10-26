@@ -72,7 +72,10 @@
         = link_to "", class: "buyer-link" do
           .buyer-inner
             .buyer-inner__image
-              = image_tag "#{@item.buyer.icon_image}"
+              - if @item.buyer.icon_image.present?
+                = image_tag "#{@item.buyer.icon_image}", class: "avater"
+              - else
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "avater"
             .buyer-inner__name
               = @item.buyer.nick_name
             = fa_icon "angle-right", class: "icon-arrow-right"
