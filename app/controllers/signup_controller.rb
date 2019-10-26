@@ -73,7 +73,9 @@ class SignupController < ApplicationController
     
     def finish
       sign_in User.find(session[:id]) unless user_signed_in?
+      
     end
+
     private
 
   # 許可するキーを設定します

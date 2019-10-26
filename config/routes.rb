@@ -33,7 +33,7 @@ end
   resources :users, only: [:show, :update] do
     collection do
       get "logout"
-      get "card"
+      get "card" 
       get "identification"
     end
     member do
@@ -58,7 +58,7 @@ end
 
   resources :card, only: [:new, :show] do
     collection do
-      post 'show', to: 'card#show'
+      post 'show/id', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
