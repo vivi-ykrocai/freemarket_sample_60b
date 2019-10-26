@@ -60,7 +60,7 @@ class SignupController < ApplicationController
       sign_in User.find(session[:id]) unless user_signed_in?
       redirect_to step4_signup_index_path
     else
-      render '/signup/error'
+      render '/signup/step1'
     end
   end
 
