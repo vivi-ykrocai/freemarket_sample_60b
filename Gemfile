@@ -49,6 +49,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -101,3 +102,7 @@ gem 'test-unit'
 gem 'wicked'
 gem 'gretel'
 gem 'ancestry'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'faker'
+# gem 'rails-i'

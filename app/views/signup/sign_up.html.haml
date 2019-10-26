@@ -18,5 +18,4 @@
               = link_to user_google_oauth2_omniauth_authorize_path, method: :post  do
                 Googleで登録する
 
-          = 'loginok' if user_signed_in?
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
