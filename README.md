@@ -102,3 +102,13 @@
 ### Association
 - belongs_to :item, optional: true
 - mount_uploader :image, ImageUploader
+
+
+## addresses_table
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|apartment_house|string||
+|user_id|references|null: false, foreign_key: true|

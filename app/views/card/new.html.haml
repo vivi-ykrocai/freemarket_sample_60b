@@ -1,5 +1,8 @@
-= render partial: '/items/header', locals: { }
-.card_body5
+-# = render partial: '/items/header', locals: { }
+-# = render partial: '/users/bread-crumbs', locals: { }
+
+.card_body
+  = render partial: "/users/side_bar"
   .card-content
     .card-main
       .l-card-content
@@ -63,7 +66,8 @@
                     %span.form-question ?
                     カード裏面の番号とは？
                   #card_token
-                  = submit_tag "追加する", id: "token_submit" , class: "btn-red"
+                  = link_to "/card/show/#{current_user.id}" do
+                    = submit_tag "追加する", id: "token_submit" , class: "btn-red"
 = render partial: '/items/aside', locals: { }
 = render partial: '/items/footer', locals: { }
 = render partial: '/items/sell-icon', locals: { }

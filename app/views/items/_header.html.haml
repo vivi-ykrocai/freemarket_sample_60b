@@ -41,7 +41,10 @@
           - if user_signed_in?
             .lower-contents__right__mypage
               = link_to user_path(current_user), class: "lower-contents__right__mypage__button" do
-                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "header-user-icon"
+                - if current_user.icon_image.present?
+                  = image_tag "#{current_user.icon_image}", class: "header-user-icon"
+                - else
+                  = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "header-user-icon"
                 .mypage-link マイページ
           - else
             .lower-contents__right__sign-up

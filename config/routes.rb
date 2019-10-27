@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations' }
- 
   root 'items#index'
 
 
@@ -25,7 +24,6 @@ Rails.application.routes.draw do
       get  'done'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'get_delivery_method', defaults: { format: 'json' }
     end
   end
 
@@ -33,8 +31,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update] do
     collection do
       get "logout"
-      get "card"
-      get "identification"
+      get "card" 
     end
     member do
       get 'profile'
@@ -43,10 +40,11 @@ Rails.application.routes.draw do
       get 'completion'
       get 'purchase'
       get 'purchased'
+      get 'identification'
     end
   end
 
-  resources :signup do
+  resources :signup, only:[:new, :create] do
     collection do
       get 'sign_up'
       get 'step1'
@@ -54,6 +52,7 @@ Rails.application.routes.draw do
       get 'step3'
       get 'step4'
       get 'finish'
+      get 'error'
     end
   end
 
@@ -61,7 +60,7 @@ Rails.application.routes.draw do
 
   resources :card, only: [:new, :show] do
     collection do
-      post 'show', to: 'card#show'
+      post 'show/id', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end

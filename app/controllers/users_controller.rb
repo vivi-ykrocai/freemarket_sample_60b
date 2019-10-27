@@ -51,10 +51,53 @@ class UsersController < ApplicationController
   def card
   end
 
-  def identification
+  def identification  #本人情報確認
+    @address = Address.new
+    @prefecture = Prefecture.all
   end
 
+  def address_create  #Addressテーブルに保存（新規作成）
+    if current_user.address.present?
+      # address_update
+      @address = Address.create(address_params)
+    else
+      @address = Address.create(address_params)
+      redirect_to identification_user_path
+    end
+  end
+
+  def address_update  #Addressテーブルを編集（変更）
+    @address = current_user.address
+    if @address.update(address_params)
+      redirect_to identification_user_path
+    else
+      redirect_to identification_user_path, notice: "本人情報に不備があります"
+    end
+  end
+
+
+  
   def profile
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.id == current_user.id
+      current_user.update(user_params)
+      redirect_to profile_user_path, notice: 'プロフィールを更新しました'
+    else
+      redirect_to profile_user_path, notice: "編集に失敗しました"
+    end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:nick_name, :icon_image, :profiile_comments)
+  end
+  
+  def address_params
+    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :apartment_house).merge(user_id: current_user.id)
   end
 
 end
