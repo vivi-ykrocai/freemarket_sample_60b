@@ -53,7 +53,7 @@ crumb :mypage_credit_card do
 end
 
 crumb :mypage_identification do
-  link '本人情報', root_path
+  link '本人情報', identification_user_path(current_user)
   parent :mypage
 end
 

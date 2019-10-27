@@ -10,25 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_065526) do
+ActiveRecord::Schema.define(version: 2019_10_26_084634) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id", null: false
-    t.string "city", null: false
-    t.string "address", null: false
+    t.string "prefectures"
+    t.string "city"
+    t.string "address"
     t.string "apartment_house"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "postal_code"
     t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
-
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,18 +76,27 @@ ActiveRecord::Schema.define(version: 2019_10_22_065526) do
     t.string "family_name_kana", null: false
     t.string "last_name_kana", null: false
     t.date "birthday", null: false
-    t.string "phone_number"
+    t.string "iine"
+    t.string "mer_point"
+    t.string "icon_image"
+    t.text "profiile_comments"
+    t.integer "number_of_exhibits"
+    t.integer "number_of_evaluations"
+    t.string "excerent"
+    t.string "good"
+    t.string "bad"
     t.string "postal_code"
     t.string "prefectures"
     t.string "city"
     t.string "address"
     t.string "building_name"
-    t.string "phone_number2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "phone_number"
+    t.string "phone_number2"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -80,8 +80,7 @@
         メール/パスワード
 
     .side--list--item
-      = link_to root_path, class: "side--list--item--link" do
-        本人情報
+      = sidebar_link('本人情報', identification_user_path(current_user))
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
