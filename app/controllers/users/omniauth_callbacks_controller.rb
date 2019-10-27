@@ -17,7 +17,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     elsif request.env["omniauth.origin"].include?("sign_up")
       session["devise.auth_data"] = request.env["omniauth.auth"].except("extra")
-      render template: "signup/step1"
+      render template: "signup/names"
     else
       redirect_to request.env["omniauth.origin"], flash: { error: :"#{provider}での登録情報がありません。他の方法でのログインをお試しください。" }
       set_flash_message(:alert, :"#{provider}での登録情報がありません。他の方法でのログインをお試しください。")
