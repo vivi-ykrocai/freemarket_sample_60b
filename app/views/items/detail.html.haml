@@ -17,10 +17,10 @@
         .item__little-photos
           - @images.each do |small_image|
             = image_tag "#{small_image.image}", class:"item__little-photo"
-      - if @item.item_salse_status.present? && @item.buyer_id.nil?
-        .items-box_photo__stop
-          .items-box_photo__stop__inner
-            公開停止中
+        - if @item.item_salse_status.present? && @item.buyer_id.nil?
+          .items-box_photo__stop
+            .items-box_photo__stop__inner
+              公開停止中
       %table.item-detail-table
         %tbody
           %tr

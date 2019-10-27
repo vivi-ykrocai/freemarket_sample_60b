@@ -33,9 +33,31 @@
         min-height: 375px;
         background: #fafafa;
         line-height: 0;
+        position: relative;
         .item__main-photo {
           width: 300px;
           height: 300px;
+        }
+        // 売り切れの時の表示
+        .items-box_photo__sold{
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 0;
+          height: 0;
+          border-top: 60px solid #ea352d ;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid #ea352d ;
+          z-index:100;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 26px;
+            margin:-20px -15px 0px -58px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
         }
         .item__little-photos {
           width: 300px;
@@ -48,28 +70,6 @@
           }
         }
       }
-      // 売り切れの時の表示
-      .items-box_photo__sold{
-        width: 0;
-        height: 0;
-        border-top: 60px solid #ea352d ;
-        border-right: 60px solid transparent;
-        border-bottom: 60px solid transparent;
-        border-left: 60px solid #ea352d ;
-        z-index:100;
-        position: relative;
-        top: 0px;
-        left: -300px;
-        &__inner{
-          transform: rotate(-45deg);
-          font-size: 26px;
-          margin:-25px -10px 0px -55px;
-          color: #fff;
-          letter-spacing: 2px;
-          font-weight: 600;
-        }
-      }
-
       // 出品者情報(右)
       table.item-detail-table {
         width: 300px;
