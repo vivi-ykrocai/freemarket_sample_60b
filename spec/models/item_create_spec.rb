@@ -2,7 +2,7 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
     it "is valid all data" do
-      category = Category.create(id: 1, name: "")
+      category = Category.create(id: 2, name: "")
       item = build(:item, category_id: category.id)
       item.valid?
       expect(item).to be_valid
