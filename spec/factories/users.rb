@@ -1,37 +1,43 @@
 FactoryBot.define do
-  factory :user do
-    nick_name              { "shima" }
-    email                 { "kkk@gmail.com" }
-    password              { "00000000" }
-    password_confirmation { "00000000" }
-    family_name           { "茜" }
-    last_name             { "色蓮" }
-    family_name_kana      { "アカネ" }
-    last_name_kana        { "イロハス" }
-    birthday              { "2019-01-02" }
-    postal_code           { "1234567" }
-    prefectures           { "東京都" }
-    city                  { "日野市" } 
-    address               { "カーサリンベル" }
-    phone_number          { "00000000000" }
-    phone_number2         { "00000000000" }
+  factory :user, class: User  do
+    id                       {10}
+    nick_name                {Faker::Pokemon.name}
+    email                   {Faker::Internet.email}
+    password                {"test123"}
+    encrypted_password      {"test123"}
+    family_name              {"test"}
+    last_name               {"test"}
+    family_name_kana         {"テスト"}
+    last_name_kana          {"テスト"}
+    birthday                {"2019-10-5"}
+    phone_number             {Faker::Lorem.characters(11)}
+    postal_code              {"1620041"}
+    prefectures              {"東京都"}
+    city                     {"新宿区"}
+    address                  {"東町22-1"}
+    created_at              {"2019-10-19 07:27:19"}
+    updated_at              {"2019-10-19 07:27:19"}
   end
-  factory :other_user, class: User do
-    nick_name { "Ito Taro" }
-    email { "ito@rails.com" }
-    password { "foobar" }
-    password_confirmation { "foobar" }
-    family_name            { "伊藤" }
-    last_name             { "太郎" }
-    family_name_kana      { "イトウ" }
-    last_name_kana        { "タロウ" }
-    birthday              { "2019-10-25" }
-    postal_code           { "9000003" }
-    prefectures           { "沖縄" }
-    city                  { "那覇市" } 
-    address               { "安謝14-3-6" }
-    phone_number          { "08012345678" }
-    phone_number2         { "08012345678" }
-    admin { 'false' }
+
+  factory :another_user, class: User do
+    id                       {20}
+    nick_name                {Faker::Pokemon.name}
+    email                   {Faker::Internet.email}
+    password                {"test321"}
+    encrypted_password      {"test321"}
+    family_name              {"test"}
+    last_name               {"test"}
+    family_name_kana         {"テストテスト"}
+    last_name_kana          {"テストテスト"}
+    birthday                {"2019-10-20"}
+    phone_number             {Faker::Lorem.characters(11)}
+    postal_code              {"1620042"}
+    prefectures              {"神奈川県"}
+    city                     {"横浜市"}
+    address                  {"西町1-22"}
+    created_at              {"2019-10-20 07:27:19"}
+    updated_at              {"2019-10-20 07:27:19"}
   end
 end
+
+

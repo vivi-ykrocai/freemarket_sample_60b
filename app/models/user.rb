@@ -5,19 +5,27 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-  
-        
+
+  mount_uploader :icon_image, ImageUploader
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  
+
   has_many :items
-  has_many :cards
-  # belongs_to :registration_style
-  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-  has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
-  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
-  has_many :sns_credentials, dependent: :destroy
+  has_one :card
+
+  # 出品した商品ー出品中
+  has_many :selling_items, -> { where("buyer_id is NULL && item_salse_status is NULL") }, foreign_key: "seller_id", class_name: "Item"
+  # 出品した商品ー取引中
+  has_many :progression_items, -> { where("buyer_id is not NULL && item_salse_status is NULL") }, foreign_key: "seller_id", class_name: "Item"
+  # 出品した商品ー売却済
+  has_many :completion_items, -> { where("item_salse_status is not NULL && buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
+  # 出品した商品ー公開停止中
+  has_many :stop_selling_items, -> { where("item_salse_status is not NULL && buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
+  # 購入した商品ー取引中
+  has_many :during_trading_items, -> { where("item_salse_status is NULL") }, foreign_key: "buyer_id", class_name: "Item"
+  # 出品した商品ー過去の取引
+  has_many :buyed_items, -> { where("item_salse_status is not NULL") }, foreign_key: "buyer_id", class_name: "Item"
 
 
   def show

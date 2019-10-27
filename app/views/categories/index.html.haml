@@ -1,0 +1,28 @@
+= render partial: 'items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
+
+.category-wrapper
+  .category-contents
+    .category-list
+      カテゴリー一覧
+    .category-list__navigation
+      - @parent_categories.each do |parent_category|
+        .category-list__parents
+          = parent_category.name
+    .category-list__box
+      - @parent_categories.each do |parent_category|
+        .red-category
+          = parent_category.name
+        .category-list__box__contents
+          = link_to "すべて", category_path(parent_category.id), class:"category-list__box__all"
+          - parent_category.children.each do |child_category|
+            .category-list__box__children
+              = child_category.name
+            .category-list__box__all-grand-children
+              - child_category.subtree.each do |grand_child_category|
+                = link_to "#{grand_child_category.name}", category_path(grand_child_category.id), class:"gland-children"
+
+
+= render partial: 'items/sell-icon', locals: { }
+= render partial: 'items/aside', locals: { }
+= render partial: 'items/footer', locals: { }

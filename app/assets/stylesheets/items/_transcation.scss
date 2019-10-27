@@ -1,0 +1,224 @@
+.container{
+  margin: 40px auto 0;
+  width: 1020px;
+  padding-bottom: 40px;
+  display: flex;
+  line-height: 1.5;
+  .side{
+    width: 280px;
+    margin-right: 40px;
+    background-color: #f5f5f5;
+    &__container{
+      &__title{
+        font-size: 16px;
+        margin: 0;
+      }
+      &__inner{
+        background-color: #fff;
+        margin-top: 8px;
+        .transact-info-table{
+          list-style: none;
+          .gray{
+            background-color: #fafafa;
+          }
+          &__row{
+            display: flex;
+            width: 280px;
+            .table-left{
+              width: 35%;
+              padding: 16px;
+              vertical-align: top;
+              word-wrap: break-word;    
+            }
+            .table-right{
+              width: 65%;
+              padding: 16px;
+              vertical-align: top;
+              word-wrap: break-word;
+              .table-content{
+                width: 100%;
+                height: 100%;
+                .item-link{
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  .item-image{
+                    display: block;
+                    max-width: 148px;
+                    max-height: 148px;
+                  }
+                  .transact-item{
+                    font-weight: 600;
+                    margin-top: 8px;
+                    text-decoration: underline;
+                    font-size: 16px;
+                    word-break: break-all;
+                  }
+                }
+              }
+              .buyer-name{
+                font-weight: bold;
+                .honorific-title{
+                  font-weight: 100;
+                }
+              }
+            }
+          }
+        }
+        .buyer-link{
+          width: 100%;
+          height: 100%;
+          color: #333333;
+          .buyer-inner{
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &__image{
+              overflow: hidden;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              .avater{
+                width: 40px;
+                height: 40px;
+              }
+            }
+            &__name{
+              max-width: 160px;
+              height: auto;
+              overflow: hidden;
+              margin-left: 16px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              font-weight: bold;
+            }
+            .icon-arrow-right{
+              margin-left: auto;
+              font-weight: 400;
+              line-height: 1;
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .main{
+    width: 700px;
+    &__container{
+      background-color: #fff;
+      &__title{
+        font-size: 24px;
+        padding: 8px 24px;
+        margin: 0;
+        text-align: center;
+      }
+      &__inner{
+        padding: 24px 8px;
+        background-color: rgb(255, 246, 222);
+        text-align: center;
+        &__upper{
+          font-size: 16px;
+          color: #ea352d;
+          .truck-icon{
+            margin-right: 8px;
+            font-size: 32px;
+            color: #ea352d;
+            vertical-align: middle;
+          }
+          .ship{
+            font-weight: bold;
+          }
+        }
+        &__lower{
+          margin-top: 8px;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+      .transact-guide{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        &__text{
+          margin-top: 8px;
+          .icon-arrow-right{
+            margin-left: 8px;
+            font-weight: 600;
+            font-size: 18px;
+          }
+        }
+      }
+      .transact-shipping{
+        padding: 16px;
+        a{
+          display: block;
+          background-color: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+        }
+        .text-center{
+          color: #888;
+          margin: 32px 0 8px 0;
+          text-align: center;
+        }
+        .text-attention{
+          color: #ea352d;
+          margin: 0;
+        }
+        .transact-button{
+          padding: 20px 32px;
+          .change-btn{
+            width: 90%;
+            margin: 0 auto;
+            font-weight: 600;
+            border-radius: 30px;
+            background-color: #fff;
+            border: 2px solid #888;
+            color: #888;
+          }
+        }
+      }
+      .message-container{
+        padding: 24px;
+        .message-form{
+          .announce{
+            padding: 8px;
+            font-size: 14px;
+            background-color: #fff6de;
+          }
+          .textarea-default{
+            margin-top: 8px;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-height: 104px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          .message-submit{
+            width: 100%;
+            margin-top: 8px;
+            text-align: center;
+            background-color: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+            line-height: 48px;
+            cursor: pointer;
+          }
+        }
+      }
+      .message-content{
+        padding: 24px;
+      }
+    }
+  }
+}

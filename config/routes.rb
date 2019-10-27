@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
 
+  get 'card/new'
+  get 'card/show'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations' }
- 
   root 'items#index'
 
 
   resources :items do
     member do
       post 'pay'
+      get 'purchase'
+      get 'detail'
+      get 'transcation'
+      patch 'stop_selling'
+      patch 'restart_selling'
+      patch 'completion'
     end
 
     collection do
@@ -20,29 +27,24 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items do
-    member do
-      get 'purchase'
-      get 'detail'
-    end
-end
-
 
   resources :users, only: [:show, :update] do
     collection do
       get "logout"
-      get "card"
-      get "identification"
+      get "card" 
     end
     member do
       get 'profile'
       get 'selling'
       get 'progression'
       get 'completion'
+      get 'purchase'
+      get 'purchased'
+      get 'identification'
     end
   end
 
-  resources :signup do
+  resources :signup, only:[:new, :create] do
     collection do
       get 'sign_up'
       get 'names'
@@ -50,10 +52,20 @@ end
       get 'addresses'
       get 'cards'
       get 'finish'
+      get 'error'
     end
   end
 
-  resources :cards, only: [:index, :edit, :update, :member, :new]
+  resources :categories, only: [:index, :show]
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show/id', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+
   resources :logouts, only: [:index]
 
 end

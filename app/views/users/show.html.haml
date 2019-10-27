@@ -6,8 +6,12 @@
     .container-mypage__usericon
       = link_to "" do
         %figure
-          =image_tag "mypage/mypage-icon-kudo.png", size: '50x50', class: "avater", alt:"avater"
-        .user つば九郎
+          - if @user.icon_image.present?
+            = image_tag "#{@user.icon_image}", size: '50x50', class: "avater", alt:"avater"
+          - else
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '50x50', class: "avater", alt:"avater"
+        .user
+          = @user.nick_name
         .user--number
           .user--number__evaluation
             評価 234
@@ -77,21 +81,77 @@
       .tab-content__right.hide
         %li.mypage-tabs__right-text 現在、やることリストはありません
 
-    .container-mypage-buy
-      .mypage-buy--head
-        購入した商品
-      %ul.mypage-buy--tabs
-        %li.mypage-buy--tabs__trading-now
-          取引中
-        %li.mypage-buy--tabs__trading-old
-          過去の取引
-      .mypage-buy--content
-        %ul.mypage-buy--content__now--list
-          %li.mypage-buy--content__now--text
-            取引中の商品がありません
-        %ul.mypage-buy--content__old--list.hide
-          %li.mypage-buy--content__old--text
-            過去に取引した商品がありません
+    .wrapper-contener
+      .mypage-tab-container
+        %h2.mypage-tab-head 購入した商品
+        %ul.status-tabs
+          %li.status.purchase
+            %h3.status__name.during_item-status.active
+              .status-link#during_item-link
+                取引中
+          %li.status.purchase
+            %h3.status__name.buyed_item-status
+              .status-link#buyed_item-link
+                過去の取引
+        .tab-content
+          %ul#mypage-tab-transcation-now.mypage-item-list.tab-pane.active
+            - if @during_items.present?
+              - @during_items.each do |item|
+                %li.selling-item.during_item
+                  = link_to transcation_item_path(item), class: "mypage-item-link" do
+                    = image_tag "#{item.images[0].image}", class: "selling-item-image"
+                    .mypage-item-body
+                      .mypage-item-upper
+                        = item.name
+                      .mypage-item-lower
+                        %span.selling-item-count
+                          = fa_icon "heart", class: "selling-icon-heart"
+                          %span 0
+                        %span.selling-item-count
+                          = fa_icon "comment", class: "selling-icon-comment"
+                          %span 0
+                        - if item.item_salse_status.nil?
+                          .mypage-item-status.blue
+                            発送待ち
+                        - else
+                          .mypage-item-status.red
+                            受取評価待ち
+                    = fa_icon "angle-right", class: "icon-arrow-right"
+            - else
+              .empty-status
+                = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
+                .empty-status__text
+                  取引中の商品がありません
+            - if @buyed_items.present?
+              - @buyed_items.each do |item|
+                %li.selling-item.buyed_item
+                  = link_to transcation_item_path(item), class: "mypage-item-link" do
+                    = image_tag "#{item.images[0].image}", class: "selling-item-image"
+                    .mypage-item-body
+                      .mypage-item-upper
+                        = item.name
+                      .mypage-item-lower
+                        %span.selling-item-count
+                          = fa_icon "heart", class: "selling-icon-heart"
+                          %span 0
+                        %span.selling-item-count
+                          = fa_icon "comment", class: "selling-icon-comment"
+                          %span 0
+                        .mypage-item-status.gray
+                          購入済み
+                    = fa_icon "angle-right", class: "icon-arrow-right"
+            - else
+              .empty-status
+                = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
+                .empty-status__text
+                  過去に取引した商品がありません
+      %ul.mypage-history
+        %li.pager-prev.pager-cell
+          = link_to "", class: "prev-button" do
+            = fa_icon "angle-left", class: "icon-arrow-left"
+        %li.pager-next.pager-cell
+          = link_to "", class: "next-button" do
+            = fa_icon "angle-right", class: "icon-arrow-right"
 = render partial: '/items/aside', locals: { }
 = render partial: '/items/footer', locals: { }
 = render partial: '/items/sell-icon', locals: { }

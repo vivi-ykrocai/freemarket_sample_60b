@@ -63,22 +63,24 @@
                       %span.form-require 必須
                     .select-wrap
                       = f.select :delivery_charged, @delivery_charged, prompt: "---"
-                  
+
                   -# 送料込みが選択されたときの記述
                   .form-group-second.hidden-form.cash-on-delivery
                     %label.form-group-second__name
                       配送の方法
                       %span.form-require 必須
                     .select-wrap
-                      = f.select :delivery_method, @delivery_method_cod, prompt: "---"
+                      = f.select :delivery_method, @delivery_method_cod, {prompt: "---"}, {id: "cash-on-delivery"}
                   -# 着払いが選択されたときの記述
                   .form-group-second.hidden-form.payment-on-delivery
                     %label.form-group-second__name
                       配送の方法
                       %span.form-require 必須
                     .select-wrap
-                      = f.select :delivery_method, @delivery_method_pod, prompt: "---"
-                  
+                      = f.select :delivery_method, @delivery_method_pod, {prompt: "---"}, {id: "payment-on-delivery"}
+                  -# 選択された配送方法の値を送信する
+                  = f.hidden_field :delivery_method, id: "item_delivery_method_decision"
+
                   .form-group-second
                     %label.form-group-second__name
                       発送元の地域

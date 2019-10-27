@@ -1,0 +1,29 @@
+-# = render partial: '/items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
+
+.card_body2
+  = render partial: "/users/side_bar"
+  .card-content
+    .card-main
+      .l-card-content
+        %h2.card-head 支払い方法
+        .l-card-inner
+          .l-card-content
+            .form-list
+              %label クレジットカード一覧
+              .l-card-inner_number
+                = "**** **** **** " + @default_card_information.last4
+            .form-list
+              .l-card-inner_date
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+            .l-card-inner_delete
+              = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button.btn-red{} 削除する
+        .l-card-inner
+
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }

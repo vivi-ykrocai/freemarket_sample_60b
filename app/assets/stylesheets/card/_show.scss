@@ -1,0 +1,68 @@
+.card_body2{
+  display: flex;
+  width: 1020px;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  .card-content{
+    padding:0 0 150px;
+    .card-main{
+      display: block;
+      height:350px;
+      float: right;
+      .l-card-content{
+        background: #fff;
+        width: 700px;
+        margin: 0 auto;
+        .card-head{
+          font-size: 25px;
+          padding: 15px;
+          line-height: 1.5;
+          text-align: center;
+          font-weight:bold;
+        }
+        .l-card-inner{
+          border-top: 1px solid #f5f5f5;
+          padding:20px 40px 0px;
+          .l-card-content{
+            max-width: 343px;
+            margin: 0 auto; 
+            .form-list{
+              margin: 20px 0 10px;
+              label{
+                font-weight:bold;
+                font-size: 14px;
+              }
+              .l-card-inner_number{
+                margin-top: 20px;
+                font-size: 16px;
+              }
+              .l-card-inner_date{
+                margin-top: 20px;
+                font-size: 16px;
+              }
+            }
+            .l-card-inner_delete{
+              position: relative;
+              left: 170px;
+              bottom: 60px;
+              #charge-form{
+                max-width: 80px;
+                margin: 0 auto;
+                .btn-red{
+                  background: #fff;
+                  border: 1px solid #ea352d;
+                  color: #ea352d;
+                  display: block;
+                  width: 100%;
+                  line-height: 22px;
+                  font-size: 14px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

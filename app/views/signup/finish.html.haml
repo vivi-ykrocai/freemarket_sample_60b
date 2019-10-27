@@ -2,7 +2,7 @@
   .signup-content
     %header.signup-header
       %h1
-        =image_tag "mercari-logo.svg", size:"200x50"
+        =link_to image_tag("mercari-logo.svg", size:"200x50"), root_path
       %nav.progress-bar.signup-bar
         %ol
           %li
@@ -31,7 +31,8 @@
               ありがとうございます。
               会員登録が完了しました。
             %p
-              %buttan.btn-red  メルカリをはじめる
+              = link_to root_path, class: "btn-red" do
+                メルカリをはじめる
 
         =image_tag 'sign_up.ok.png', size:'700x300';
 

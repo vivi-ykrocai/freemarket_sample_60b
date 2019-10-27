@@ -1,0 +1,24 @@
+= render partial: '/items/header', locals: { }
+= render partial: '/users/bread-crumbs', locals: { }
+
+.l-container
+  = render partial: "side_bar"
+  .l-content
+    %section.l-chapter-container
+      %h2.l-chapter-head 支払い方法
+      .l-single-inner
+        %section
+          .l-single-content
+            %h3.l-chapter-sub-head クレジットカード一覧
+        %section.settings-add-card
+          .l-single-content
+            %a.add_btn{href:"/card/new"}
+              = fa_icon 'credit-card'
+              クレジットカードを追加する
+        .settings-not-regist
+          -# %a{href:"https://www.mercari.com/jp/mypage/card/", target:"_blank"}
+          -#   %span 支払い方法について
+            -# = fa_icon 'angle-right'
+= render partial: '/items/aside', locals: { }
+= render partial: '/items/footer', locals: { }
+= render partial: '/items/sell-icon', locals: { }
