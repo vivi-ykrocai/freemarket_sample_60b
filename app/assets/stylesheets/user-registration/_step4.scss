@@ -86,8 +86,11 @@
     }
     .card_body{
       display: block;
+      margin-bottom: 300px;
       .card-content{
-        margin-top: 40px;
+        background-color: #fff;
+        width: 700px;
+        margin: 0 auto;
         .card-main{
           display: block;
           height:350px;
@@ -158,15 +161,17 @@
                     margin-top: 8px;
                     .btn-red{
                       display: block;
-                      width: 100%;
+                      width: 343px;
                       line-height: 48px;
                       margin:30px 0 20px;
                       font-size: 16px;
                       cursor: pointer;
-                      text-align: center;
-                      background: #ea352d;
-                      border: 1px solid #ea352d;
-                      color: #fff;
+                      #token_submit{
+                        text-align: center;
+                        background: #ea352d;
+                        border: 1px solid #ea352d;
+                        color: #fff;
+                      }
                       }
                     .card-seqcode-text{
                       text-align:right;
@@ -183,13 +188,6 @@
                         list-style: height 14px;
                         font-size:12px;
                         text-align:center;
-                      .btn-red{
-                        display: block;
-                        width: 100%;
-                        line-height: 48px;
-                        margin:30px 0 20px;
-                        font-size: 16px;
-                      }
                       }
                     }
                   }
