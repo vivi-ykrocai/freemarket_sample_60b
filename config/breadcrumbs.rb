@@ -2,6 +2,11 @@ crumb :root do
   link "メルカリ", root_path
 end
 
+crumb :category do
+  link 'カテゴリー一覧', categories_path
+  parent :root
+end
+
 crumb :mypage do
   link 'マイページ', user_path(current_user)
   parent :root
@@ -61,4 +66,6 @@ crumb :mypage_listing_item do
   link '出品商品画面', detail_item_path
   parent :mypage_listing
 end
+
+
 
