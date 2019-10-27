@@ -52,6 +52,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @delivery_method_cod = Item.delivery_methods.keys
+    @delivery_method_pod = Item.delivery_methods.keys.slice(0,4)
     total_price = @item.total_price
     fee = (@item.total_price) / 10
     @fee = fee.to_s(:delimited)

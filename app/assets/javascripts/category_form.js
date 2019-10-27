@@ -29,18 +29,18 @@ $(document).on("turbolinks:load",function(){
   // 親カテゴリー選択後のイベント
   $('#item_category_id').on('change', function(){
     var parentCategory = document.getElementById('item_category_id').value; //選択された親カテゴリーの値(id)を取得
+    // console.log(parentCategory)
     if (parentCategory.length != 0){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_children',
+        url: '/items/get_category_children',
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
+        console.log(children)
         $('#child-wrap').remove(); //親が変更された時、子以下を削除する
         $('#grandchild_wrap').remove();
-        // $('#size_wrapper').remove();      もしサイズを選べるようにするなら追記
-        // $('#brand_wrapper').remove();     もしブランドを選べるようにするなら追記
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -53,8 +53,6 @@ $(document).on("turbolinks:load",function(){
     }else{
       $('#child-wrap').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
       $('#grandchild_wrap').remove();
-    //   $('#size_wrapper').remove();   もしサイズを選べるようにするなら追記
-    //   $('#brand_wrapper').remove();  もしブランドを選べるようにするなら追記
     }
   });
   // 子カテゴリー選択後のイベント
@@ -62,7 +60,7 @@ $(document).on("turbolinks:load",function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/items/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -70,8 +68,6 @@ $(document).on("turbolinks:load",function(){
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
           $('#grandchild_wrap').remove(); //子が変更された時、孫以下を削除するする
-  //         $('#size_wrapper').remove();    もしサイズを選べるようにするなら追記
-  //         $('#brand_wrapper').remove();   もしブランドを選べるようにするなら追記
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -84,8 +80,6 @@ $(document).on("turbolinks:load",function(){
       })
     }else{
       $('#grandchild_wrap').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
-      // $('#size_wrapper').remove();    もしサイズを選べるようにするなら追記
-      // $('#brand_wrapper').remove();   もしブランドを選べるようにするなら追記
     }
   });
 });
