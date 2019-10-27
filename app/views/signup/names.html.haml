@@ -36,7 +36,7 @@
               %span 必須
               = f.email_field :email, placeholder: 'PC・携帯どちらでも可' ,class: "input-list"
               %input{name:"login_type", type: "hidden", value:""}/
-              - if session["devise.auth_data"].present?
+              - if  session["devise.auth_data"] = request.env["omniauth.auth"].present?
                 = f.hidden_field :password
                 = f.hidden_field :password_confirmation
               - else
