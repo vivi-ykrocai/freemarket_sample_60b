@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe ItemsController do
-
   describe 'DELETE destroy' do
   let(:user) { build(:user) }
     context 'can delete' do
@@ -21,7 +20,6 @@ describe ItemsController do
         expect(response).to redirect_to root_path(user)
       end
     end
-
     context 'can not delete' do
       # ログイン中ユーザー！＝出品者ユーザーの場合、アイテムを削除できない
       it '@item.seller_id != current_user.id' do
