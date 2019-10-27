@@ -7,9 +7,11 @@ $(document).on("turbolinks:load",function(){
     if (itemDeliveryCharged == "送料込み（出品者負担）"){
       $(".cash-on-delivery").show();
       $(".payment-on-delivery").hide();
+      $(".delete-default").remove();
     }else if (itemDeliveryCharged == "着払い（購入者負担）"){
       $(".cash-on-delivery").hide();
       $(".payment-on-delivery").show();
+      $(".delete-default").remove();
     }else{
       $(".cash-on-delivery").hide();
       $(".payment-on-delivery").hide();

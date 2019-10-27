@@ -1,4 +1,5 @@
 $(document).on("turbolinks:load",function(){
+  $(".buyed_item_empty").hide();
   $(".buyed_item").hide();
   // 取引中
   $('#during_item-link').on('click', function(){
