@@ -45,10 +45,10 @@ end
   resources :signup do
     collection do
       get 'sign_up'
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4'
+      get 'names'
+      get 'telephones'
+      get 'addresses'
+      get 'cards'
       get 'finish'
     end
   end

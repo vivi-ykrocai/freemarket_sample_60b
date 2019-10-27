@@ -24,7 +24,7 @@
     .signup-main
       .signup-main__content
         %h2.signup-main__content__head 会員情報入力
-        = form_for @user, url: step2_signup_index_path, method: :get, html: {class: 'form-user'} do |f|
+        = form_for @user, url: telephones_signup_index_path, method: :get, html: {class: 'form-user'} do |f|
           %input{type: "hidden", value:""}/
           .inner-form
             .form-list
@@ -36,7 +36,7 @@
               %span 必須
               = f.email_field :email, placeholder: 'PC・携帯どちらでも可' ,class: "input-list"
               %input{name:"login_type", type: "hidden", value:""}/
-              - if session["devise.auth_data"].present?
+              - if  session["devise.auth_data"] = request.env["omniauth.auth"].present?
                 = f.hidden_field :password
                 = f.hidden_field :password_confirmation
               - else
@@ -83,7 +83,7 @@
                 「次へ進む」のボタンを押すことにより、
                 =link_to "利用規約"
                 に同意したものとみなします。
-            %button.btn-list.btn-red{onclick: "location.href='/signup/step2'"} 次へ進む
+            %button.btn-list.btn-red{onclick: "location.href='/signup/telephones'"} 次へ進む
             .form-list.text-right
               %p
                 = link_to "本人情報の登録について"                

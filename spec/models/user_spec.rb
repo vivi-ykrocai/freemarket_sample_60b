@@ -212,7 +212,6 @@ describe User do
       user.valid?
       expect(user.errors[:address]).to include("can't be blank")
     end
-
   end
 end
 
