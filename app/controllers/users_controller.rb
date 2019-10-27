@@ -6,16 +6,16 @@ class UsersController < ApplicationController
   before_action :purchase, only: :show
   before_action :purchased, only: :show
 
-  def step1
+  def names
   end
 
-  def step2
+  def telephones
   end
 
-  def step3
+  def addresses
   end
 
-  def step4
+  def cards
   end
 
   def show
