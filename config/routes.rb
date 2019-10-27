@@ -47,10 +47,10 @@ Rails.application.routes.draw do
   resources :signup, only:[:new, :create] do
     collection do
       get 'sign_up'
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4'
+      get 'names'
+      get 'telephones'
+      get 'addresses'
+      get 'cards'
       get 'finish'
       get 'error'
     end

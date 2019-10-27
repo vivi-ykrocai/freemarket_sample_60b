@@ -6,7 +6,7 @@
         %h2.signup-head 新規会員登録
         .signup-inner
           .l-signup-content
-            = link_to step1_signup_index_path, class: "btn-list btn-mail" do
+            = link_to names_signup_index_path, class: "btn-list btn-mail" do
               = image_tag "mail.svg"
               メールアドレスで登録する
             %button.btn-list.btn-signup-facebook
@@ -18,5 +18,4 @@
               = link_to user_google_oauth2_omniauth_authorize_path, method: :post  do
                 Googleで登録する
 
-          = 'loginok' if user_signed_in?
     = render partial: 'signup/sign_up_footer', locals: { signup: @signup }

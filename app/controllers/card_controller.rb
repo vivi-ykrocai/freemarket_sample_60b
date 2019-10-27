@@ -20,7 +20,12 @@ class CardController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: user_id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to root_path
+        path = Rails.application.routes.recognize_path(request.referer)
+        if path[:controller] == "card" && path[:action] == "new"
+          redirect_to action: "show"
+        else
+          redirect_to finish_signup_index_path
+        end
       else
         redirect_to action: "pay"
       end
