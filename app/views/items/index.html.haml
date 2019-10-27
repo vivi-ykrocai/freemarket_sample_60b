@@ -26,7 +26,7 @@
         .items__genre__title
           %h3.items__genre__title__text
             レディース新着アイテム
-          = link_to "", class: "see-more" do
+          = link_to category_path(@lady_category), class: "see-more" do
             もっと見る
             =fa_icon 'chevron-right'
         .item-index
@@ -47,7 +47,7 @@
         .items__genre__title
           %h3.items__genre__title__text
             メンズ新着アイテム
-          = link_to "", class: "see-more" do
+          = link_to category_path(@men_category), class: "see-more" do
             もっと見る
             =fa_icon 'chevron-right'
         .item-index
@@ -68,7 +68,7 @@
         .items__genre__title
           %h3.items__genre__title__text
             家電・スマホ・カメラ新着アイテム
-          = link_to "", class: "see-more" do
+          = link_to category_path(@electrical_category), class: "see-more" do
             もっと見る
             =fa_icon 'chevron-right'
         .item-index
@@ -89,7 +89,7 @@
         .items__genre__title
           %h3.items__genre__title__text
             おもちゃ・ホビー・グッズ新着アイテム
-          = link_to "", class: "see-more" do
+          = link_to category_path(@toy_category), class: "see-more" do
             もっと見る
             =fa_icon 'chevron-right'
         .item-index
