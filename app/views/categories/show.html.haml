@@ -1,0 +1,52 @@
+= render partial: 'items/header', locals: { }
+.main-contents
+  .wrapper
+    .items
+      .items__genre
+        .category__list__nav
+          %ul.category__down__all
+            - @category.children.each do |child|
+              %li.category__down__text
+                = link_to "#{child.name}", category_path(child)
+        .category__title
+          .category__title__text
+            = "#{@category.name}の商品一覧"
+        .item-index
+          .items
+            - @category_items.each do |category_item|
+              .item
+                = link_to item_path(category_item), class: "item-link" do
+                  = image_tag "#{category_item.images[0].image}", class:"item__image"
+                  %span.item__price
+                    = "¥#{category_item.total_price.to_s(:delimited)}"
+                  .item__name
+                    %span.item__name__text
+                      = category_item.name
+                -if category_item.buyer_id.present?
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      SOLD
+        .category__introduction
+          .red-category__title
+            #{@category.name}
+            - if @category.has_parent? then
+              (#{@category.root.name})
+          .white-category__text
+            - if @category.has_parent? then
+              #{@category.name}(#{@category.root.name})の着ない服、いらない洋服を売るならメルカリへ。
+            - else
+              #{@category.name}の着ない服、いらない洋服を売るならメルカリへ。
+            - if @category.has_parent? then
+              #{@category.name}は#{@category.root.name}の下にあるカテゴリで商品は#{@category_items.length}点あります。
+            - else
+              #{@category.name}の商品は#{@category_items.length}点あります。
+            人気のあるカテゴリーは
+            - if @category.has_children? then
+              「#{@category.children[0].name}」や「#{@category.children[1].name}」です。
+            - else
+              「#{@category.siblings[0].name}」や「#{@category.siblings[1].name}」です。
+            #{@category.name}の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+
+= render partial: 'items/sell-icon', locals: { }
+= render partial: 'items/aside', locals: { }
+= render partial: 'items/footer', locals: { }
