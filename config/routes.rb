@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     collection do
       get "logout"
       get "card" 
-      get "identification"
     end
     member do
       get 'profile'
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
       get 'completion'
       get 'purchase'
       get 'purchased'
+      get 'identification'
     end
   end
 

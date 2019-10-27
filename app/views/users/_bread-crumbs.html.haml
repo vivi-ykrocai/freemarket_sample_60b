@@ -33,6 +33,9 @@
     - breadcrumb :mypage_purchased
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
+  - when ['users', 'identification']
+    - breadcrumb :mypage_identification
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
   - when ['items', 'detail']
     - breadcrumb :mypage_listing_item

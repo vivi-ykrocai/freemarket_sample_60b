@@ -13,7 +13,6 @@ class User < ApplicationRecord
   
   has_many :items
   has_one :card
-  # belongs_to :registration_style
 
   # 出品した商品ー出品中
   has_many :selling_items, -> { where("buyer_id is NULL && item_salse_status is NULL") }, foreign_key: "seller_id", class_name: "Item"
