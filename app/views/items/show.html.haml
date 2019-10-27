@@ -12,10 +12,10 @@
         .item__little-photos
           - @images.each do |small_image|
             = image_tag "#{small_image.image}", class:"item__little-photo"
-      - if @item.buyer_id.present? 
-        .items-box_photo__sold
-          .items-box_photo__sold__inner
-            SOLD
+        - if @item.buyer_id.present? 
+          .items-box_photo__sold
+            .items-box_photo__sold__inner
+              SOLD
       %table.item-detail-table
         %tbody
           %tr
