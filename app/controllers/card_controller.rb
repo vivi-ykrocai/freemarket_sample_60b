@@ -1,6 +1,8 @@
 class CardController < ApplicationController
   require "payjp"
-
+  include CommonActions
+  before_action :set_categories
+  
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
