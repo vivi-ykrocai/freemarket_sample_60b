@@ -1,6 +1,7 @@
 class SignupController < ApplicationController
   before_action :validates_names, only: :telephones # step1のバリデーション
   before_action :validates_telephones, only: :addresses # step1のバリデーション
+  before_action :validates_addresses,  only: :create
 
   def names
     @user = User.new # 新規インスタンス作成
@@ -92,15 +93,17 @@ class SignupController < ApplicationController
     session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
     @prefectures = Prefecture.all
+    # binding.pry
   end
 
   def validates_addresses
-    session[:postal_code] = user_params[:postal_code],
-    session[:prefectures] = user_params[:prefectures],
-    session[:city] = user_params[:city],
-    session[:address] = user_params[:address],
-    session[:building_name] = user_params[:building_name],
-    session[:phone_number2] = user_parasms[:phone_number]
+    session[:postal_code] = user_params[:postal_code]
+    session[:prefectures] = user_params[:prefectures]
+    session[:city] = user_params[:city]
+    session[:address] = user_params[:address]
+    session[:building_name] = user_params[:building_name]
+    session[:phone_number2] = user_params[:phone_number2]
+
     @user = User.new(
       nick_name: session[:nick_name], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
@@ -159,6 +162,7 @@ class SignupController < ApplicationController
       building_name: session[:building_name],
       phone_number2: session[:phone_number2]
     )
+
     if @user.save
       session[:id] = @user.id
       if session["devise.auth_data"].present?
@@ -175,7 +179,7 @@ class SignupController < ApplicationController
     end
   end
 
-    def cards
+    def cards 
       user = User.where(id: current_user.id)
     end
   

@@ -10,15 +10,17 @@ describe User do
 
     #  nick_nameが空では登録できないこと
     it "is invalid without a nick_name" do
-      user = build(:user, nick_name: nil)
+      user = build(:user, nick_name: "")
       user.valid?
-      expect(user.errors[:nick_name]).to include("can't be blank")
+      # binding.pry
+      expect(user.errors[:nick_name]).to include("を入力してください")
     end
     
     it "nick_nameが重複していると登録できない" do
       user = create(:user)
       another_user = build(:user, nick_name: user.nick_name)
       another_user.valid?
+      # binding.pry
       expect(another_user.errors[:nick_name]).to include("has already been taken")
     end
 
