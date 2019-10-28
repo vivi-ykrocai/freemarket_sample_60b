@@ -5,7 +5,7 @@ FactoryBot.define do
     email                   {Faker::Internet.email}
     password                {"test123"}
     encrypted_password      {"test123"}
-    family_name              {"test"}
+    family_name              {"滋賀"}
     last_name               {"test"}
     family_name_kana         {"テスト"}
     last_name_kana          {"テスト"}
@@ -25,7 +25,7 @@ FactoryBot.define do
     email                   {Faker::Internet.email}
     password                {"test321"}
     encrypted_password      {"test321"}
-    family_name              {"test"}
+    family_name              {"品川"}
     last_name               {"test"}
     family_name_kana         {"テストテスト"}
     last_name_kana          {"テストテスト"}

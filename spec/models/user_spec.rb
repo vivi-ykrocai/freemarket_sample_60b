@@ -2,11 +2,11 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
-    #  nick_nameとemail、passwordとpassword_confirmationが存在すれば登録できること
-    # it "is valid with a nickname, email, password, password_confirmation " do
-    #   user = build(:user)
-    #   expect(user).to be_valid
-    # end
+    # nick_nameとemail、passwordとpassword_confirmationが存在すれば登録できること
+    it "is valid with a nickname, email, password, password_confirmation " do
+      user = build(:user)
+      expect(user).to be_valid
+    end
 
     #  nick_nameが空では登録できないこと
     it "is invalid without a nick_name" do
@@ -21,14 +21,14 @@ describe User do
       another_user = build(:user, nick_name: user.nick_name)
       another_user.valid?
       # binding.pry
-      expect(another_user.errors[:nick_name]).to include("has already been taken")
+      expect(another_user.errors[:nick_name]).to include("はすでに存在します")
     end
 
     #  emailが空では登録できないこと
     it "is invalid without a email" do
       user = build(:user, email: nil)
       user.valid?
-      expect(user.errors[:email]).to include("を入力してください", "は不正な値です")
+      expect(user.errors[:email]).to include("を入力してください")
     end
     
     #  重複したemailが存在する場合登録できないこと
@@ -71,7 +71,7 @@ describe User do
     it "is invalid without a password_confirmation although with a password" do
       user = build(:user, family_name: "")
       user.valid?
-      expect(user.errors[:family_name]).to include("を入力してください", "は不正な値です")
+      expect(user.errors[:family_name]).to include("を入力してください")
     end
 
     it "family_nameが漢字以外だと登録されない" do
@@ -117,7 +117,7 @@ describe User do
     it "is invalid without a password_confirmation although with a password" do
       user = build(:user, last_name_kana: "")
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("is invalid")
+      expect(user.errors[:last_name_kana]).to include("を入力してください")
     end
 
     # last_name_kanaがカナだと保存される
@@ -130,28 +130,28 @@ describe User do
     it "is last_name_kanaが以外だと保存されない" do
       user = build(:user, last_name_kana: "犬犬犬")
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("is invalid")
+      expect(user.errors[:last_name_kana]).to include("は不正な値です")
     end
 
   # ＃last_name_kanaが半角のｶﾅだと保存されない
     it "last_name_kanaが半角ｶﾅだと保存されない" do
       user = build(:user, last_name_kana: "ｲﾇ")
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("is invalid")
+      expect(user.errors[:last_name_kana]).to include("は不正な値です")
     end
 
     # birthdayが空だと保存されない
     it "is invalid without a birthday" do
       user = build(:user,  birthday: "")
       user.valid?
-      expect(user.errors[:birthday]).to include("can't be blank")
+      expect(user.errors[:birthday]).to include("を入力してくさい")
     end
 
     #. postal_codeが空だと保存されない
     it "is invalid without a postal_code" do
       user = build(:user, postal_code: "")
       user.valid?
-      expect(user.errors[:postal_code]).to include("can't be blank")
+      expect(user.errors[:postal_code]).to include("を入力してください")
     end
 
     # postal_codeが7桁だと保存される
@@ -164,21 +164,21 @@ describe User do
     it "is not saved if postal_code is other than 7 digits" do
       user = build(:user, postal_code: "12345678")
       user.valid?
-      expect(user.errors[:postal_code]).to include("is the wrong length (should be 7 characters)")
+      expect(user.errors[:postal_code]).to include("は7文字で入力してください")
     end
 
     # prefecturesが空だと保存されない
     it "is invalid without a prefectures" do
       user = build(:user, prefectures: "")
       user.valid?
-      expect(user.errors[:prefectures]).to include("can't be blank")
+      expect(user.errors[:prefectures]).to include("を入力してください")
     end
 
     # phone_numberが空だと保存されない
     it "is invalid without a phone_number" do
       user = build(:user, phone_number: "")
       user.valid?
-      expect(user.errors[:phone_number]).to include("can't be blank")
+      expect(user.errors[:phone_number]).to include("を入力してください")
     end
 
     #phone_numberが11桁だと保存されること
@@ -191,7 +191,7 @@ describe User do
     it "is not saved if phone_number is other than 11 digits" do
       user= build(:user, phone_number: "000000")
       user.valid?
-      expect(user.errors[:phone_number]).to include("is the wrong length (should be 11 characters)")
+      expect(user.errors[:phone_number]).to include("は11文字で入力してください")
     end
 
     it "phone_numberが重複していると登録できない" do
@@ -205,14 +205,14 @@ describe User do
     it "is invalid without a city" do
       user= build(:user, city:  "")
       user.valid?
-      expect(user.errors[:city]).to include("can't be blank")
+      expect(user.errors[:city]).to include("を入力してください")
     end
 
     # addressが空だと保存されない
     it "is invalid without a address" do
       user= build(:user, address:  "")
       user.valid?
-      expect(user.errors[:address]).to include("can't be blank")
+      expect(user.errors[:address]).to include("を入力してください")
     end
   end
 end
