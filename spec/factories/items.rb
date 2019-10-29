@@ -8,9 +8,13 @@ FactoryBot.define do
     delivery_shipping_date  {3}
     total_price             {1000}
     item_profile_comment    {Faker::Lorem.sentence}
-    category_id             {2}
+    category_id                {3}
+    buyer_id                   {1}
+    seller_id                  {10}
   end
 end
+
+
 
 
 
