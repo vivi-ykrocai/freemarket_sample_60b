@@ -17,7 +17,6 @@ class SignupController < ApplicationController
     session["birthday(1i)"] = params[:birthday]["birthday(1i)"]
     session["birthday(2i)"] = params[:birthday]["birthday(2i)"]
     session["birthday(3i)"] = params[:birthday]["birthday(3i)"]
-    
     @user = User.new # 新規インスタンス作成
   end
 
