@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user, class: User  do
-    # id                       {10}
+    id                       {10}
     nick_name                {Faker::Pokemon.name}
     email                   {Faker::Internet.email}
     password                {"test123"}
@@ -20,7 +20,7 @@ FactoryBot.define do
   end
 
   factory :another_user, class: User do
-    # id                       {20}
+    id                       {20}
     nick_name                {Faker::Pokemon.name}
     email                   {Faker::Internet.email}
     password                {"test321"}

@@ -12,7 +12,6 @@ describe User do
     it "is invalid without a nick_name" do
       user = build(:user, nick_name: "")
       user.valid?
-      # binding.pry
       expect(user.errors[:nick_name]).to include("を入力してください")
     end
     
@@ -20,7 +19,6 @@ describe User do
       user = create(:user)
       another_user = build(:user, nick_name: user.nick_name)
       another_user.valid?
-      # binding.pry
       expect(another_user.errors[:nick_name]).to include("はすでに存在します")
     end
 
