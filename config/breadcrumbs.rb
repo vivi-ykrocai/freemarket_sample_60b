@@ -12,11 +12,6 @@ crumb :mypage do
   parent :root
 end
 
-crumb :mypage_logout do
-  link 'ログアウト', root_path
-  parent :mypage
-end
-
 crumb :mypage_listing do
   link '出品した商品-出品中',selling_user_path(current_user)
   parent :mypage
@@ -53,7 +48,7 @@ crumb :mypage_profile do
 end
 
 crumb :mypage_credit_card do
-  link '支払い方法', root_path
+  link '支払い方法', card_users_path(current_user)
   parent :mypage
 end
 
@@ -62,10 +57,19 @@ crumb :mypage_identification do
   parent :mypage
 end
 
+crumb :mypage_logout do
+  link 'ログアウト',  logout_users_path(current_user)
+  parent :mypage
+end
+
 crumb :mypage_listing_item do
   link '出品商品画面', detail_item_path
   parent :mypage_listing
 end
+
+
+
+
 
 
 

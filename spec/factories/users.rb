@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :user, class: User  do
-    id                      {10}
     nick_name               {Faker::OnePiece.character}
     email                   {Faker::Internet.email}
     password                {"test1234"}
@@ -20,7 +19,6 @@ FactoryBot.define do
   end
 
   factory :another_user, class: User do
-    id                      {20}
     nick_name               {Faker::Pokemon.name}
     email                   {Faker::Internet.email}
     password                {"test4321"}
@@ -39,5 +37,3 @@ FactoryBot.define do
     updated_at              {"2019-10-20 07:27:19"}
   end
 end
-
-
