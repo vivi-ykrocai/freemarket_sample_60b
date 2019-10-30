@@ -26,11 +26,11 @@ describe ItemsController do
 
   describe 'DELETE destroy' do
     let(:user) { create(:user) }
+    let(:categorie) {create(:categorie) }
     context 'can delete' do
       # ログイン中ユーザー＝出品者ユーザーの場合、アイテムを削除できる
       it '@item.seller_id == current_user.id' do
         login user
-        category = create(:category)
         item = create(:item, seller_id: user.id)
         expect do
           delete :destroy, params: { id:item.id }, session: {}
@@ -40,7 +40,6 @@ describe ItemsController do
       # 削除に成功した場合root_pathに移動する
       it 'redirects to root_path' do
         login user
-        category = create(:category)
         item = create(:item, seller_id: user.id)
         delete :destroy, params: { id:item.id }, session: {}
         expect(response).to redirect_to root_path(user)
