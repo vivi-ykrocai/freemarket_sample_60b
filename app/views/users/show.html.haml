@@ -1,157 +1,206 @@
 = render partial: '/items/header', locals: { }
 = render partial: '/users/bread-crumbs', locals: { }
-.container-mypage
-  = render partial: "side_bar"
-  .container-mypage__content
-    .container-mypage__usericon
-      = link_to "" do
-        %figure
-          - if @user.icon_image.present?
-            = image_tag "#{@user.icon_image}", size: '50x50', class: "avater", alt:"avater"
-          - else
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '50x50', class: "avater", alt:"avater"
-        .user
+
+- if @user.id == current_user.id
+  .container-mypage
+    = render partial: "side_bar"
+    .container-mypage__content
+      .container-mypage__usericon
+        = link_to "" do
+          %figure
+            - if @user.icon_image.present?
+              = image_tag "#{@user.icon_image}", size: '50x50', class: "avater", alt:"avater"
+            - else
+              = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '50x50', class: "avater", alt:"avater"
+          .user
+            = @user.nick_name
+          .user--number
+            .user--number__evaluation
+              評価 234
+            .user--number__exhibits
+              出品数
+              %span
+              = @user_count_items
+
+      .container-mypage__news
+        %ul.mypage-tabs
+          %li.mypage-tabs__left
+            .mypage-tabs__news
+              お知らせ
+
+          %li.mypage-tabs__right
+            .mypage-tabs__notice
+              やることリスト
+
+        .tab-content__left
+          %ul.mypage-item__list
+            %li
+              .mypage-item__link
+                %figure
+                  =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
+                .mypage-item__body
+                  .mypage-item__text
+                    明日、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                  %time
+                    = fa_icon 'clock-o'
+                    %span 1日前
+                %i.fa.fa-chevron-right.chevron-right-mypage
+            %li
+              .mypage-item__link
+                %figure
+                  =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
+                .mypage-item__body
+                  .mypage-item__text
+                    3日後、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                  %time
+                    = fa_icon 'clock-o'
+                    %span 1日前
+                %i.fa.fa-chevron-right.chevron-right-mypage
+            %li
+              .mypage-item__link
+                %figure
+                  =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
+                .mypage-item__body
+                  .mypage-item__text
+                    <<速報！！>>今なら販売手数料が実質無料！出品が超お得♪
+                  %time
+                    = fa_icon 'clock-o'
+                    %span 4日前
+                %i.fa.fa-chevron-right.chevron-right-mypage
+            %li
+              .mypage-item__link
+                %figure
+                  =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
+                .mypage-item__body
+                  .mypage-item__text
+                    事務局から個別メッセージ。「Facebookログイン通知」
+                  %time
+                    = fa_icon 'clock-o'
+                    %span 6日前
+                %i.fa.fa-chevron-right.chevron-right-mypage
+
+            %li.mypage-item--all
+              .mypage-item--all__text
+                一覧を見る
+        .tab-content__right.hide
+          %li.mypage-tabs__right-text 現在、やることリストはありません
+
+      .wrapper-contener
+        .mypage-tab-container
+          %h2.mypage-tab-head 購入した商品
+          %ul.status-tabs
+            %li.status.purchase
+              %h3.status__name.during_item-status.active
+                .status-link#during_item-link
+                  取引中
+            %li.status.purchase
+              %h3.status__name.buyed_item-status
+                .status-link#buyed_item-link
+                  過去の取引
+          .tab-content
+            %ul#mypage-tab-transcation-now.mypage-item-list.tab-pane.active
+              - if @during_items.present?
+                - @during_items.each do |item|
+                  %li.selling-item.during_item
+                    = link_to transcation_item_path(item), class: "mypage-item-link" do
+                      = image_tag "#{item.images[0].image}", class: "selling-item-image"
+                      .mypage-item-body
+                        .mypage-item-upper
+                          = item.name
+                        .mypage-item-lower
+                          %span.selling-item-count
+                            = fa_icon "heart", class: "selling-icon-heart"
+                            %span 0
+                          %span.selling-item-count
+                            = fa_icon "comment", class: "selling-icon-comment"
+                            %span 0
+                          - if item.item_salse_status.nil?
+                            .mypage-item-status.blue
+                              発送待ち
+                          - else
+                            .mypage-item-status.red
+                              受取評価待ち
+                      = fa_icon "angle-right", class: "icon-arrow-right"
+              - else
+                .empty-status.during_item_empty
+                  = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
+                  .empty-status__text
+                    取引中の商品がありません
+              - if @buyed_items.present?
+                - @buyed_items.each do |item|
+                  %li.selling-item.buyed_item
+                    = link_to transcation_item_path(item), class: "mypage-item-link" do
+                      = image_tag "#{item.images[0].image}", class: "selling-item-image"
+                      .mypage-item-body
+                        .mypage-item-upper
+                          = item.name
+                        .mypage-item-lower
+                          %span.selling-item-count
+                            = fa_icon "heart", class: "selling-icon-heart"
+                            %span 0
+                          %span.selling-item-count
+                            = fa_icon "comment", class: "selling-icon-comment"
+                            %span 0
+                          .mypage-item-status.gray
+                            購入済み
+                      = fa_icon "angle-right", class: "icon-arrow-right"
+              - else
+                .empty-status.buyed_item_empty
+                  = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
+                  .empty-status__text
+                    過去に取引した商品がありません
+        %ul.mypage-history
+          %li.pager-prev.pager-cell
+            = link_to "", class: "prev-button" do
+              = fa_icon "angle-left", class: "icon-arrow-left"
+          %li.pager-next.pager-cell
+            = link_to "", class: "next-button" do
+              = fa_icon "angle-right", class: "icon-arrow-right"
+- else
+  .user-detail
+    .profile-box
+      .profile-box__wrapper
+        - if @user.icon_image.present?
+          = image_tag "#{@user.icon_image}", class: "user-photo"
+        - else
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "user-photo"
+        %h2.user-title
           = @user.nick_name
-        .user--number
-          .user--number__evaluation
-            評価 234
-          .user--number__exhibits
-            出品数 4567
+        .users-detail-score
+          %span 出品数
+          %span
+            = @user_count_items
+    .profile-text
+      .ratings-box
+      %p 
+        = @user.profiile_comments
+    .item-social-media-box
+      %ul.social-media-box
+        %li.sns
+          = fa_icon 'facebook-square', class:"facebook"
+        %li.sns
+          = fa_icon 'twitter', class:"twitter"
+        %li.sns
+          = fa_icon 'line', class:"line"
+    .sell-items
+      .items-box-head
+        = @user.nick_name
+        %span さんのその他の出品
+      .item-box-content
+        - @user_items.each do |item|
+          .user-sell-item
+            = link_to item_path(item), class: "item-link" do
+              = image_tag "#{item.images[0].image}", class: "item-image"
+              .items-box-body
+                .item-name
+                  = item.name
+                .item-price
+                  = "¥#{item.total_price.to_s(:delimited)}"
+            -if item.buyer_id.present?
+              .items-box_photo__sold
+                .items-box_photo__sold__inner
+                  SOLD
 
-    .container-mypage__news
-      %ul.mypage-tabs
-        %li.mypage-tabs__left
-          .mypage-tabs__news
-            お知らせ
-
-        %li.mypage-tabs__right
-          .mypage-tabs__notice
-            やることリスト
-
-      .tab-content__left
-        %ul.mypage-item__list
-          %li
-            .mypage-item__link
-              %figure
-                =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
-              .mypage-item__body
-                .mypage-item__text
-                  明日、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
-                %time
-                  = fa_icon 'clock-o'
-                  %span 1日前
-              %i.fa.fa-chevron-right.chevron-right-mypage
-          %li
-            .mypage-item__link
-              %figure
-                =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
-              .mypage-item__body
-                .mypage-item__text
-                  3日後、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
-                %time
-                  = fa_icon 'clock-o'
-                  %span 1日前
-              %i.fa.fa-chevron-right.chevron-right-mypage
-          %li
-            .mypage-item__link
-              %figure
-                =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
-              .mypage-item__body
-                .mypage-item__text
-                  <<速報！！>>今なら販売手数料が実質無料！出品が超お得♪
-                %time
-                  = fa_icon 'clock-o'
-                  %span 4日前
-              %i.fa.fa-chevron-right.chevron-right-mypage
-          %li
-            .mypage-item__link
-              %figure
-                =image_tag "mypage/mypage-icon-mercari.png", size: '50x50', class: "mypage-item__icon-mercari", alt:"mypage-item__icon-mercari"
-              .mypage-item__body
-                .mypage-item__text
-                  事務局から個別メッセージ。「Facebookログイン通知」
-                %time
-                  = fa_icon 'clock-o'
-                  %span 6日前
-              %i.fa.fa-chevron-right.chevron-right-mypage
-
-          %li.mypage-item--all
-            .mypage-item--all__text
-              一覧を見る
-      .tab-content__right.hide
-        %li.mypage-tabs__right-text 現在、やることリストはありません
-
-    .wrapper-contener
-      .mypage-tab-container
-        %h2.mypage-tab-head 購入した商品
-        %ul.status-tabs
-          %li.status.purchase
-            %h3.status__name.during_item-status.active
-              .status-link#during_item-link
-                取引中
-          %li.status.purchase
-            %h3.status__name.buyed_item-status
-              .status-link#buyed_item-link
-                過去の取引
-        .tab-content
-          %ul#mypage-tab-transcation-now.mypage-item-list.tab-pane.active
-            - if @during_items.present?
-              - @during_items.each do |item|
-                %li.selling-item.during_item
-                  = link_to transcation_item_path(item), class: "mypage-item-link" do
-                    = image_tag "#{item.images[0].image}", class: "selling-item-image"
-                    .mypage-item-body
-                      .mypage-item-upper
-                        = item.name
-                      .mypage-item-lower
-                        %span.selling-item-count
-                          = fa_icon "heart", class: "selling-icon-heart"
-                          %span 0
-                        %span.selling-item-count
-                          = fa_icon "comment", class: "selling-icon-comment"
-                          %span 0
-                        - if item.item_salse_status.nil?
-                          .mypage-item-status.blue
-                            発送待ち
-                        - else
-                          .mypage-item-status.red
-                            受取評価待ち
-                    = fa_icon "angle-right", class: "icon-arrow-right"
-            - else
-              .empty-status.during_item_empty
-                = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
-                .empty-status__text
-                  取引中の商品がありません
-            - if @buyed_items.present?
-              - @buyed_items.each do |item|
-                %li.selling-item.buyed_item
-                  = link_to transcation_item_path(item), class: "mypage-item-link" do
-                    = image_tag "#{item.images[0].image}", class: "selling-item-image"
-                    .mypage-item-body
-                      .mypage-item-upper
-                        = item.name
-                      .mypage-item-lower
-                        %span.selling-item-count
-                          = fa_icon "heart", class: "selling-icon-heart"
-                          %span 0
-                        %span.selling-item-count
-                          = fa_icon "comment", class: "selling-icon-comment"
-                          %span 0
-                        .mypage-item-status.gray
-                          購入済み
-                    = fa_icon "angle-right", class: "icon-arrow-right"
-            - else
-              .empty-status.buyed_item_empty
-                = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?35731317", class: "empty-status__logo"
-                .empty-status__text
-                  過去に取引した商品がありません
-      %ul.mypage-history
-        %li.pager-prev.pager-cell
-          = link_to "", class: "prev-button" do
-            = fa_icon "angle-left", class: "icon-arrow-left"
-        %li.pager-next.pager-cell
-          = link_to "", class: "next-button" do
-            = fa_icon "angle-right", class: "icon-arrow-right"
 = render partial: '/items/aside', locals: { }
 = render partial: '/items/footer', locals: { }
 = render partial: '/items/sell-icon', locals: { }

@@ -1,0 +1,181 @@
+.user-detail{
+  background-color: #ffffff;
+  margin: 40px auto;
+  width: 700px;
+  .profile-box{
+    padding-top: 50px;
+    background-image: url("https://www.mercari.com/jp/assets/img/user/user_bg.jpg?12295559");
+    &__wrapper{
+      text-align: center;
+      .user-photo{
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
+      .user-title{
+        margin: 8px 0 16px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #333;
+      }
+      .users-detail-score{
+        padding-bottom: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+      }
+    }
+  }
+  .profile-text{
+    padding: 50px 50px 0px 50px;
+    font-size: 16px;
+  }
+  .item-social-media-box{
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+    .social-media-box{
+      display: flex;
+      margin-top: 16px;
+      justify-content: center;
+      list-style: none;
+      position: relative;
+      .sns{
+        width: 45px;
+        height: 45px;
+        margin: 0 8px 8px 0;
+        position: relative;
+        .facebook {
+          padding: 5px 8px;
+          color: #fff;
+          background-color: #385185;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+        .twitter {
+          padding: 5px 6px;
+          color: #fff;
+          background-color: #5D9DC9;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+        .line {
+          position: absolute;
+          left: 0px;
+          top: -3px;
+          font-family: 'Font Awesome 5 Brands';
+          color: #01C138;
+          font-size: 49px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .item__social-media-box {
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+    background-color: #fff;
+    .social-media-box {
+      display: flex;
+      margin-top: 16px;
+      justify-content: center;
+      list-style: none;
+      position: relative;
+      li {
+        width: 45px;
+        height: 45px;
+        margin: 0 8px 8px 0;
+        .facebook {
+          padding: 5px 8px;
+          color: #fff;
+          background-color: #385185;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+        .twitter {
+          padding: 5px 6px;
+          color: #fff;
+          background-color: #5D9DC9;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+        .line {
+          position: absolute;
+          left: 350px;
+          top: -3px;
+          font-family: 'Font Awesome 5 Brands';
+          color: #01C138;
+          font-size: 49px;
+          border-radius: 5px;
+        }
+        .pinterest {
+          padding: 5px 8px;
+          color: #fff;
+          background-color: #AA262A;
+          font-size: 33px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .sell-items{
+    .items-box-head{
+      font-size: 22px;
+      margin: 24px 0 8px;
+      font-weight: bold;
+    }
+    .item-box-content{
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      .user-sell-item{
+        position: relative;
+        .item-link{
+          color: #333;
+          .item-image{
+            width: 220px;
+            height: 220px;
+          }
+          .items-box-body{
+            padding: 16px;
+            height: 110px;
+            font-size: 16px;
+            .item-name{
+              overflow: hidden;
+              font-weight: 400;
+              height: 3em;
+              line-height: 1.5;
+              word-break: break-word;
+              white-space: normal;
+            }
+            .item-price{
+              margin-top: 8px;
+              font-weight: bold;
+            }
+          }
+        }
+        .items-box_photo__sold{
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 0;
+          height: 0;
+          border-top: 60px solid #ea352d ;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid #ea352d ;
+          z-index:100;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 26px;
+            margin:-30px -15px 0px -58px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

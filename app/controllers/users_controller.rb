@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_items = Item.where(seller_id: @user.id, item_salse_status: nil).order("created_at DESC")
+    @user_count_items = @user_items.count
   end
 
   def logout
