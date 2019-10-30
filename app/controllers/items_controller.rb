@@ -64,12 +64,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to detail_item_path
+    if @item.seller_id == current_user.id
+      @item.update(item_params)
+      redirect_to detail_item_path(@item)
     else
-      render :edit
-
-
+      redirect_to detail_item_path(@item), notice: "商品の編集はできません"
     end
   end
 
