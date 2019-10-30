@@ -2,6 +2,9 @@
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'devise'
+require File.expand_path("spec/support/controller_macros.rb")
+
 require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
@@ -70,4 +73,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  
 end

@@ -1,16 +1,21 @@
-.lower-contents__left__search-1 {
-  position: relative;
-  z-index: 100;
+.drop-down {
+  .lower-contents__left__search-1 {
+    position: relative;
+    z-index: 1000;
     // 親カテゴリ
     .parent-category-list {
       display: none;
-      // min-height: 572px;
       .parent-category-box {
         height: 44px;
         line-height: 44px;
         font-weight: lighter;
         background-color: #FFFFFF;
-        padding: 0 30px 0 20px;    
+        padding: 0 30px 0 20px;
+        .drop-link {
+          display: block;
+          width: 100%;
+          color: black;
+        }
         // 子カテゴリ
         .child-category-list {
           display: none;
@@ -23,6 +28,11 @@
             color: black;
             background-color: #FFFFFF;
             padding: 0 30px 0 20px;
+            .drop-link {
+              display: block;
+              width: 100%;
+              color: black;
+            }
             // 孫カテゴリ
             .grand-child-category-list {
               display: none;
@@ -41,46 +51,44 @@
         }
       }    
     }
+  }
+
   // 「カテゴリーを探す」にマウスが乗った時
   &:hover {
     .parent-category-list {
       display: block;
       position: absolute;
-      top: 8px;
+      top: 0px;
       box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
       .parent-category-box {
         &:hover {
-          color: white;
           background-color: #ea352e;
-        }
-      }
-    }
-  }
-
-  // 「親カテゴリ」にマウスが乗った時の続き
-  .parent-category-box:hover {
-    .child-category-list {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 218px;
-      min-height: 572px;
-      box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
-      .child-category-box{
-        &:hover{
-          color: black;
-          background-color: #F5F5F5;
-          .grand-child-category-list {
+          .drop-link {
+            color: white;
+          }
+          .child-category-list {
             display: block;
             position: absolute;
             top: 0;
-            left: 250px;
+            left: 218px;
             min-height: 572px;
             box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
-            .grand-child-category-box {
-              &:hover {
-                color: black;
+            .child-category-box{
+              &:hover{
                 background-color: #F5F5F5;
+                .grand-child-category-list {
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  left: 250px;
+                  min-height: 572px;
+                  box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+                  .grand-child-category-box {
+                    &:hover {
+                      background-color: #F5F5F5;
+                    }
+                  }
+                }
               }
             }
           }

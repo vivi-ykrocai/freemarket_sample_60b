@@ -8,15 +8,11 @@ FactoryBot.define do
     delivery_shipping_date  {3}
     total_price             {1000}
     item_profile_comment    {Faker::Lorem.sentence}
-    category_id                {3}
-    buyer_id                   {1}
-    seller_id                  {10}
+    item_salse_status       {2}
+    good                    {5}
+    category_id             {2}
+    created_at              {Faker::Time.between(5.days.ago, 3.days.ago, :all)}
+    seller_id               {1}
+    buyer_id                {2}
   end
 end
-
-
-
-
-
-
-

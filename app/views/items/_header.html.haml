@@ -12,23 +12,24 @@
     .lower-wrapper
       .lower-contents
         .lower-contents__left
-          = link_to categories_path, class: "lower-contents__left__search-1 drop-down-menu__box" do
-            %svg.genre-icon{"aria-hidden": "true", height: "16", viewbox: "0 0 20 16", width: "20"}
-              %path{d: "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", fill: "currentColor", "fill-rule": "nonzero"}
-            カテゴリーから探す
+          .drop-down
+            = link_to categories_path, class: "lower-contents__left__search-1" do
+              %svg.genre-icon{"aria-hidden": "true", height: "16", viewbox: "0 0 20 16", width: "20"}
+                %path{d: "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", fill: "currentColor", "fill-rule": "nonzero"}
+              カテゴリーから探す
             .lower-contents__left__search-1
               %ul.parent-category-list
                 - @categories.each do |pa_category|
                   %li.parent-category-box
-                    = pa_category.name
+                    = link_to "#{pa_category.name}", category_path(pa_category.id), class:"drop-link"
                     %ul.child-category-list
                       - pa_category.children.each do |ch_category|
                         %li.child-category-box
-                          = ch_category.name
+                          = link_to "#{ch_category.name}", category_path(ch_category.id), class:"drop-link"
                           %ul.grand-child-category-list
                             - ch_category.children.each do |gr_category|
                               %li.grand-child-category-box
-                                = gr_category.name
+                                = link_to "#{gr_category.name}", category_path(gr_category.id), class:"drop-link"
               
 
 

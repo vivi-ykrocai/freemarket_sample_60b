@@ -26,11 +26,10 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
-
-  validates :name, :item_status, :delivery_charged, :delivery_method, :delivery_area, :delivery_shipping_date, :total_price, :category_id, :item_profile_comment,  presence: true
+  validates :name, :item_status, :delivery_charged, :delivery_method, :delivery_area, :delivery_shipping_date, :category_id, :item_profile_comment, :delivery_charged, :delivery_method, :delivery_area, :delivery_shipping_date, presence: true
+  validates :total_price, presence: true,
+            :numericality => {
+              :greater_than_or_equal_to => 300,
+              :less_than => 10000000,
+            }
 end
-
-
-
-
-

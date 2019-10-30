@@ -4,7 +4,7 @@ FactoryBot.define do
     email                   {Faker::Internet.email}
     password                {"test123"}
     encrypted_password      {"test123"}
-    family_name              {"test"}
+    family_name              {"漢字"}
     last_name               {"test"}
     family_name_kana         {"テスト"}
     last_name_kana          {"テスト"}
@@ -18,5 +18,3 @@ FactoryBot.define do
     updated_at              {"2019-10-19 07:27:19"}
   end
 end
-
-

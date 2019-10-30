@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 2019_10_26_084634) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "ancestry"

@@ -15,13 +15,14 @@
           %li
             お届け先住所入力
             .progress-status-red
-          %li
+          %li.active
             支払い方法
             .progress-status-red
-          %li.active
+              .border-4
+          %li
             完了
-            .progress-status-red
-    .card_body
+            .progress-status
+    .card_body4
       .card-content
         .card-main
           .l-card-content
@@ -79,12 +80,8 @@
                     %label セキュリティコード
                     %span 必須
                     = text_field_tag "cvc", "", class: "input-list", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-                    -# %input.input-list{placeholder: :カード背面4桁もしくは3桁の番号, value: ""}/
                     .card-seqcode
-                      %p.card-seqcode-text
-                        %span.form-question ?
-                        カード裏面の番号とは？
                       #card_token
-                      = link_to  finish_signup_index_path , class: "btn-red" do
-                        = submit_tag "追加する", id: "token_submit" 
-    = render partial: 'signup/sign_up_footer', locals: { signup: @signup }
+                      = link_to finish_signup_index_path   do
+                        = submit_tag "追加する", id: "token_submit", class: "btn-red"
+  = render partial: 'signup/sign_up_footer', locals: { signup: @signup }

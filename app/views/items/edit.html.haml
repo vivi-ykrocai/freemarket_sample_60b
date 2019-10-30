@@ -17,7 +17,9 @@
                   .sell-upload-items
                     %ul
                 .sell-upload__box__items-have
-                  = f.file_field :image, type: "file", class: "upload-drop-file"
+                  = f.label :images do
+                    = f.fields_for :images do |f_image|
+                      = f_image.file_field :image, type: "file", multiple: true,  name: "item[images_attributes][][image]", class: "upload-drop-file"
                   %pre
                     :preserve
                       ドラッグアンドドロップ
@@ -38,12 +40,16 @@
               .sell-form-wrapper
                 %h3.sell-sub-head 商品の詳細
                 .sell-form-box
-                  .form-group-first
+                  #form-group-first.form-group-first
                     %label.form-group-first__name
                       カテゴリー
                       %span.form-require 必須
-                    .select-wrap
-                      = f.select :category_id, Category.where(ancestry: nil).map{|i| [i.name, i.id]}, prompt: "---"
+                    #select-wrap
+                      = f.select :category_id, options_for_select(Category.where(ancestry: nil).map{|i| [i.name, i.id]}, @item.category.parent.parent.id), {prompt: "---"}
+                    #child-wrap
+                      = f.select :category_id, options_for_select(Category.find(@item.category.parent.parent.id).children.map{|i| [i.name, i.id]}, @item.category.parent.id), {prompt: "---"}, {id: "child_category"}
+                    #grandchild_wrap
+                      = f.select :category_id, options_for_select(Category.find(@item.category.parent.id).children.map{|i| [i.name, i.id]}, @item.category.id), {prompt: "---"}, {id: "grandchild_category"}
                   .form-group-second
                     %label.form-group-second__name
                       商品の状態
@@ -62,6 +68,41 @@
                       %span.form-require 必須
                     .select-wrap
                       = f.select :delivery_charged, Item.delivery_chargeds.keys, prompt: "---"
+                  
+                  - if @item.delivery_charged == "送料込み（出品者負担）"
+                    -# 編集する商品の配送料が送料込みだったときの記述
+                    .form-group-second.delete-default.cash-on-delivery
+                      %label.form-group-second__name
+                        配送の方法
+                        %span.form-require 必須
+                      .select-wrap
+                        = f.select :delivery_method, @delivery_method_cod, {prompt: "---"}, {id: "cash-on-delivery"}
+                  - else
+                    -# 編集する商品の配送料が着払いだったときの記述
+                    .form-group-second.delete-default.payment-on-delivery
+                      %label.form-group-second__name
+                        配送の方法
+                        %span.form-require 必須
+                      .select-wrap
+                        = f.select :delivery_method, @delivery_method_pod, {prompt: "---"}, {id: "payment-on-delivery"}
+                  
+                  -# 送料込みが選択されたときの記述
+                  .form-group-second.hidden-form.cash-on-delivery
+                    %label.form-group-second__name
+                      配送の方法
+                      %span.form-require 必須
+                    .select-wrap
+                      = f.select :delivery_method, @delivery_method_cod, {prompt: "---"}, {id: "cash-on-delivery"}
+                  -# 着払いが選択されたときの記述
+                  .form-group-second.hidden-form.payment-on-delivery
+                    %label.form-group-second__name
+                      配送の方法
+                      %span.form-require 必須
+                    .select-wrap
+                      = f.select :delivery_method, @delivery_method_pod, {prompt: "---"}, {id: "payment-on-delivery"}
+                  -# 選択された配送方法の値を送信する
+                  = f.hidden_field :delivery_method, id: "item_delivery_method_decision"
+
                   .form-group-second
                     %label.form-group-second__name
                       発送元の地域

@@ -56,10 +56,32 @@
         min-height: 375px;
         background: #fafafa;
         line-height: 0;
+        position: relative;
         .item__main-photo {
           width: 300px;
           height: 300px;
         }
+        // 販売停止時の表示
+      .items-box_photo__stop{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 0;
+        height: 0;
+        border-top: 60px solid #888;
+        border-right: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid #888;
+        z-index:100;
+        &__inner{
+          transform: rotate(-45deg);
+          font-size: 16px;
+          margin:-26px -50px 0px -65px;
+          color: #fff;
+          letter-spacing: 2px;
+          font-weight: 600;
+        }
+      }
         .item__little-photos {
           width: 300px;
           height: 120px;
@@ -69,26 +91,6 @@
             width: 60px;
             height: 60px;
           }
-        }
-      }
-      .items-box_photo__stop{
-        width: 0;
-        height: 0;
-        border-top: 60px solid #888;
-        border-right: 60px solid transparent;
-        border-bottom: 60px solid transparent;
-        border-left: 60px solid #888;
-        z-index:100;
-        position: relative;
-        top: 0px;
-        left: -300px;
-        &__inner{
-          transform: rotate(-45deg);
-          font-size: 16px;
-          margin:-35px -50px 0px -65px;
-          color: #fff;
-          letter-spacing: 2px;
-          font-weight: 600;
         }
       }
 
@@ -194,10 +196,6 @@
       font-weight: 600;
       line-height: 48px;
       text-decoration: none;
-      // padding-bottom: 100px;
-      // font-size: inherit;
-      // border: 1px solid transparent;
-      // cursor: pointer;
     }
     .item__edit-btn-a {
       display: block;
@@ -210,14 +208,11 @@
       font-weight: 600;
       line-height: 48px;
       text-decoration: none;
-      // font-size: inherit;
-      // border: 1px solid transparent;
-      // cursor: pointer;
     }
     .center-comment {
-     text-align: center;
-     line-height: 20px;
-     padding-top: 10px;
+      text-align: center;
+      line-height: 20px;
+      padding-top: 10px;
     }
 
 

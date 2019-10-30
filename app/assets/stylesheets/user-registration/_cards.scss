@@ -5,7 +5,9 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
+  padding:0 0 250px;
   .signup-content{
+    padding:0 0 200px;
     .signup-header{
       text-align:center;
       h1{
@@ -55,11 +57,11 @@
                 background:#ea352d;
                 border-style: solid;
                 height:2px;
-                width:370px;
+                width:290px;
               }
-              .border{
+              .border-4{
                 position: absolute;
-                left: 10px;
+                left: 12px;
                 bottom: 5px;
                 z-index: 2;
                 display: block;
@@ -68,9 +70,8 @@
                 background:#cccccc;
                 border-style: solid;
                 height:2px;
-                width:90px;
+                width:75px;
               }
-            }
               }
             .progress-status{
               width: 12px;
@@ -84,20 +85,25 @@
         }
       }
     }
-    .card_body{
-      display: block;
+    .card_body4{
+      display: flex;
+      width: 1020px;
+      margin: 40px auto 0;
+      padding-bottom: 40px;
       .card-content{
-        margin-top: 40px;
+        margin: 0 auto;
+        width:70%;
         .card-main{
           display: block;
           height:350px;
+          float: right;
           .l-card-content{
             background: #fff;
             width: 700px;
             margin: 0 auto;
             .card-head{
               font-size: 25px;
-              padding: 25px;
+              padding: 15px;
               line-height: 1.5;
               text-align: center;
               font-weight:bold;
@@ -158,16 +164,16 @@
                     margin-top: 8px;
                     .btn-red{
                       display: block;
-                      width: 100%;
-                      line-height: 48px;
-                      margin:30px 0 20px;
-                      font-size: 16px;
+                      width: 343px;
                       cursor: pointer;
+                      font-size: 16px;
                       text-align: center;
                       background: #ea352d;
                       border: 1px solid #ea352d;
                       color: #fff;
-                      }
+                      height: 48px;
+                      margin-top: 30px;
+                    }
                     .card-seqcode-text{
                       text-align:right;
                       color:#0099e8;
@@ -183,13 +189,6 @@
                         list-style: height 14px;
                         font-size:12px;
                         text-align:center;
-                      .btn-red{
-                        display: block;
-                        width: 100%;
-                        line-height: 48px;
-                        margin:30px 0 20px;
-                        font-size: 16px;
-                      }
                       }
                     }
                   }
@@ -200,4 +199,6 @@
         }
       }
     } 
-  }    
+    
+  }
+} 

@@ -72,9 +72,9 @@ class User < ApplicationRecord
   validates :nick_name, presence: true, on: :create
   validates :nick_name, uniqueness: true, on: :create
   validates :last_name, presence: true, on: :create
-  validates :family_name, presence: true, on: :create
-  validates :last_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }, on: :create
-  validates :family_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }, on: :create
+  validates :family_name, presence: true, format: { with: /\A[一-龥]+\z/ }, on: :create
+  validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
+  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
   validates :email, presence: true, on: :create
   validates :email, uniqueness: true, on: :create
   validates :password, presence: true, on: :create
