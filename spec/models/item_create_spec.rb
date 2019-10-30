@@ -50,7 +50,7 @@ describe Item do
     it "is invalid without a item_profile_comment" do
       item = build(:item,item_profile_comment:nil)
       item.valid?
-      expect(item.errors[:item_profile_comment])
+      expect(item.errors[:item_profile_comment]).to include("を入力してください")
     end
     it "is invalid without a category_id" do
       item = build(:item,category_id:nil)
@@ -59,4 +59,3 @@ describe Item do
     end
   end
 end
-

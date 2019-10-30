@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name                    {Faker::Team.name}
+    name                    {Faker::Pokemon.name}
     item_status             {1}
     delivery_charged        {1}
     delivery_method         {1}
@@ -16,8 +16,3 @@ FactoryBot.define do
     buyer_id                {2}
   end
 end
-
-
-
-
-

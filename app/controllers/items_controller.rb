@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     @men_category = Category.find(200)
     @electrical_category = Category.find(898)
     @toy_category = Category.find(685)
-
     @ladies_items = Item.where(category_id: @lady_category.indirect_ids).order("created_at DESC").limit(10)
     @mens_items = Item.where(category_id: @men_category.indirect_ids).order("created_at DESC").limit(10)
     @electrical_appliance_items = Item.where(category_id: @electrical_category.indirect_ids).order("created_at DESC").limit(10)
@@ -69,6 +68,8 @@ class ItemsController < ApplicationController
       redirect_to detail_item_path
     else
       render :edit
+
+
     end
   end
 
@@ -143,5 +144,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @images = @item.images
   end
+
 
 end

@@ -1,7 +1,6 @@
 FactoryBot.define do
-  factory :categorie do
-     id                      {2}
-     name                    {'トップス'}
-     ancestry                {1}
+  factory :category do
+     name                    {'Tシャツ/カットソー(半袖/袖なし)'}
+     id                      {3}
   end
 end

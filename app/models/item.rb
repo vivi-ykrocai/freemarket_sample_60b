@@ -33,6 +33,3 @@ class Item < ApplicationRecord
               :less_than => 10000000,
             }
 end
-
-
-
