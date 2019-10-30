@@ -7,7 +7,7 @@ describe ItemsController do
     let(:categorie) {create(:categorie) }
 
     context 'index assigns ' do
-
+      # itemsに正しく変数がはいる
       it 'assigns @items' do
         items = create_list(:item, 5)
         get :index
@@ -15,6 +15,7 @@ describe ItemsController do
       end
     end
     context 'index renders ' do
+      # 正しくページ遷移が行われる
       it 'redners index' do
         items = create_list(:item,5)
         get :index
@@ -69,22 +70,3 @@ describe ItemsController do
   end
 end
 
-
-# 参考コード
-
-
-
-# describe 'GET #index' do
-#   # @itemsという変数が正しく定義されているか
-#   it "assigns the requested items to @items" do
-#     @items = create_list(:item, 5)
-#     get :index
-#     expect(assigns(:items)).to eq(@items)
-#   end
-
-#   # 該当するビューが描画されているか
-#   it "renders the :index template" do
-#     get :index
-#     expect(response).to render_template :index
-#   end
-# end
