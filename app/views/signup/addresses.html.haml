@@ -36,7 +36,7 @@
               %div
                 %label 都道府県
                 %span.form-require 必須
-              = f.collection_select :prefectures, @prefectures, :name, :name, prompt: "---"  
+              = f.collection_select :prefectures, Prefecture.all,  :id, :name
             .form-list
               %div
                 %label 市区町村

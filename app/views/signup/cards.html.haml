@@ -34,7 +34,6 @@
                     %label カード番号
                     %span 必須
                     = text_field_tag "number", "", class: "input-list", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
-                    -# %input.input-list{placeholder: :半角数字のみ, value: ""}/
                     = image_tag "cureka.png" , size:"300x22"
                   .form-list
                     %label{for: :payment_card_expire} 有効期限
