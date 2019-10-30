@@ -13,16 +13,14 @@
                 %span.form-require 必須
               %p.sell-upload__text 最大10枚までアップロードできます
               .sell-upload__box
-                .sell-upload__box__items-nothing
-                  .sell-upload-items
-                    %ul
-                .sell-upload__box__items-have
-                  = f.fields_for :images do |f_image|
-                    = f_image.file_field :image, type: "file", multiple: true,  name: "item[images_attributes][][image]", class: "upload-drop-file"
-                  %pre
-                    :preserve
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
+                .sell-upload-items
+                  %ul
+                = f.fields_for :images do |f_image|
+                  = f_image.file_field :image, type: "file", multiple: true,  name: "item[images_attributes][][image]", class: "upload-drop-file sell-upload__box__items-have"
+              %pre
+                :preserve
+                  クリックしてファイルをアップロード
+                  複数枚アップロードする際はドラッグしてください
             .sell-content
               .form-group
                 %label.form-group__name
