@@ -9,6 +9,7 @@ FactoryBot.define do
     total_price             {1000}
     item_profile_comment    {Faker::Lorem.sentence}
     category_id             {2}
+    seller_id               {1}
   end
 end
 

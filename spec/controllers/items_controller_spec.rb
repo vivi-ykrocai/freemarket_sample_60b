@@ -1,6 +1,30 @@
 require 'rails_helper'
 
 describe ItemsController do
+  describe 'GET #show' do
+    # @itemの値が期待したものになるか。
+    it "assigns the requested item to @item" do
+      item = create(:item)
+      get :show, params: { id: item.id }
+      expect(assigns(:item)).to eq item
+    end
+
+    # @user_itemsの値が期待したものになるか。
+    it "assigns the requested user_items to @user_items" do
+      item = create(:item)
+      user_items = create_list(:item, 3)
+      get :show, params: { id: item.id }
+      expect(assigns(:user_items)).to eq user_items=[]
+    end
+
+    # showアクションが動いた後、該当のビュー(show.html.haml)に遷移するか。
+    it 'renders the :show template' do
+      item = create(:item)
+      get :show, params: { id: item.id }
+      expect(response).to render_template :show
+    end
+  end
+  
   describe 'DELETE destroy' do
   let(:user) { build(:user) }
     context 'can delete' do
