@@ -5,6 +5,10 @@
     - breadcrumb :category
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
+  - when ['categories','show']
+    - breadcrumb :category_show_parents
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
   - when ['users','show']
     - breadcrumb :mypage
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
@@ -52,6 +56,11 @@
   - when ['items', 'detail']
     - breadcrumb :mypage_listing_item
     = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
+  - when ['card', 'new']
+    - breadcrumb :mypage_credit_card
+    = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
+
 
 
 

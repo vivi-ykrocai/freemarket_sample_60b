@@ -7,6 +7,12 @@ crumb :category do
   parent :root
 end
 
+crumb :category_show_parents do
+  @category = Category.find(params[:id])
+  link  "#{@category.name}", root_path
+  parent :category
+end
+
 crumb :mypage do
   link 'マイページ', user_path(current_user)
   parent :root
