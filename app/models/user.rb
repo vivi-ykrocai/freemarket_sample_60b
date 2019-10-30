@@ -76,15 +76,15 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
   validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
   validates :email, presence: true, on: :create
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, on: :create
   validates :password, presence: true, on: :create
-  validates :password, length: { minimum: 7 }
+  validates :password, length: { minimum: 7 }, on: :create
   validates :birthday, presence: true, on: :create
   validates :phone_number, presence: true, on: :create
-  validates :phone_number, uniqueness: true
-  validates :phone_number, length: { is: 11 }
+  validates :phone_number, uniqueness: true, on: :create
+  validates :phone_number, length: { is: 11 }, on: :create
   validates :postal_code, presence: true, on: :create
-  validates :postal_code, length: { is: 7 }
+  validates :postal_code, length: { is: 7 }, on: :create
   validates :prefectures, presence: true, on: :create
   validates :city, presence: true, on: :create
   validates :address, presence: true, on: :create

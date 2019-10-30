@@ -1,6 +1,5 @@
--# = render partial: '/items/header', locals: { }
+= render partial: '/items/header', locals: { }
 = render partial: '/users/bread-crumbs', locals: { }
-
 .card_body
   = render partial: "/users/side_bar"
   .card-content
@@ -14,7 +13,6 @@
                 %label カード番号
                 %span 必須
                 = text_field_tag "number", "", class: "input-list", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
-                -# %input.input-list{placeholder: :半角数字のみ, value: ""}/
                 = image_tag "cureka.png" , size:"300x22"
               .form-list
                 %label{for: :payment_card_expire} 有効期限
@@ -60,11 +58,7 @@
                 %label セキュリティコード
                 %span 必須
                 = text_field_tag "cvc", "", class: "input-list", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-                -# %input.input-list{placeholder: :カード背面4桁もしくは3桁の番号, value: ""}/
                 .card-seqcode
-                  %p.card-seqcode-text
-                    %span.form-question ?
-                    カード裏面の番号とは？
                   #card_token
                   = link_to "/card/show/#{current_user.id}" do
                     = submit_tag "追加する", id: "token_submit" , class: "btn-red"
