@@ -33,13 +33,29 @@
           &__box{
             width: 620px;
             margin: 16px auto 0;
-            &__items-nothing{
-            }
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             &__items-have{
-              .upload-drop-file{
-              }
+              width: 100%;
+              padding: 80px 200px;
+              margin: 0 auto;
+              position: relative;
+              min-height: 162px;
+              background: #f5f5f5;
+              border: 1px dashed #ccc;
+              text-align: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
             }
           }
+          pre{
+            margin-top: 8px;
+          }
+
         }
         .sell-content{
           padding: 40px;
