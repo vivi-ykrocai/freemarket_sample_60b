@@ -57,7 +57,6 @@ class SignupController < ApplicationController
     session["birthday(1i)"] = params[:birthday]["birthday(1i)"]
     session["birthday(2i)"] = params[:birthday]["birthday(2i)"]
     session["birthday(3i)"] = params[:birthday]["birthday(3i)"]
-    
     @user = User.new # 新規インスタンス作成
   end
 
@@ -179,7 +178,6 @@ class SignupController < ApplicationController
     end
 
     private
-
   # 許可するキーを設定します
   def user_params
     params.require(:user).permit(
