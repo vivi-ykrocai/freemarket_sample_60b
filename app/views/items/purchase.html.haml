@@ -34,32 +34,38 @@
           %h3.buy-content__inner__index
             配送先
           %address.buy-user-info-text
-            〒000-0000
+            = "〒#{@item.seller.postal_code}"
             %br/
-            東京都渋谷区○○○○○○○○○○○○
+            = @item.seller.prefectures
+            %span
+            = @item.seller.city
+            %span
+            = @item.seller.address
+            %span
+            = @item.seller.building_name
             %br/
-            メル・カリー
+            = @item.seller.family_name
+            %span
+            = @item.seller.last_name
           %p.buy-user-info-text
           = link_to "", class: "buy-user-info-fix" do
             .change
               変更する
               %span ＞
-            -# =fa_icon 'chevron-right', class: "change-icon"
       .buy-content.buy-user-info.bottom
         .buy-content__inner
           %h3.buy-content__inner__index
             支払方法
           %p.buy-user-info-text
-            ***********0000
+            ***********4242
             %br/
-            00/00
+            10/22
             %br/
             = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2296184308", class: "card-icon"
           = link_to "", class: "buy-user-info-fix" do
             .change
               変更する
               %span ＞
-            -# =fa_icon 'chevron-right', class: "change-icon"
   = render partial: '/shared/single-footer', locals: { }
 
 
