@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :user, class: User  do
-    # id                       {10}
-    nick_name                {Faker::Pokemon.name}
+    nick_name               {Faker::Pokemon.name}
     email                   {Faker::Internet.email}
     password                {"test123"}
     encrypted_password      {"test123"}
@@ -37,7 +36,6 @@ FactoryBot.define do
   #   address                  {"西町1-22"}
   #   created_at              {"2019-10-20 07:27:19"}
   #   updated_at              {"2019-10-20 07:27:19"}
-
   # end
 end
 
