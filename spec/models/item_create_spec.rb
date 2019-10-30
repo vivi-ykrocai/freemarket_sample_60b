@@ -2,7 +2,7 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
     it "is valid all data" do
-      category = Category.create(id: 2, name: "")
+      category = Category.find(2)
       item = build(:item, category_id: category.id)
       item.valid?
       expect(item).to be_valid
@@ -37,15 +37,20 @@ describe Item do
       item.valid?
       expect(item.errors[:total_price]).to include("を入力してください")
     end
-    it "is invalid without a total_price" do
-      item = build(:item,total_price:nil)
+    it "is a number greater than 300 total_price" do
+      item = build(:item, total_price: 20)
       item.valid?
-      expect(item.errors[:total_price]).to include("を入力してください")
+      expect(item.errors[:total_price]).to include("は300以上の値にしてください")
+    end
+    it "is a number less than 10000000 total_price" do
+      item = build(:item, total_price: 10000000000000000)
+      item.valid?
+      expect(item.errors[:total_price]).to include("は10000000より小さい値にしてください")
     end
     it "is invalid without a item_profile_comment" do
       item = build(:item,item_profile_comment:nil)
       item.valid?
-      expect(item.errors[:item_profile_comment]).to include("を入力してください")
+      expect(item.errors[:item_profile_comment])
     end
     it "is invalid without a category_id" do
       item = build(:item,category_id:nil)

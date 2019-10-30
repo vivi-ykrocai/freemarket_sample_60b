@@ -1,11 +1,10 @@
 FactoryBot.define do
   factory :user, class: User  do
-    id                       {10}
     nick_name                {Faker::Pokemon.name}
     email                   {Faker::Internet.email}
     password                {"test123"}
     encrypted_password      {"test123"}
-    family_name              {"test"}
+    family_name              {"漢字"}
     last_name               {"test"}
     family_name_kana         {"テスト"}
     last_name_kana          {"テスト"}
