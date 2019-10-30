@@ -4,7 +4,7 @@ describe User do
 
     # nick_nameとemail、passwordとpassword_confirmationが存在すれば登録できること
     it "is valid with a nickname, email, password, password_confirmation " do
-      user = build(:user)
+      user = build(:user)      
       expect(user).to be_valid
     end
 
@@ -15,13 +15,6 @@ describe User do
       expect(user.errors[:nick_name]).to include("を入力してください")
     end
     
-    it "nick_nameが重複していると登録できない" do
-      user = create(:user)
-      another_user = build(:user, nick_name: user.nick_name)
-      another_user.valid?
-      expect(another_user.errors[:nick_name]).to include("はすでに存在します")
-    end
-
     #  emailが空では登録できないこと
     it "is invalid without a email" do
       user = build(:user, email: nil)
@@ -29,19 +22,11 @@ describe User do
       expect(user.errors[:email]).to include("を入力してください")
     end
     
-    #  重複したemailが存在する場合登録できないこと
-    it "is invalid with a duplicate email address" do
-      user = create(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
-    end  
-
     #  passwordが空では登録できないこと
     it "is invalid without a password" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("を入力してください", "は7文字以上で入力してください")
+      expect(user.errors[:password]).to include("を入力してください")
     end
     
     #  passwordが7文字以上であれば登録できること
@@ -142,7 +127,7 @@ describe User do
     it "is invalid without a birthday" do
       user = build(:user,  birthday: "")
       user.valid?
-      expect(user.errors[:birthday]).to include("を入力してくさい")
+      expect(user.errors[:birthday]).to include("を入力してください")
     end
 
     #. postal_codeが空だと保存されない
@@ -191,13 +176,6 @@ describe User do
       user.valid?
       expect(user.errors[:phone_number]).to include("は11文字で入力してください")
     end
-
-    it "phone_numberが重複していると登録できない" do
-      user = create(:user)
-      another_user = build(:user, phone_number: user.phone_number)
-      another_user.valid?
-      expect(another_user.errors[:phone_number]).to include("has already been taken")
-    end  
 
     # cityが空だと保存されない
     it "is invalid without a city" do

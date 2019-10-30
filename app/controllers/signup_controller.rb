@@ -20,7 +20,6 @@ class SignupController < ApplicationController
     session["birthday(1i)"] = params[:birthday]["birthday(1i)"]
     session["birthday(2i)"] = params[:birthday]["birthday(2i)"]
     session["birthday(3i)"] = params[:birthday]["birthday(3i)"]
-
     @user = User.new(
       nick_name: session[:nick_name], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
@@ -93,7 +92,6 @@ class SignupController < ApplicationController
     session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
     @prefectures = Prefecture.all
-    # binding.pry
   end
 
   def validates_addresses
@@ -117,12 +115,6 @@ class SignupController < ApplicationController
       "birthday(1i)": session["birthday(1i)"],
       "birthday(2i)": session["birthday(2i)"],
       "birthday(3i)": session["birthday(3i)"],
-      # postal_code: user_params[:postal_code],
-      # prefectures: user_params[:prefectures],
-      # city: user_params[:city],
-      # address: user_params[:address],
-      # building_name: user_params[:building_name],
-      # phone_number2: user_params[:phone_number2]
       postal_code: session[:postal_code],
       prefectures: session[:prefectures],
       city: session[:city],
@@ -149,12 +141,6 @@ class SignupController < ApplicationController
       "birthday(2i)": session["birthday(2i)"],
       "birthday(3i)": session["birthday(3i)"],
       phone_number: session[:phone_number],
-      # postal_code: user_parmas[:postal_code],
-      # prefectures: user_params[:prefectures],
-      # city: user_params[:city],
-      # address: user_params[:address],
-      # building_name: user_params[:building_name],
-      # phone_number2: user_params[:phone_number2],
       postal_code: session[:postal_code],
       prefectures: session[:prefectures],
       city: session[:city],
@@ -164,7 +150,6 @@ class SignupController < ApplicationController
     )
 
     if @user.save
-      session[:id] = @user.id
       if session["devise.auth_data"].present?
         SnsCredential.create(
           uid: session["devise.auth_data"]["uid"],
@@ -172,6 +157,8 @@ class SignupController < ApplicationController
           user_id: @user.id
         )
       end
+      session.clear
+      session[:id] = @user.id
       sign_in User.find(session[:id]) unless user_signed_in?
       redirect_to cards_signup_index_path
     else
@@ -190,17 +177,6 @@ class SignupController < ApplicationController
       sign_in User.find(session[:id]) unless user_signed_in?
       
     end
-
-
-
-
-
-
-
-
-
-    
-
 
     private
 

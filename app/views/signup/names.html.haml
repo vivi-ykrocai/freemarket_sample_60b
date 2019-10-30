@@ -36,7 +36,7 @@
               %span 必須
               = f.email_field :email, placeholder: 'PC・携帯どちらでも可' ,class: "input-list"
               %input{name:"login_type", type: "hidden", value:""}/
-              - if  session["devise.auth_data"] = request.env["omniauth.auth"].present?
+              -if session["devise.auth_data"].present?
                 = f.hidden_field :password
                 = f.hidden_field :password_confirmation
               - else
@@ -71,12 +71,9 @@
               %br/
               .birthday-select-wrap
                 != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'birthday', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1930, date_separator:'%s'),'年','月')+'日'
-                -# = f.date_select :birthday
               .clearfix
             %p.form-info-text
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-            -# .g-recaptcha{data_callback: "clearcall", data_sitekey: "6Lcoe70UAAAAAKyNDD0_DRMGp8ICGGvl-Zsw5P40"}
-            -#   %input{disabled: "disabled", name: "button", type: "submit", value: "送信"}/
           .inner-form.under-form
             .form-list
               %p.signup-text-l

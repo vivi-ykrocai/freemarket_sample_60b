@@ -72,18 +72,15 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX =   /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :nick_name, presence: true, on: :create
-  validates :nick_name, uniqueness: true, on: :create
   validates :last_name, presence: true, on: :create
   validates :family_name, presence: true, format: { with: /\A[一-龥]+\z/ }, on: :create
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
   validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }, on: :create
   validates :email, presence: true, on: :create, format: { with: VALID_EMAIL_REGEX }
-  validates :email, uniqueness: true
   validates :password, presence: true, on: :create
   validates :password, length: { minimum: 7 }
   validates :birthday, presence: true, on: :create
   validates :phone_number, presence: true, on: :create
-  validates :phone_number, uniqueness: true
   validates :phone_number, length: { is: 11 }
   validates :postal_code, presence: true, on: :create
   validates :postal_code, length: { is: 7 }
