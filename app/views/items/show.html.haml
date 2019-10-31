@@ -83,14 +83,17 @@
       .item__fee
         送料込み
 
-    - if @item.seller_id != current_user.id
-      - if @item.buyer_id.present?
-        .item__sold-btn
-          売り切れました
-      - else
-        .item__buy-btn
-          = link_to '購入画面に進む', purchase_item_path, class:"item__buy-btn", "data-turbolinks": false
-
+    - if user_signed_in?
+      - if @item.seller_id != current_user.id
+        - if @item.buyer_id.present?
+          .item__sold-btn
+            売り切れました
+        - else
+          .item__buy-btn
+            = link_to '購入画面に進む', purchase_item_path, class:"item__buy-btn", "data-turbolinks": false
+    - else
+      .item__buy-btn
+        = link_to '購入画面に進む', new_user_session_path, class:"item__buy-btn", "data-turbolinks": false
 
     .item-introduction
       %p
