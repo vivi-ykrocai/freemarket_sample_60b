@@ -16,8 +16,7 @@
         いいね！一覧
 
     .side--list--item
-      = link_to root_path, class: "side--list--item--link" do
-        出品する
+      = sidebar_link('出品する', new_item_path)
 
     .side--list--item
       = sidebar_link('出品した商品 - 出品中', selling_user_path(current_user))
@@ -72,8 +71,7 @@
         発送元・お届け先住所変更
 
     .side--list--item
-      = link_to "/users/card", class: "side--list--item--link" do
-        支払い方法
+      = sidebar_link('支払い方法', card_user_path(current_user))
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
@@ -87,4 +85,4 @@
         電話番号の確認
 
     .side--list--item
-      = sidebar_link('ログアウト', logout_users_path)
+      = sidebar_link('ログアウト', logout_user_path(current_user))

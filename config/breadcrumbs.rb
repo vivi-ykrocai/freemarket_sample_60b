@@ -14,12 +14,7 @@ crumb :category_show_parents do
 end
 
 crumb :mypage do
-  @user = User.find(params[:id])
-  if @user.id == current_user.id
-    link 'マイページ', user_path(current_user)
-  else
-    link @user.nick_name, user_path(@user)
-  end
+  link 'マイページ', user_path(current_user)
   parent :root
 end
 
@@ -59,7 +54,7 @@ crumb :mypage_profile do
 end
 
 crumb :mypage_credit_card do
-  link '支払い方法', card_users_path(current_user)
+  link '支払い方法',  card_user_path(current_user)
   parent :mypage
 end
 
@@ -69,7 +64,7 @@ crumb :mypage_identification do
 end
 
 crumb :mypage_logout do
-  link 'ログアウト',  logout_users_path(current_user)
+  link 'ログアウト',  logout_user_path(current_user)
   parent :mypage
 end
 

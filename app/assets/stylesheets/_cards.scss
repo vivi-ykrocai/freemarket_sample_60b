@@ -1,204 +1,110 @@
-.sign_up_body4{
+*{
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+body{
   position: relative;
   min-height: 100%;
   background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: #333;
   line-height: 1;
-  padding:0 0 250px;
-  .signup-content{
-    padding:0 0 200px;
-    .signup-header{
-      text-align:center;
-      h1{
-        margin-bottom: 50px;
-        img{
-          float:center;
-        }
-      }
-      .progress-bar{
-        padding: 40px 0 0 44px;
-        border: 0;
-        display: inline-block;
-        vertical-align: top;
-        width: 552px;
-        height:72px;
-        text-align:right;
-        font-size: 0;
+}
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+h3{
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+a{
+  color: #0099e8;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+.l-container{
+  display: flex;
+  width: 1020px;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  .l-content{
+    height: 120px;
+    width: calc(100% - 280px);
+    float: right;
+    background-color: #fff;
+    display: table-cell;
+    vertical-align: middle;
+    .l-chapter-container{
+      font-size: 24px;
+      padding: 8px 24px;
+      background: #fff;
+      .l-chapter-head{
+        padding: 12px 4%;
+        border-bottom: 1px solid #f5f5f5;
         text-align: center;
-        ol{
-          margin: 0;
-          position: relative;
-          li.active{
-            font-weight: 600;
-            color: #ea352d;
-          }
-          li{
-            min-width: 60px;
-            display: inline-block;
-            min-width: 40px;
-            margin: 0 5% 0 0;
-            font-size: 12px;
-            color: #888; 
-            .progress-status-red{
-              background-color:#ea352d;
-              width: 12px;
-              height: 12px;
-              margin: 8px auto 0;
-              border-radius: 50%;
-              position: relative;
-              z-index: 1;
-              .red-border{
-                position: absolute;
-                left: 10px;
-                bottom: 5px;
-                z-index: 2;
-                display: block;
-                background:#ea352d;
-                border-style: solid;
-                height:2px;
-                width:290px;
-              }
-              .border-4{
-                position: absolute;
-                left: 12px;
-                bottom: 5px;
-                z-index: 2;
-                display: block;
-                width: 100%;
-                height: 30px;
-                background:#cccccc;
-                border-style: solid;
-                height:2px;
-                width:75px;
-              }
-              }
-            .progress-status{
-              width: 12px;
-              height: 12px;
-              margin: 8px auto 0;
-              background: #ccc;
-              border-radius: 50%;
-              position: relative;
-            }
+        font-size: 24px;
+        padding: 8px 24px;
+        font-weight: bold; 
+      }
+      .l-single-inner{
+        font-size: 16px;
+        padding: 64px;
+        .l-single-content{
+          max-width: 320px;
+          margin: 0 auto;
+          .l-chapter-sub-head{
+            font-size: 16px;
           }
         }
       }
     }
-    .card_body4{
-      display: flex;
-      width: 1020px;
-      margin: 40px auto 0;
-      padding-bottom: 40px;
-      .card-content{
+    .settings-add-card{
+      padding: 24px 0;
+      border-bottom: 1px solid #eee;
+      .l-single-content{
+        max-width: 320px;
         margin: 0 auto;
-        width:70%;
-        .card-main{
+        .add_btn{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
           display: block;
-          height:350px;
-          float: right;
-          .l-card-content{
-            background: #fff;
-            width: 700px;
-            margin: 0 auto;
-            .card-head{
-              font-size: 25px;
-              padding: 15px;
-              line-height: 1.5;
-              text-align: center;
-              font-weight:bold;
-            }
-            .l-card-inner{
-              border-top: 1px solid #f5f5f5;
-              padding:20px 40px 64px; 
-              .l-card-content{
-                max-width: 343px;
-                margin: 0 auto; 
-                .form-list{
-                  margin: 20px 0 0;
-                  label{
-                    font-weight:bold;
-                  }
-                  span{
-                    background-color:#ea352d;
-                    padding: 2px 4px;
-                    border-radius: 2px;
-                    color: #fff;
-                    font-size: 12px;
-                  }
-                  .input-list {
-                    width: calc(50% - 6px);
-                    margin: 8px 0 5px;
-                    width:100%;
-                    padding: 15px 10px 8px;
-                    border-radius: 4px;
-                    border: 1px solid #ccc;
-                    line-height: 1.5;
-                    font-size: 18px;
-                  }
-                  div{
-                    display: flex;  
-                    .list-1{
-                      width: calc(50% - 2px);
-                      margin-top: 8px;
-                      .select-default{
-                        width: calc(100% - 38px);
-                        height: 48px;
-                        padding: 0 16px;
-                        border-radius: 4px;
-                        border: 1px solid #ccc;
-                        background: #fff;
-                        line-height: 1.5;
-                        font-size: 16px;
-                      }
-                      .limit{
-                        width: 20px;
-                        height: 48px;
-                        line-height: 48px;
-                        margin: 0 auto;
-                      }
-                    }
-                  }
-                  .card-seqcode{
-                    position: relative;
-                    margin-top: 8px;
-                    .btn-red{
-                      display: block;
-                      width: 343px;
-                      cursor: pointer;
-                      font-size: 16px;
-                      text-align: center;
-                      background: #ea352d;
-                      border: 1px solid #ea352d;
-                      color: #fff;
-                      height: 48px;
-                      margin-top: 30px;
-                    }
-                    .card-seqcode-text{
-                      text-align:right;
-                      color:#0099e8;
-                      position: absolute;
-                      margin-left: auto;
-                      width:100%;
-                      .form-question{
-                        width:14px;
-                        height:14px;
-                        border-radius:50%;
-                        background-color:#0099e8;
-                        color:#fff;
-                        list-style: height 14px;
-                        font-size:12px;
-                        text-align:center;
-                      }
-                    }
-                  }
-                }
-              }
-            }
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          .fa {
+            margin-right: 16px;
           }
         }
       }
-    } 
-    
+    }
+    .settings-not-regist{
+      display: block;
+      margin: 40px 0 0;
+      text-align: right;
+      font-size: 14px;
+      .fa{
+        margin: 0 0 0 8px;
+      }
+      }
+    }
   }
-} 
+
+

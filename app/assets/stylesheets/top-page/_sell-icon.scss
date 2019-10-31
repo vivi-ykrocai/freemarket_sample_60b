@@ -6,6 +6,7 @@
   width: 160px;
   position: fixed;
   text-align: center;
+  z-index: 1000;
   &__link{
     text-decoration: none;
     .sell-wrapper{
