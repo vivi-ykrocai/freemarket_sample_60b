@@ -54,7 +54,7 @@ crumb :mypage_profile do
 end
 
 crumb :mypage_credit_card do
-  link '支払い方法',  card_user_path(current_user)
+  link '支払い方法',  card_users_path
   parent :mypage
 end
 
@@ -64,7 +64,7 @@ crumb :mypage_identification do
 end
 
 crumb :mypage_logout do
-  link 'ログアウト',  logout_user_path(current_user)
+  link 'ログアウト',  logout_users_path
   parent :mypage
 end
 

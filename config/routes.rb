@@ -29,6 +29,10 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show, :update] do
+    collection do
+      get "logout"
+      get "card" 
+    end
     member do
       get 'profile'
       get 'selling'
@@ -37,8 +41,6 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'purchased'
       get 'identification'
-      get "logout"
-      get "card"
     end
   end
 

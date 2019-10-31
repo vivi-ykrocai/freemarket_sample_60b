@@ -71,7 +71,7 @@
         発送元・お届け先住所変更
 
     .side--list--item
-      = sidebar_link('支払い方法', card_user_path(current_user))
+      = sidebar_link('支払い方法', card_users_path)
 
     .side--list--item
       = link_to root_path, class: "side--list--item--link" do
@@ -85,4 +85,4 @@
         電話番号の確認
 
     .side--list--item
-      = sidebar_link('ログアウト', logout_user_path(current_user))
+      = sidebar_link('ログアウト', logout_users_path)

@@ -27,7 +27,7 @@
             %th
               出品者
             %td
-              = link_to @item.seller.nick_name, 'https://www.mercari.com/jp/mypage/', class: "td__user-name"
+              = link_to @item.seller.nick_name, user_path(@item.seller), class: "td__user-name"
               .item-user__information
                 .item-user__ratings
                   = fa_icon 'laugh',class:"icon-good"
