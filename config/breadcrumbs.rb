@@ -14,12 +14,7 @@ crumb :category_show_parents do
 end
 
 crumb :mypage do
-  user = User.find(params[:id])
-  if user.id == current_user.id
-    link 'マイページ', user_path(current_user)
-  else
-    link user.nick_name, user_path(user)
-  end
+  link 'マイページ', user_path(current_user)
   parent :root
 end
 
