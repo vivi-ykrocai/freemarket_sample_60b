@@ -12,7 +12,7 @@
         .item__little-photos
           - @images.each do |small_image|
             = image_tag "#{small_image.image}", class:"item__little-photo"
-        - if @item.buyer_id.present? 
+        - if @item.buyer_id.present?
           .items-box_photo__sold
             .items-box_photo__sold__inner
               SOLD
@@ -39,11 +39,11 @@
               %ul
                 %li
                   = link_to '#', class:"list__category" do
-                    = @item.category.parent.parent.name 
+                    = @item.category.parent.parent.name
                 %li
                   = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
-                    = @item.category.parent.name 
+                    = @item.category.parent.name
                 %li
                   = link_to '#', class:"list__category" do
                     = fa_icon 'chevron-right'
@@ -83,15 +83,13 @@
       .item__fee
         送料込み
 
-    - if @item.buyer_id.present? 
-      .item__sold-btn
-        売り切れました
-    - elsif @item.seller_id == current_user.id
-      .item__buy-btn
-        = link_to '商品を編集する', edit_item_path(@item), class:"item__buy-btn", "data-turbolinks": false
-    - else
-      .item__buy-btn
-        = link_to '購入画面に進む', purchase_item_path, class:"item__buy-btn", "data-turbolinks": false
+    - if @item.seller_id != current_user.id
+      - if @item.buyer_id.present?
+        .item__sold-btn
+          売り切れました
+      - else
+        .item__buy-btn
+          = link_to '購入画面に進む', purchase_item_path, class:"item__buy-btn", "data-turbolinks": false
 
 
     .item-introduction
