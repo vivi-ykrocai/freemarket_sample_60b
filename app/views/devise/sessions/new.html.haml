@@ -28,7 +28,6 @@
               .form-list
                 = f.password_field :password, autocomplete: "off", class:"signin-input-text input-list", placeholder:"パスワード", value: ""
               .form-list
-                = image_tag "honninkakunin.png", size:"250x60"
                 = f.submit "ログイン", class: "btn signin-submit btn-list btn-red"
               %input{name: :__csrf_value, type: :hidden, value: :""}/
               = link_to "パスワードをお忘れの方"
