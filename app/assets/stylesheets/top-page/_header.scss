@@ -69,7 +69,6 @@ header{
             padding-left: 0px;
           }
           &__search-1{
-            height: 44px;
             font-size: 14px;
             font-weight: 600;
             color: #333333;
@@ -79,7 +78,9 @@ header{
             padding-right: 10px;
             text-decoration: none;
             cursor: pointer;
-            
+            &:hover {
+              color: #0095EE;
+            }
           }
           &__search-2{
             height: 44px;
