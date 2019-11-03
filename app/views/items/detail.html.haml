@@ -43,21 +43,19 @@
             %td
               %ul
                 %li
-                  = link_to '#', class:"list__category" do
+                  = link_to category_path(@item.category.parent.parent.id), class:"list__category" do
                     = @item.category.parent.parent.name
                 %li
-                  = link_to '#', class:"list__category" do
+                  = link_to category_path(@item.category.parent.id), class:"list__category" do
                     = fa_icon 'chevron-right'
                     = @item.category.parent.name
                 %li
-                  = link_to '#', class:"list__category" do
+                  = link_to category_path(@item.category.id), class:"list__category" do
                     = fa_icon 'chevron-right'
                     = @item.category.name
           %tr
             %th ブランド
-            %td
-              = link_to 'コーチ', 'https://www.mercari.com/jp/brand/539/', class:"td__brand"
-
+            %td その他
           %tr
             %th 商品の状態
             %td
@@ -73,7 +71,7 @@
           %tr
             %th 配送元地域
             %td
-              = link_to "#{@item.delivery_area}", '#', class:"td__area"
+              = @item.delivery_area
           %tr
             %th 発送日の目安
             %td
