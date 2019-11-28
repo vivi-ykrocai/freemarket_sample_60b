@@ -19,7 +19,7 @@ http://52.193.53.76/
   - ユーザー名：TARO KOUNYUU  
   - セキュリティコード：123  
 - 出品者用アカウント   
-  - メールアドレス名: seller_user_01@gmail.com  
+  - メールアドレス: seller_user_01@gmail.com  
   - パスワード: 12345678  
 
 # DB設計
